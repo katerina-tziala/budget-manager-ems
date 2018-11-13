@@ -1,0 +1,300 @@
+@charset "utf-8";
+/* CSS Document */
+#terms_layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9900;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#terms_card{
+  background: #fff;
+  overflow: auto;
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  box-shadow: -2px 4px 12px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+#terms_card>h2{
+  color: #009933;
+  text-align: center;
+  padding: 16px 65px;
+}
+#terms_list{
+  background-color: #fff;
+  width: 100%;
+  padding: 8px;
+  margin: auto;
+  margin-top: -16px;
+  text-align: justify;
+}
+#terms_list>li{
+  list-style-type: none;
+  padding: 5px 5px 10px;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+#terms_list>li:not(:last-of-type){
+  margin-bottom: 10px;
+  border-bottom: 1px solid #808080;
+}
+#concent_btn{
+  display: block;
+  width: 200px;
+  margin: auto;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #f4fffd;
+  background-color: #004d1a;
+}
+#concent_btn:hover, #concent_btn:focus{
+  color: #fff;
+  text-shadow: -2px 2px 5px #000;
+  background-color: #009933;
+}
+#closeterms_btn{
+  position: absolute;
+  top:10px;
+  right: 16px;
+  background-color: #1a1a1a;
+  color: #f4fffd;
+  box-shadow: -0px 0px 12px rgba(0, 0, 0, 0.7);
+}
+#closeterms_btn:hover, #closeterms_btn:focus{
+  color: #fff;
+  text-shadow: -0px 0px 25px #1a1a1a;
+  background-color: #009933;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ SIGN UP PAGE ~~~~~~~~~~~~~~~~~~~~ */
+#signup_form{
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: space-between;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: space-between;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  max-width: 880px;
+  margin-bottom: 36px;
+}
+.signupInputContainer,.password_container{
+  width: 400px;
+  position: relative;
+  border: 1px solid #fff;
+}
+#passBtn, #passConfBtn, #r_passBtn, #r_passConfBtn {
+  position: absolute;
+  right: 2px;
+  height: 32px;
+  width: 40px;
+  font-size: 1.3rem;
+  color: #999999;
+  background-color: inherit;
+}
+#passBtn, #passConfBtn {
+  top: 27px;
+}
+#r_passBtn, #r_passConfBtn {
+  top: 5px;
+}
+#passBtn:hover, #passBtn:focus, #passConfBtn:hover, #passConfBtn:focus,#r_passBtn:hover, #r_passBtn:focus, #r_passConfBtn:hover, #r_passConfBtn:focus{
+  color: #009933;
+}
+.genderContainer{
+  width: 100%;
+  width: 400px;
+  height: 62px;
+}
+#gender_section{
+  margin:auto;
+  margin-bottom: -10px;
+  margin-top: 32px;
+  width: 270px;
+}
+#gender_tag{
+   display: block;
+   float: left;
+   font-size: 1.1rem;
+   margin-right: 20px;
+}
+.genderlabel {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+  outline: none;
+}
+.genderlabel:first-of-type {margin-right: 25px;}
+.genderlabel input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+ }
+.checkmark {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 20px;
+   width: 20px;
+   background-color: #808080;
+   border-radius: 50%;
+}
+.genderlabel:hover input ~ .checkmark, .genderlabel:focus input ~ .checkmark {
+   background-color: #009933;
+}
+.genderlabel:hover, .genderlabel:focus {
+   color: #009933;
+}
+.genderlabel input:checked ~ .checkmark {
+  background-color: #1a1a1a;
+}
+.genderlabel:hover input:checked ~ .checkmark, .genderlabel:focus input:checked ~ .checkmark {
+   background-color: #009933;
+}
+.checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+.genderlabel input:checked ~ .checkmark:after {
+   display: block;
+}
+.genderlabel .checkmark:after {
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f4fffd;
+}
+.signupBtn{
+  max-width: 400px;
+  min-width: 100px;
+}
+.birthContainer{
+  margin-top: 20px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ SIGNING UP INICATOR ~~~~~~~~~~~~~~~~~~~~ */
+#signUpLoaderImage{
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #10A040!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+  background-size: 120px!important;
+  background: url(../img/user_inside_circle.svg) center center no-repeat;
+  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+#signUpLoaderText{
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 25px;
+  margin-bottom: -25px;
+  font-style: italic;
+  padding: 8px;
+  color: #4d4d4d;
+  text-align: center;
+}
+#signUpLoaderText>span{
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 8px 4px;
+  color: #0d0d0d;
+}
+.pickerContainer{
+  border: none;
+  border-bottom: 2px solid #1a1a1a;
+  display: block;
+  width: 100%;
+  outline: none;
+  height: 36px;
+  padding: 6px;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #1a1a1a;
+  position: relative;
+  text-align: left;
+  background-color: #fff;
+}
+.pickerContainer:hover,.pickerContainer:focus{
+  border-color:#009933;
+  color: #009933;
+}
+.calendar, .pickerClock{
+  position: absolute;
+  right:4px;
+  top: 3px;
+  font-size: 1.6rem;
+  padding: 0px!important;
+}
+.has_selected_datetime{
+  color: #0d0d0d!important;
+}
+#datepickerInput{
+  text-align: left;
+  color: #808080;
+}
+#mddtp-picker__date{
+  outline: none!important;
+}
+/* ====================== Responsive Design with Media Queries ======================*/
+@media screen and (max-width: 920px) {
+  #signup_form{
+    max-width: 500px;
+  }
+  .signupInputContainer,.genderContainer, .password_container {
+      width: 100%;
+  }
+  .signupInputContainer:nth-of-type(2){
+    margin-top: 25px;
+  }
+  .signupBtn{
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 510px) {
+  .signupBtn{
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 360px) {
+  #gender_section{
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    width: 190px;
+  }
+  #gender_tag{
+    margin-bottom: 10px;
+    float: none;
+    clear: both;
+  }
+}

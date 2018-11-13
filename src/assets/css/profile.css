@@ -1,0 +1,466 @@
+@charset "utf-8";
+/* CSS Document */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ EDIT BUTTONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.fas.fa-pencil-alt{
+  font-size: 20px;
+  padding-left: 1px;
+}
+.fas.fa-trash-alt{
+  font-size: 22px;
+}
+.fas.fa-save{
+  font-size: 22px;
+}
+#personalCard{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px;
+  width: 100%;
+  max-width: 690px;
+  min-width: 280px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  position: relative;
+}
+#personalCard_header{
+  width: 220px;
+  margin: 16px 8px;
+  min-height: 200px;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+#personalCardIcon{
+  min-width: 150px;
+  width: 150px;
+  min-height: 150px;
+  height: 150px;
+  display: block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #10A040;
+  background-repeat: no-repeat!important;
+  background-position: center bottom!important;
+  background-color: #10A040!important;
+  background-size: 142px!important;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.cardIcon_female{
+  background: url(../img/female.svg) center center no-repeat;
+}
+.cardIcon_male{
+  background: url(../img/male.svg) center center no-repeat;
+}
+#personalCard_header_info{
+  width: 100%;
+}
+#personalCard_header_info>p{
+  text-align: center;
+  padding: 8px;
+}
+#infocontainer{
+  width: 100%;
+  max-width: 400px;
+  min-width: 260px;
+  margin: 16px 8px;
+}
+.personalInfo{
+  margin: 8px 0px 8px;
+  position: relative;
+  width: 100%;
+}
+.info_title, .info_data{
+  display: block;
+  text-align: left;
+  padding: 8px;
+}
+.info_title{
+  border-bottom: 1px dashed #808080;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #666666;
+  letter-spacing: 0.06rem;
+}
+.info_data{
+  font-size: 1.1rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+#infocontainer>.personalInfo:nth-of-type(2)>.info_header>.info_data{
+  margin-right: 50px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ PROFILE EDIT BUTTONS ~~~~~~~~~~~~~~~~~~~~ */
+.editBtn{
+  position: absolute;
+  z-index: 1000;
+  top: 18px;
+  background-color: #a6a6a6;
+  color: #1a1a1a;
+  box-shadow: -0px 0px 15px rgba(0, 0, 0, 0.7);
+}
+.editProfileBtn{
+  right: 10px;
+}
+.saveProfileBtn{
+  right: 10px;
+}
+.cancelProfileBtn{
+  right: 80px;
+}
+#edit_profile_password{
+  position: relative!important;
+  min-width: 260px;
+  max-width: 300px;
+  width: 100%;
+  font-size: 1.1rem;
+  margin: 0px;
+  margin: auto;
+  margin-bottom: 25px;
+  background-color: #004d1a;
+  color: #f4fffd;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+#btn_icon_password{
+  font-size: 22px;
+  margin-right: 10px;
+  display: block;
+}
+#pass_txt_password{
+  display: block;
+}
+.editProfileBtn:hover, .editProfileBtn:focus{
+  background-color: #009933;
+  color: #fff;
+  text-shadow: -0px 0px 25px #1a1a1a;
+}
+.saveProfileBtn:hover, .saveProfileBtn:focus,#edit_profile_password:hover,#edit_profile_password:focus{
+  color: #fff;
+  text-shadow: -0px 0px 25px #1a1a1a;
+  background-color: #009933;
+}
+.cancelProfileBtn:hover,.cancelProfileBtn:focus{
+  color: #fff;
+  text-shadow: -0px 0px 25px #1a1a1a;
+  background-color: #1e90ff;
+}
+.profileForm{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+}
+.birthdayForm{
+  padding-right: 60px;
+}
+.profileInput{
+  border: none;
+  border-bottom: 2px solid #004d1a;
+}
+.form_note{
+  padding: 8px;
+  font-style: oblique;
+  font-weight: bold;
+  color: #4d4d4d;
+  background-color: #f5f5f5;
+}
+#form_password{
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 5px;
+  width: 100%;
+}
+#form_password>.form_note{
+  margin-top: 20px;
+}
+.fas.fa-exclamation-triangle{
+  font-size: 30px;
+  display: block;
+  color: #cc0000;
+  margin-right: 12px;
+}
+.form_note>span{
+  display: inline-block;
+}
+.form_password_tag{
+  text-transform: capitalize;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #666666;
+  padding: 0px 50px 0px 0px;
+  text-align: left;
+}
+#cancel_profile_password{
+  right: 10px;
+  top: 5px;
+}
+#viewpass_cur, #viewpass_new, #viewpass_conf{
+  top: 0px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ PASSWORD CONTAINER ~~~~~~~~~~~~~~~~~~~~ */
+.password_container{
+  width: 100%;
+  position: relative;
+  padding-right: 60px;
+  margin-top: 25px;
+  padding-bottom: 5px;
+}
+.btn_viewpass{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 36px!important;
+  width: 36px!important;
+  font-size: 1.25rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #4d4d4d;
+  color: #f4fffd;
+  text-shadow: -2px 2px 20px rgba(0, 0, 0, 0.8);
+}
+/* ~~~~~~~~~~~~~~~~~~~~ FORM BUTTONS ~~~~~~~~~~~~~~~~~~~~ */
+.formBtn {
+  font-size: 1.2rem;
+  background-color: #1a1a1a;
+  color: #f4fffd;
+  width: 100%;
+  margin-top: 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.formBtn:focus,.formBtn:hover, .btn_viewpass:hover,.btn_viewpass:focus{
+  background-color: #009933;
+  text-shadow: -2px 2px 5px #000;
+}
+.pickerContainer{
+  border: none;
+  border-bottom: 2px solid #004d1a;
+}
+#gender_section{
+  margin-top: 7px;
+  width: 300px;
+  height: 30px;
+}
+#gender_tag{
+  display: block;
+ float: left;
+  font-size: 1.1rem;
+  margin-right: 20px;
+}
+.genderlabel {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+  outline: none;
+}
+.genderlabel:first-of-type {margin-right: 25px;}
+.genderlabel input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+ }
+.checkmark {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 20px;
+   width: 20px;
+   background-color: #808080;
+   border-radius: 50%;
+}
+.genderlabel:hover input ~ .checkmark, .genderlabel:focus input ~ .checkmark {
+   background-color: #009933;
+}
+.genderlabel:hover, .genderlabel:focus {
+   color: #009933;
+}
+.genderlabel input:checked ~ .checkmark {
+  background-color: #004d1a;
+}
+.genderlabel:hover input:checked ~ .checkmark, .genderlabel:focus input:checked ~ .checkmark {
+   background-color: #009933;
+}
+.checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+.genderlabel input:checked ~ .checkmark:after {
+   display: block;
+}
+.genderlabel .checkmark:after {
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #f4fffd;
+}
+.change_pass_btn{
+  width: 220px;
+  display: inline-block;
+}
+.change_pass_btn:nth-of-type(1){
+  margin-right: 40px;
+}
+#birthdayPick{
+  width: 250px;
+}
+.calendar{
+  color: #1a1a1a;
+}
+#birthdayPick:hover .calendar, #birthdayPick:focus .calendar{
+  color: #009933;
+}
+.birthContainer{
+  margin-top: 20px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ UPDATING MESSAGE ~~~~~~~~~~~~~~~~~~~~ */
+.update_profile_msg{
+  text-align: left;
+  font-style: italic;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 16px 50px 16px 10px;
+  margin-top: 5px;
+}
+#update_msg_username, #update_msg_email, #update_msg_password{
+  margin-bottom: -20px;
+}
+#mddtp-picker__date{
+  border: 2px solid #009933;
+}
+.pickerContainer{
+  border: none;
+  border-bottom: 2px solid #1a1a1a;
+  display: block;
+  width: 100%;
+  outline: none;
+  height: 36px;
+  padding: 6px;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #1a1a1a;
+  position: relative;
+  text-align: left;
+  background-color: #fff;
+}
+.pickerContainer:hover,.pickerContainer:focus{
+  border-color:#009933;
+  color: #009933;
+}
+.calendar, .pickerClock{
+  position: absolute;
+  right:4px;
+  top: 3px;
+  font-size: 1.6rem;
+  padding: 0px!important;
+}
+.has_selected_datetime{
+  color: #0d0d0d!important;
+}
+#datepickerInput{
+  text-align: left;
+  color: #808080;
+  border: none!important;
+}
+#mddtp-picker__date{
+  outline: none!important;
+}
+/* ====================== Responsive Design with Media Queries ======================*/
+@media screen and (max-width: 719px) {
+  #personalCard{
+    max-width: 480px;
+  }
+  #personalCard_header{
+    width: 100%;
+    min-height: 180px;
+    height: 180px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #personalCard_header_info{
+    width: auto;
+  }
+  #personalCard_header_info>p{
+    text-align: left;
+    padding-left: 20px;
+  }
+  #personalCardIcon{
+    margin-bottom: 0px;
+  }
+  .change_pass_btn{
+    width: 100%;
+    margin-right: 0px!important;
+  }
+}
+@media screen and (max-width: 489px) {
+  #personalCard_header{
+    width: 100%;
+    min-height: 50px;
+    height: auto;
+  }
+  #personalCardIcon{
+    min-width: 150px;
+    width: 150px;
+    min-height: 150px;
+    height: 150px;
+    background-size: 140px!important;
+    margin-bottom: 8px;
+  }
+  #personalCard_header_info{
+    width: auto;
+  }
+  #personalCard_header_info>p{
+    text-align: center;
+    padding: 8px;
+  }
+  #infocontainer>.personalInfo:nth-of-type(2)>.info_header>.info_data{
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  #gender_section{
+    max-width: 300px;
+    min-width: 200px;
+    width: 100%;
+    height: 60px;
+  }
+  #gender_tag{
+    width: 100%;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+  .genderlabel{
+    max-width: 110px;
+    margin: 0 13px!important;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 370px) {
+  #cancelprofile_password{
+    top: 18px;
+  }
+  .password_input{
+    font-size: 0.9rem;
+  }
+}

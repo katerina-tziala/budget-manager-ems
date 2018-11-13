@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+#activation_container{
+  width: 100%;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+#user_greeding{
+  display: inline-block;
+}
+#activation_container>p{
+  width: 100%;
+  padding: 16px;
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+}
+#activationGIF{
+  border: 2px solid #0d0d0d;
+  width: 100%;
+  min-width: 260px;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  background-color: #0d0d0d;
+  box-shadow: -2px 4px 20px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#lastaccountp{
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-style: oblique;
+  font-size: 1.18rem!important;
+}
