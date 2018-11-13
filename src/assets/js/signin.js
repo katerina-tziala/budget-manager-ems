@@ -20,11 +20,10 @@ const createView = (main = self.main) => {
   const p = document.createElement('p');
   p.innerHTML = "The app that helps you monitor your expenses and stay on budget!";
   const form = createSignInForm();
-  main.insertBefore(createContactLink(), main.childNodes[0]);
-  main.insertBefore(createSignUpLink(), main.childNodes[0]);
-  main.insertBefore(form, main.childNodes[0]);
-  main.insertBefore(p, main.childNodes[0]);
-  main.insertBefore(h2, main.childNodes[0]);
+  const linksWrapper = document.createElement('div');
+  linksWrapper.className = "btnWrapper";
+  linksWrapper.append(createSignUpLink(), createContactLink());
+  main.append(h2, p, form, linksWrapper);
 };
 //create sign in form
 const createSignInForm = () => {

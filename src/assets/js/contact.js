@@ -66,8 +66,10 @@ const createContactHTMLContent = (userInfo, main = self.main) => {
     const email_input = document.getElementById('user_email');
     email_input.placeholder = userInfo.email;
   }else{
-    main.append(createSignInLink());
-    main.append(createSignUpLink());
+    const linksWrapper = document.createElement('div');
+    linksWrapper.className = "btnWrapper";
+    linksWrapper.append(createSignInLink(), createSignUpLink());
+    main.append(linksWrapper);
   }
 };
 //send contact email

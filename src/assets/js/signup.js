@@ -64,7 +64,10 @@ const createSignUpHTMLContent = (main = self.main) => {
   const sendBtn = createButton('signupBtn', 'sign up', 'sign up', signUp);
   sendBtn.classList.add('formBtn', 'signupBtn');
   form.append(form_tag, username_container, email_container, pass_container, pass_conf_container, birthday_container, gender_container, resetBtn,sendBtn);
-  main.append(h2, form, createSignInLink(), createContactLink());
+  const linksWrapper = document.createElement('div');
+  linksWrapper.className = "btnWrapper";
+  linksWrapper.append(createSignInLink(), createContactLink());
+  main.append(h2, form, linksWrapper);
 };
 //create section for inputs in form
 const createBasicContainer = (placeholder, aria, name) => {

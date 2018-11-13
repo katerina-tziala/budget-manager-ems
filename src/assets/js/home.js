@@ -92,7 +92,10 @@ const zeroBudgetView = (feedbackView = self.feedbackView, statisticsView = self.
   const btnTxt = `<i class="setBudgetWallet fas fa-wallet"></i><span class="btn_link_txt">set budget</span>`;
   const setBudgetBtn = createLinkButton('setBudgetBtn', btnTxt, 'set budget', pages.budget_and_goals.url);
   setBudgetBtn.classList.add("centeredFlexbox", "app_btn", "btn_link");
-  container.append(setBudgetBtn);
+  const linksWrapper = document.createElement('div');
+  linksWrapper.className = "btnWrapper";
+  linksWrapper.append(setBudgetBtn);
+  container.append(linksWrapper);
   hideToaster();
   hideElement(feedbackView);
   hideElement(statisticsView);

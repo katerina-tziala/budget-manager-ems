@@ -34,7 +34,10 @@ const initForgotPasswordView = () =>{
   sendBtn.classList.add('formBtn', 'passForgBtn');
   buttonWrapper.append(resetBtn, sendBtn);
   form.append(form_tag, name_inpt, name_lbl, email_inpt, email_lbl, buttonWrapper);
-  self.main.append(h2, p, form, createSignInLink(), createSignUpLink(), createContactLink());
+  const linksWrapper = document.createElement('div');
+  linksWrapper.className = "btnWrapper";
+  linksWrapper.append(createSignInLink(), createSignUpLink(), createContactLink());
+  self.main.append(h2, p, form, linksWrapper);
   hideLoader();
 };
 //send request to reset password
