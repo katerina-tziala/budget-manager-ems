@@ -272,7 +272,7 @@ gulp.task('optimize_images', function(){
       svgoPlugins: [{removeViewBox: true}]
     }
   ))
-  .pipe(gulp.dest(temp))
+  .pipe(gulp.dest(temp));
 });
 //copy root icons
 gulp.task('copy_root_icons', function(){
