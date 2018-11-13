@@ -36,4 +36,4 @@ Budget Manager - Expense Monitoring System
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp build_for_dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
 </ol>
-<p><i><b>Note: </b></i>For production, you also have to run &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;before running the <i><b>gulp build_for_dist</b></i> if you haven't done it already!</p>
+<p><i><b>Note: </b></i>For production, you also have to run &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;before running &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><b>gulp build_for_dist</b></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
