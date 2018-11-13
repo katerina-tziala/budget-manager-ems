@@ -4,7 +4,7 @@
   "description": "budget manager - expense monitoring system",
   "main": "index.js",
   "dependencies": {
-    "gulp-install": "^1.1.0"
+    "gulp-cli": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
