@@ -24,7 +24,8 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify-es": "^1.0.4",
     "node-sass": "^4.10.0",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "through2": "^3.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
