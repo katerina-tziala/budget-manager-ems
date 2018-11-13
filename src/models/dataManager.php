@@ -8,7 +8,7 @@
 		$allowed_actions = ["getPersonalInfo",
 		"getFeedbackList", "saveFeedbackDisplay","updateGenderBirthday","updateUsername",
 		"updatePassword",	"updateEmail",	"getUserExpenseList",	"addUserExpense",	"deleteUserExpense","updateUserExpense",
-		"getUserBudgetList",	"setBudget",	"updateBudgetAmount",	"updateBudgetPeriod",	"getUserGoalList","addWeeklyGoal",
+		"getUserBudgetList",	"setBudget",	"updateBudgetAmount",	"updateBudgetPeriod",	"getUserGoalList","addBudgetGoal",
 		"deleteBudgetGoal",	"updateBudgetGoal",	"getUserCategories",	"addNewCategory",	"deleteUserCategory",	"editUserCategory",
 		"signUserOut",	"sendContactEmail"];
 		require_once("classes/LoggedUser.php");
