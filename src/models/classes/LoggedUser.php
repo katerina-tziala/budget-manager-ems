@@ -419,7 +419,7 @@
       return $this->userGoals->getGoalsList($this->id);
     }
     //add a weekly goal for a user
-    public function addWeeklyGoal($data){
+    public function addBudgetGoal($data){
       $amount = $this->prepareDataFloat($data['amount']);
       $category = $this->prepareDataCategory($data['category']);
       $budget_id = $this->prepareDataId($data['budget_id']);

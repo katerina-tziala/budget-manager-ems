@@ -847,7 +847,7 @@ const setGoal = (event, currentBudget = self.currentBudget, addGoalForm = self.a
         container.insertBefore(addMsg, container.childNodes[1]);
         hideElement(addBtn);
         hideElement(addGoalForm);
-        sendData('addWeeklyGoal', data).then((response)=>{
+        sendData('addBudgetGoal', data).then((response)=>{
           document.getElementById('adding_goal_msg').remove();
           displayElement(addBtn);
           if(response.message==="invalid_request"){
