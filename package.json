@@ -3,13 +3,10 @@
   "version": "1.0.0",
   "description": "budget manager - expense monitoring system",
   "main": "index.js",
-  "dependencies": {
-    "gulp-cli": "^2.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
-    "del": "^3.0.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
@@ -18,11 +15,9 @@
     "gulp-html-replace": "^1.6.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^5.0.3",
-    "gulp-minify": "^3.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify-es": "^1.0.4",
     "node-sass": "^4.10.0",
     "run-sequence": "^2.2.1"
   },
