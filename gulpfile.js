@@ -58,11 +58,11 @@ gulp.task('build_for_dist', function(callback) {
   production_folder="dist";
   clean_folder = production_folder;
   //variables that depend on the server where the app is uploaded
-  link =`https://budgetmanager.codemix.gr/`;
-  db_username = "codemixg_budget";
-  db_password = "M@nS30w%mjQ,";
-  db_name = "codemixg_budgetmanager";
-  app_scope = "/budgetmanager.codemix.gr/";
+  link =`the_link_of_the_uploaded_app`;
+  db_username = "username_to_access_database_on_server";
+  db_password = "password_to_access_database_on_server";
+  db_name = "database_name_of_the_app";
+  app_scope = "scope_of_the_app";
   gulp.start('build_app');
 });
 /*

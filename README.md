@@ -29,9 +29,9 @@ Budget Manager - Expense Monitoring System
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
 <li>Inside gulpfile.js change the following variables inside the <i><b>'build_for_dist'</b></i> function:<br>
   <b>link = </b><i>"the_link_of_the_uploaded_app";</i><br>
-  <b>db_username = </b><i>"username_to_access_database_in_server";</i><br>
-  <b>db_password = </b><i>"password_to_access_database_in_server";</i><br>
-  <b>db_name = </b><i>"your_database_name";</i><br>
+  <b>db_username = </b><i>"username_to_access_database_on_server";</i><br>
+  <b>db_password = </b><i>"password_to_access_database_on_server";</i><br>
+  <b>db_name = </b><i>"database_name_of_the_app";</i><br>
   <b>app_scope = </b><i>"scope_of_the_app";</i>
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp build_for_dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
