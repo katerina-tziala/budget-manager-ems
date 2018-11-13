@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
       window.location.href=applink;
     }
   }
-  else if (url===domain || url===domain.substr(0,domain.length-1)) {
-    redirectUser(pages.index.url);
+  if (url===domain || url===domain.substr(0,domain.length-1)) {
+      redirectUser(pages.index.url);
   }else{
     registerServiceWorker();
     basicAppElementSelector();

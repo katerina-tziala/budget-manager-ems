@@ -9,6 +9,17 @@ Budget Manager - Expense Monitoring System
 <li>The  <i><b>Budget Manager</b></i> application was developed in order to implement and study affective feedback techniques.</li>
 <ul>
 <br>
-<br>
 <h1>BUILD AND RUN THE APPLICATION</h1>
-<p>The app was developed using XAMPP, so during development move the "budget_manager_ems_app-master" inside the xampp/htdocs directory.</p>
+<p>The app was developed using XAMPP therefore, in order to "run" the app locally:<br>
+<ul>
+<li>Rename the master folder from  "budget_manager_ems_app-master" to  "budget_manager_ems_app"</li>
+<li>Move the "budget_manager_ems_app" folder inside the xampp/htdocs directory</li>
+<li>Install node.js and gulp.js (if you haven't done it already)</li>
+<li>Run <b>npm install to</b>  to install the dependencies of the app</li>
+<li>Run <b>gulp build_app</b> to build the app</li>
+<li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
+
+
+
+
+<ul>
