@@ -35,5 +35,5 @@ Budget Manager - Expense Monitoring System
   app_scope = "scope_of_the_app";
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp build_for_dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
-<li>Upload all files inside budget_manager_ems_app/dist folder on the server</li>
+<li>Upload all files inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
 </ol>
