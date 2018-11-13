@@ -61,12 +61,12 @@
 			return $save_results;
 		}
     //function to send email
-    public function sendEmail($sender, $sendername,  $receiver, $subject, $message){
-      $to = $receiver;
+    public function sendEmail($args){
+      $to = $args['receiver'];
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-      $headers .= "From: '".$sendername."' <".$sender.">" . "\r\n";
-      if (mail($to,$subject,$message,$headers)) {
+      $headers .= "From: '".$args['sendername']."' <".$args['sender'].">" . "\r\n";
+      if (mail($to,$args['subject'],$args['message'],$headers)) {
         return true;
       }else{
         return false;
@@ -130,7 +130,8 @@
           $linkpart = "?id=".$user_saved[1]."&username=".$username."&code=".$activationcode;
           $mail_params = array('type' => "activation", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
+          $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $email, 'subject' => $subject,'message' =>$mailtosend);
+          $send_mail = $this->sendEmail($sent_mail_params);
           if($send_mail===true){
             $message="success";
           } else {
@@ -198,7 +199,8 @@
           $linkpart = "?account=".$username."&code=".$activationcode;
           $mail_params = array('type' => "reset", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
+          $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $email, 'subject' => $subject,'message' =>$mailtosend);
+          $send_mail = $this->sendEmail($sent_mail_params);
           if($send_mail===true){
             $message = "success";
           }
@@ -241,7 +243,8 @@
               $subject = "Your Password Changed";
               $mail_params = array('type' => "pass_change",'app_host'=>$apphost, 'sendinguser' => $username);
               $mailtosend = $this->getAppMail($mail_params);
-              $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $db_account['email'], $subject, $mailtosend);
+              $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $db_account['email'], 'subject' => $subject,'message' =>$mailtosend);
+              $send_mail = $this->sendEmail($sent_mail_params);
               if($send_mail===true){
                 $message = "success";
               }else{
@@ -277,7 +280,8 @@
       }else{
         $subject = ucwords($subject);
       }
-      $send_mail = $this->sendEmail($email, $fullname, $this->app_mail, $subject, $email_message);
+      $sent_mail_params = array('sender' => $email, 'sendername' => $fullname, 'receiver' => $this->app_mail, 'subject' => $subject,'message' =>$email_message);
+      $send_mail = $this->sendEmail($sent_mail_params);
       if($send_mail===true){
         $message = "success";
       } else {
