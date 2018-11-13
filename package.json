@@ -1,0 +1,32 @@
+{
+  "name": "budget_manager_ems_app",
+  "version": "1.0.0",
+  "description": "budget manager - expense monitoring system",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-cli": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katerina-tziala/budget_manager_ems_app.git"
+  },
+  "keywords": [
+    "budget",
+    "manager",
+    "expense",
+    "monitoring",
+    "prototype",
+    "system",
+    "thesis_app"
+  ],
+  "author": "Katerina Tziala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katerina-tziala/budget_manager_ems_app/issues"
+  },
+  "homepage": "https://github.com/katerina-tziala/budget_manager_ems_app#readme"
+}
