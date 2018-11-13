@@ -1,0 +1,1172 @@
+@charset "utf-8";
+/* CSS Document */
+#main{
+  padding: 0px!important;
+  background-color: #f5f5f5!important;
+  margin: 0px!important;
+}
+.fas.fa-pencil-alt{
+  font-size: 20px;
+  padding-left: 1px;
+}
+.fas.fa-trash-alt{
+  font-size: 22px;
+}
+.fas.fa-save{
+  font-size: 22px;
+}
+.flexRowWrapStartCenter{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  text-align: center;
+}
+.flexRowNoWrapStartCenter{
+  display: flex;
+	flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.flexColumnCenter{
+  display: flex;
+	flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ MAIN OPTIONS ~~~~~~~~~~~~~~~~~~~~ */
+#homeOptionsContainer{
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 153, 51, 0.15);
+  flex-flow: row wrap;
+  margin-bottom: 20px;
+}
+#addExpenseBtn{
+  width: 88px;
+  height: 88px;
+  text-decoration: none!important;
+  padding: 8px;
+  margin: 16px;
+  background-color: #1f601f;
+  color: #f4fffd;
+}
+#plustxt_expense_add{
+  display: block;
+  font-size: 1.3rem;
+  padding: 4px 8px;
+  margin-top: 5px;
+}
+
+.setBudgetWallet.fas.fa-wallet{
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+#addExpenseBtn>i{
+  display: block;
+  margin: auto;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+#addExpenseBtn>span{
+  font-size: 1rem;
+}
+#addExpenseBtn:hover, #addExpenseBtn:focus{
+  color: #fff;
+  background-color: #00e600;
+  color: #1a1a1a;
+}
+.budgetWeekFilterContainer{
+  margin: 20px 30px;
+  max-width: 275px;
+}
+.budget_filter_tag{
+  display: block;
+  font-size: 1.3rem;
+  text-align: left;
+  margin-bottom: 5px;
+  padding: 0 0 10px;
+  font-style: oblique;
+}
+.budgetWeekFilterContainer>.blobselect{
+  width:100%;
+  width:275px!important;
+}
+.blobselect-items{
+  max-height: 300px;
+}
+.blobselect-item{
+  padding-right: 20px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ MAIN CONTAINERS ~~~~~~~~~~~~~~~~~~~~ */
+#statisticsView{
+  min-height: 100vh!important;
+  width: 100%;
+  background-color: inherit;
+  padding-bottom: 100px;
+}
+#goalOverviewContainer, #categoriesOverviewContainer, #paymentsOverviewContainer, #dailyOverviewContainer{
+  width: 100%;
+  background-color: inherit;
+  position: relative;
+  margin-top:40px;
+}
+.goalsOverviewCard>.cardHeader{
+  margin: 0 0px 10px!important;
+}
+.card, .feedbackcard{
+  background-color: #fff;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 16px;
+  margin: 16px;
+  min-width: 280px;
+}
+.cardHeader{
+  width: 100%;
+  text-shadow: -2px 2px 20px #999999;
+  color: #0d0d0d;
+  padding-bottom: 4px;
+  margin: 0 60px 10px;
+  text-transform: capitalize;
+}
+.cardRow{
+  margin: 8px 0px;
+  width: 100%;
+}
+.goalOverviewCard>.cardRow:nth-of-type(1){
+  margin-top: 14px!important;
+}
+.goalOverviewCard>.cardRow>.progressBarBase{
+  margin-top: 20px;
+}
+.cardHeaderIcon{
+  width: 48px;
+  height: 48px;
+  border-right: 2px solid #333333;
+  margin-right: 8px;
+  color: #333333;
+  text-align: left;
+}
+.cardHeaderIcon_bo{
+  background-color: #fff!important;
+  background-repeat: no-repeat!important;
+  background-position: -4px 0px!important;
+  background-size: 46px!important;
+  background: url(../img/logo/logo333333.svg) center center no-repeat;
+}
+.cardHeaderIcon_expo, .cardHeaderIcon_day {
+  font-size: 32px!important;
+  padding-top: 9px;
+}
+.cardHeaderIcon_goalso{
+  font-size: 30px;
+  padding-top: 4px;
+  width:48px!important;
+  height: 36px!important
+}
+.cardHeaderIcon_goalso.success{
+  color: #009933;
+  font-size: 32px;
+  padding-top: 4px;
+}
+.cardHeaderIcon_goalso.fail {
+  color: #ff0000;
+  font-size: 34px;
+  padding-top: 2px;
+  padding-left: 4px;
+}
+.goalOverviewRow{
+  max-width: 150px;
+}
+.totalexpensesicon{
+  width: 40px;
+  height: 30px;
+  font-size: 24px!important;
+  color: #333333;
+  text-align: left;
+  padding-top: 4px;
+  padding-right: 8px;
+}
+.goalCategoryIcon, .categoryCategoryIcon{
+  text-align: center;
+}
+.goalCategory, .categoryCategory{
+  text-align: left;
+  margin-left: 8px;
+}
+.statsDataExp_goals{
+  padding-left: 8px;
+}
+.statsDataExpNumb{padding-left: 8px;}
+.goalsStatisticsContainer, .goalStatisticsContainer, .categoryStatisticsContainer, .paymentStatisticsContainer{
+  padding-right: 4px;
+}
+.goalStatisticsContainer>span:nth-of-type(2), .paymentStatisticsContainer>span:nth-of-type(2){
+  flex-direction: row-reverse;
+  max-width: 45%;
+  font-weight: 600;
+  float: right;
+}
+.goalDataCurrentContainer{
+  margin-left: -8px!important;
+}
+.statsDataCurr_goal, .statsDataMax_goal, .statsDataCurr_category, .statsDataCurr_payment, .statsData_day{
+  text-align: left!important;
+}
+.goalEuroEntity{
+  display: inline-block;
+  width: 20px;
+}
+.goalsData,.goalData, .categoryData{
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+  display: inline-block!important;
+}
+.cashicon, .crediticon, .debiticon, .prepaidicon, .gifticon, .bankicon, .checkicon, .mobileicon, .webicon{
+  width: 36px;
+  height: 36px;
+  display: block;
+  margin-right: 8px;
+  border-radius: 50%;
+  color: #f5f5f5;
+  background-color: #0d0d0d;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  text-align: center;
+}
+.cashicon{
+  font-size: 20px;
+  padding-top: 8px;
+}
+.crediticon,.debiticon,.prepaidicon,.gifticon{
+  font-size: 20px;
+  padding-top: 7px;
+}
+.bankicon,.checkicon{
+  font-size: 18px;
+  padding-top: 9px;
+}
+.mobileicon{
+  font-size: 22px;
+  padding-top: 7px;
+}
+.webicon.fas.fa-globe{
+  font-size: 23px;
+  padding-top: 7px;
+  padding-left: 1px;
+}
+.card{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.budgetOverviewCard, .expOverviewCard{
+  max-width: 450px;
+  width: 100%;
+}
+.card.budgetOverviewCard, .card.expOverviewCard{
+  min-height: 470px!important;
+}
+.card.paymentOverviewCard, .card.categoryOverviewCard{
+  width: 100%;
+  max-width: 300px!important;
+}
+.card.goalsOverviewCard{
+  max-width: 280px!important;
+}
+.card.goalOverviewCard{
+  max-width: 320px!important;
+}
+.card.dailyOverviewCard{
+  width: 100%;
+  max-width: 360px!important;
+}
+.card.budgetOverviewCard>.cardRow>.statisticsBox>.statisticsContainer{
+  padding-left: 0px!important;
+}
+.statisticsBox{
+  height: auto;
+  flex: 1 1 200px;
+}
+.statisticsTag, .goalTag, .categoryTag, .paymentTag{
+  text-align: left;
+  font-weight: 600;
+  color: #333333;
+  width: auto;
+  text-transform: capitalize;
+  justify-content: space-between;
+}
+.statisticsTag>span{
+  display: block;
+}
+.statisticsTag>span:nth-of-type(1){
+  display: inline-block;
+  max-width: 60%;
+}
+
+
+
+.perDaySpan{
+  display: inline-block;
+  font-style: oblique;
+  color: #595959;
+  padding-left: 4px;
+}
+.percTag{
+  padding-left: 8px;
+}
+.statisticsContainer{
+  font-size: 1.1rem;
+  padding-top: 3px;
+  height: auto;
+  padding-left: 8px;
+  justify-content: space-between!important;
+}
+.euroEntity{
+  padding-right: 4px;
+  display: block;
+}
+.statsData{
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 100%;
+}
+.performanceStatusTag{
+  width: 50px;
+  height: 65px;
+  position:absolute;
+  top: -3px;
+  right: 16px;
+  font-size: 4.2rem;
+  color: rgba(0,0,0,0.2);
+}
+.performanceStatusCup{
+  position:absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 36px;
+  color: #404040;
+  text-shadow: -2px 2px 20px rgba(0,0,0,0.6);
+}
+.performanceStatusSuccess{
+  color: #ffff00;
+}
+.goalFailBookMark{
+  position: absolute;
+  font-size: 40px!important;
+  top: 6px;
+  right: 12px;
+  color: #ff0000;
+  text-shadow: -2px 2px 20px #999999;
+}
+.goalSuccessBookMark{
+  position: absolute;
+  font-size: 40px;
+  top: 6px;
+  right: 5px;
+  color: #009933;
+  text-shadow: -2px 2px 20px #999999;
+}
+.paymentIcon{
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  border-radius: 50%;
+  color: #f5f5f5;
+  background-color: #009933;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  text-align: center;
+  color: #f5f5f5;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PROGRESS BARS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.progressBarBase{
+  width: 100%;
+  height: 26px;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 8px 0 0px;
+}
+.progressBarIndicator{
+  height: 26px;
+  display: inline-block;
+  border-radius: 0px 12px 12px 0px;
+}
+.progressBarIndicator.success{
+  background-color: #009933;
+  background: -webkit-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: -o-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: -moz-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background-image: linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+}
+.progressBarIndicator.fail{
+  background-color: #e60000;
+  background: -webkit-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: -o-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: -moz-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background-image: linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+}
+/* ~~~~~~~~~~~~~~~~~~~~ PROGRESS BARS GOALS & CATEGORIES ~~~~~~~~~~~~~~~~~~~~ */
+.progressBar_bar{
+  background-color: #ff6600;
+  background: -webkit-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: -o-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: -moz-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background-image: linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+}
+.progressBar_bills{
+  background-color: #b30000;
+  background: -webkit-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: -o-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: -moz-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background-image: linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+}
+.progressBar_education{
+  background-color: #006699;
+  background: -webkit-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: -o-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: -moz-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background-image: linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+}
+.progressBar_clothing{
+  background-color: #476b6b;
+  background: -webkit-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: -o-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: -moz-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background-image: linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+}
+.progressBar_communication{
+  background-color: #1e90ff;
+  background: -webkit-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: -o-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: -moz-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background-image: linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+}
+.progressBar_cosmetics{
+  background-color: #ff6699;
+  background: -webkit-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: -o-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: -moz-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background-image: linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+}
+.progressBar_donations{
+  background-color: #9900cc;
+  background: -webkit-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: -o-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: -moz-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background-image: linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+}
+.progressBar_investments{
+  background-color: #008060;
+  background: -webkit-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: -o-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: -moz-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background-image: linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+}
+.progressBar_restaurant{
+  background-color: #cc0000;
+  background: -webkit-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: -o-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: -moz-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background-image: linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+}
+.progressBar_entertainment{
+  background-color: #ffa500;
+  background: -webkit-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: -o-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: -moz-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background-image: linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+}
+.progressBar_gifts{
+  background-color: #ff884d;
+  background: -webkit-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff7733 100%);
+  background: -o-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background: -moz-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background: linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background-image: linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+}
+.progressBar_health{
+  background-color: #00802b;
+  background: -webkit-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: -o-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: -moz-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background-image: linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+}
+.progressBar_housing{
+  background-color: #b35900;
+  background: -webkit-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: -o-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: -moz-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background-image: linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+}
+.progressBar_sports{
+  background-color: #ff1a75;
+  background: -webkit-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: -o-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: -moz-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background-image: linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+}
+.progressBar_supermarket{
+  background-color: #ff4000;
+  background: -webkit-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: -o-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: -moz-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background-image: linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+}
+.progressBar_traveling{
+  background-color: #00994d;
+  background: -webkit-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: -o-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: -moz-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background-image: linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+}
+.progressBar_miscellaneous{
+  background-color: #734d26;
+  background: -webkit-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: -o-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: -moz-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background-image: linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+}
+.progressBar_technology{
+  background-color: #1f4060;
+  background: -webkit-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: -o-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: -moz-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background-image: linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+}
+.progressBar_transportation{
+  background-color: #b38600;
+  background: -webkit-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: -o-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: -moz-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background-image: linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+}
+.progressBar_vehicle{
+  background-color: #262626;
+  background: -webkit-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: -o-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: -moz-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background-image: linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+}
+.progressBar_ettiquete{
+  background-color: #2eb82e;
+  background: -webkit-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: -o-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: -moz-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background-image: linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ALL WEEKS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.allWeeksContainers{
+  height: auto;
+  width: 100%;
+  background-color: inherit;
+  padding-bottom: 20px;
+}
+.sectionHeaderAll{
+  width: 100%;
+  text-shadow: -2px 2px 20px #999999;
+  color: #f5f5f5;
+  padding-bottom: 4px;
+  padding: 16px;
+  font-size: 1.4rem;
+  background-color: #262626;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ ADDITIONAL ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~ */
+.firstbudgetindicator{
+  font-size: 1rem;
+  color: #0d0d0d;
+}
+.ondateindicator{
+  color: #009933;
+}
+#no_expense_indicator, #no_goals_indicator{
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4d4d4d;
+  font-style: oblique;
+  margin-top: 50px;
+  word-wrap: break-word;
+  padding: 20px;
+}
+#no_goals_indicator{
+  margin-bottom: 20px;
+}
+#addGoalBtn{
+  padding-top: 24px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~ SECTION HEADERS AND CHARTS ~~~~~~~~~~~~~~~~~~~~~ */
+.sectionHeader{
+  width: 100%;
+  text-shadow: -2px 2px 20px #999999;
+  color: #0d0d0d;
+  padding-bottom: 4px;
+  padding: 16px;
+  font-size: 1.4rem;
+  background-color: rgba(0, 153, 51, 0.15);
+  margin-bottom: 16px;
+  position: relative;
+  padding-right: 100px;
+  padding-left:  100px;
+}
+.chartToggleBtn{
+  position: absolute;
+  right: 16px;
+  bottom:9px;
+  width: 100px;
+  font-size: 1.1rem;
+  background-color: #1f601f;
+  color: #f4fffd;
+}
+.chartToggleBtn:hover, .chartToggleBtn:focus{
+  color: #fff;
+  text-shadow: -2px 2px 5px #000;
+  background-color: #29a329;
+}
+.chartContainer{
+  width: 100%;
+  height: auto;
+  padding: 0 16px;
+  padding-bottom: 40px;
+}
+.chartOptionsContainer{
+  flex-flow: row wrap;
+  margin-bottom:20px;
+  width:100%!important;
+}
+.chartOptionsContainer>div{
+  margin:16px;
+}
+.chartTypeContainer>.blobselect{
+  width:100%;
+  width:200px!important;
+}
+.chartOptionContainer>.blobselect{
+  width:100%;
+  width:300px!important;
+}
+.compareOptionContainer>.blobselect{
+  width:100%;
+  width:220px!important;
+}
+.chartCanvas{
+  background-color: #fff;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  width: 100%!important;
+  padding: 16px;
+  margin: auto;
+  min-width: 280px;
+  max-width: 450px;
+  min-height: 280px;
+  max-height: 450px;
+  margin-bottom: -10px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FEEDBACK VIEW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#feedbackView{
+  min-height: 100vh!important;
+  width: 100%;
+  background-color: inherit;
+  padding:16px;
+}
+#feedbackSummaryCard{
+  width: 100%;
+  max-width: 400px;
+  min-width: 260px;
+  margin: 16px;
+  padding: 16px 16px 30px;
+}
+#feedbackHeader{
+  font-size: 1.4rem;
+}
+#feedbackHeader>span, #feedbackParagraph>span{
+  display: inline-block;
+  padding: 0 4px;
+}
+#feedbackParagraph{
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+}
+.feedbackHeader.success{
+  color: #009933;
+}
+.feedbackHeader.fail{
+  color: #e60000;
+}
+#feedbackOverview{
+  font-style: oblique;
+  font-size: 1.3rem;
+  color: #404040;
+}
+.feedbackOverviewContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  font-size: 1.2rem;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.feedbackOverviewIcon{
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+.feedbackOverviewIcon.fas.fa-wallet{
+  border-right: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  padding-top: 6px;
+}
+.feedbackOverviewIcon.fas.fa-money-bill-wave{
+  border-right: 2px solid #e60000;
+  color: #e60000;
+  font-size: 1.7rem;
+  padding-top: 11px;
+}
+.feedbackOverviewIcon.fas.fa-piggy-bank{
+  border-right: 2px solid #009933;
+  color: #009933;
+  font-size: 2rem;
+  padding-top: 10px;
+}
+.feedbackOverviewText{
+  width: 100%;
+}
+.feedbackOverviewHeader{
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+#fo_spend_perc{
+  color: #e60000;
+}
+#fo_saved_perc{
+  color: #009933;
+}
+.feedbackOverviewDataContainer{
+  padding-right: 8px;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.feedbackOverviewDataContainer>span{
+  display: block;
+}
+.feedbackOverviewData{
+  padding-left: 4px;
+  width: 100%;
+  max-width: 260px;
+  overflow: hidden;
+  display: block;
+}
+.perc_separator{
+  padding: 0 6px;
+}
+#feedbackProgressBar{
+  width: 95%;
+  height: 30px;
+  background-color: #b3b3b3;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-align: left;
+  margin: auto;
+  margin-top: 40px;
+}
+.feedbackProgressBar{
+  height: 38px;
+  margin-top: -4px;
+  display: inline-block;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 68px;
+  border-radius: 6px;
+}
+.feedbackProgressBar.spend{
+  background-color: #e60000;
+  background-image: linear-gradient(#e60000, #ff9999, #e60000);
+  width: 0;
+}
+.feedbackProgressBar.saved{
+  background-color: #009933;
+  background-image: linear-gradient(#009933, #66ff99, #009933);
+  width: 0;
+}
+#viewStatisticsBtn{
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 200px;
+  color: #f4fffd;
+  background-color: #004d1a;
+  font-size: 1.15rem;
+}
+#viewStatisticsBtn>.fas.fa-chart-bar{
+  font-size: 1.6rem;
+  margin-right: 10px;
+}
+#viewStatisticsBtn:hover, #viewStatisticsBtn:focus{
+  color: #fff;
+  background-color: #009933;
+}
+#viewStatisticsBtn:hover span, #viewStatisticsBtn:focus span{
+  text-shadow: -2px 2px 5px #000;
+}
+#viewStatisticsBtn:hover .fas.fa-chart-bar, #viewStatisticsBtn:focus .fas.fa-chart-bar{
+    text-shadow: -0px 0px 25px #000;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ FEEDBACK GIFS ~~~~~~~~~~~~~~~~~~~~ */
+.feedbackCard{
+  width: 100%;
+  max-width: 450px;
+  min-width: 260px;
+  height: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin: 16px;
+  padding: 8px;
+}
+.feedbackIcons{
+  border: 2px solid #fff;
+  background-color: #fff!important;
+  background-repeat: no-repeat!important;
+}
+.mainFeedbackIcon{
+  width: 100%;
+  height: 220px;
+}
+.secondaryFeedbackIcon{
+  width: 250px;
+  height: 220px;
+  -webkit-box-flex: 1 1 150px;
+  -webkit-flex: 1 1 150px;
+  -ms-flex: 1 1 150px;
+  flex: 1 1 150px;
+}
+.thirdFeedbackIcons{
+  width:  200px;
+  height: 220px;
+  -webkit-box-flex: 1 1 150px;
+  -webkit-flex: 1 1 150px;
+  -ms-flex: 1 1 150px;
+  flex: 1 1 150px;
+}
+.thirdOne, .thirdTwo{
+  width: 100%;
+  height: 110px;
+}
+.mainFeedbackIcon.success{
+  background-position: center!important;
+  background-size: 500px!important;
+  background: url(../img/feedback/money_rain_one.gif) center center no-repeat;
+}
+.secondaryFeedbackIcon.success{
+  background-size: 620px!important;
+  background-position: -170px 0px!important;
+  background: url(../img/feedback/toast.gif) center center no-repeat;
+}
+.thirdOne.success{
+  background-position: center!important;
+  background-size: 220px!important;
+  background: url(../img/feedback/money_girl.gif) center center no-repeat;
+}
+.thirdTwo.success{
+  background-size: 210px!important;
+  background-position:center top!important;
+  background: url(../img/feedback/excited.gif) center center no-repeat;
+}
+.mainFeedbackIcon.fail{
+  background-position: center!important;
+  background-size: 500px!important;
+  background: url(../img/feedback/empty_wallet.gif) center center no-repeat;
+}
+.secondaryFeedbackIcon.fail{
+  background-position: center top!important;
+  background-size: 250px!important;
+  background: url(../img/feedback/budget_folder.gif) center center no-repeat;
+}
+.thirdOne.fail{
+  background-position: 0px 0px!important;
+  background-size: 280px!important;
+  background: url(../img/feedback/empty_pockets.gif) center center no-repeat;
+}
+.thirdTwo.fail{
+  background-position: center top!important;
+  background-size: 235px!important;
+  background: url(../img/feedback/sad.gif) center center no-repeat;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS ~~~~~~~~~~~~~~~~~~~~ */
+.category_icon{
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  color: #f5f5f5;
+  -webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  -moz-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  width: 36px;
+  height: 36px;
+}
+.icon_bar{
+  background-color: #ff6600;
+}
+.icon_bills{
+  background-color: #b30000;
+}
+.icon_clothing{
+  background-color: #476b6b;
+  font-size: 1.2rem;
+  padding-top: 9px;
+  padding-left: 1px;
+}
+.icon_communication{
+  background-color: #1e90ff;
+  transform: rotate(-30deg);
+  font-size: 1.4rem;
+  padding-top: 8px;
+}
+.icon_cosmetics{
+  background-color: #ff6699!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+  background: url(../img/beauty.svg) center center no-repeat;
+  display: inline-block;
+  background-position:5px 6px!important;
+  background-size: 22px!important;
+}
+.icon_donations{
+  background-color: #9900cc;
+}
+.icon_education{
+  background-color: #006699;
+}
+.icon_entertainment{
+  background-color: #ffa500;
+  font-size: 1.4rem;
+  padding-top: 6px;
+}
+.icon_gifts{
+  background-color: #ff884d;
+  font-size: 1.4rem;
+  padding-top: 6px;
+}
+.icon_health{
+  background-color: #00802b;
+}
+.icon_housing{
+  background-color: #b35900;
+}
+.icon_investments{
+  background-color: #008060;
+}
+.icon_restaurant{
+  background-color: #cc0000;
+  font-size: 1.3rem;
+  padding-top: 8px;
+}
+.icon_sports{
+  background-color: #ff1a75;
+  font-size: 1.5rem;
+  padding-top: 7px;
+}
+.icon_supermarket{
+  background-color: #ff4000;
+}
+.icon_technology{
+  background-color: #1f4060;
+  font-size: 1.1rem;
+  padding-top: 8.5px;
+}
+.icon_transportation{
+  background-color: #b38600;
+}
+.icon_traveling{
+  background-color: #00994d;
+}
+.icon_vehicle{
+  background-color: #262626;
+}
+.icon_miscellaneous{
+  background-color: #734d26;
+}
+.icon_ettiquete {
+  background-color: #2eb82e;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  font-size: 1.15rem;
+  padding-top: 10px;
+  padding-left: 2px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS COMMON ~~~~~~~~~~~~~~~~~~~~ */
+.icon_bar, .icon_bills, .icon_education{
+  font-size: 1.2rem;
+  padding-top: 7.5px;
+}
+.icon_donations, .icon_investments{
+  font-size: 1.3rem;
+  padding-top: 6px;
+  padding-left: 2px;
+}
+.icon_health, .icon_housing{
+  font-size: 1.3rem!important;
+  padding-top: 7px!important;
+}
+.icon_supermarket, .icon_traveling, .icon_miscellaneous{
+  font-size: 1.2rem;
+  padding-top: 10px;
+}
+.icon_transportation, .icon_vehicle{
+  font-size: 1.3rem;
+  padding-top: 8px;
+}
+/* ====================== Responsive Design with Media Queries ======================*/
+@media screen and (max-width: 965px) {
+  .budgetOverviewCard, .expOverviewCard{
+    max-width: 500px!important;
+  }
+}
+@media screen and (max-width: 785px) {
+  .card.dailyOverviewCard{
+    max-width: 300px!important;
+  }
+}
+@media screen and (max-width: 665px) {
+  .card.dailyOverviewCard{
+    max-width: 280px!important;
+  }
+}
+@media screen and (max-width: 625px) {
+  .card.dailyOverviewCard{
+    max-width: 450px!important;
+  }
+  .card.paymentOverviewCard, .card.categoryOverviewCard{
+    max-width: 450px!important;
+  }
+  .card.goalOverviewCard{
+    max-width: 450px!important;
+  }
+}
+@media screen and (max-width: 549px) {
+  .budget_filter_tag{
+    padding-top: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .sectionHeader{
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 130px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .secondaryFeedbackIcon.success{
+    background-position: -190px 0px!important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .feedbackOverviewHeader{
+    font-size: 1.1rem;
+  }
+  .feedbackCard{
+    max-width: 300px;
+  }
+  .thirdFeedbackIcons{
+    -webkit-box-flex: 1 1 300px;
+    -webkit-flex: 1 1 300px;
+    -ms-flex: 1 1 300px;
+    flex: 1 1 300px;
+    height: auto;
+  }
+  .thirdOne.success{
+    background-size: 280px!important;
+    height:140px;
+  }
+  .thirdTwo.success{
+    background-size: 280px!important;
+    height:140px;
+  }
+  .secondaryFeedbackIcon.fail{
+    -webkit-box-flex: 1 1 300px;
+    -webkit-flex: 1 1 300px;
+    -ms-flex: 1 1 300px;
+    flex: 1 1 300px;
+    background-size: 280px!important;
+  }
+  .thirdOne.fail{
+    background-size: 290px!important;
+    height:130px;
+  }
+  .thirdTwo.fail{
+    background-position: 0px -5px!important;
+    background-size: 275px!important;
+    height:130px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .chartContainer{
+    padding: 0 10px;
+  }
+  .chartOptionContainer>.blobselect{
+    width:280px!important;
+  }
+}
+@media screen and (max-width: 325px) {
+  .feedbackOverviewHeader{
+    font-size: 1rem;
+  }
+}

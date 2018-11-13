@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+#terms_list{
+  background-color: #fff;
+  min-width: 228px;
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: -2px 4px 12px rgba(0, 0, 0, 0.5);
+  display: none;
+  text-align: justify;
+}
+#terms_list>li{
+  list-style-type: none;
+  padding: 5px 5px 10px;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+#terms_list>li:not(:last-of-type){
+  margin-bottom: 10px;
+  border-bottom: 1px solid #808080;
+}
