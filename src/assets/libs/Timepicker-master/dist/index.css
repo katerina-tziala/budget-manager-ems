@@ -1,0 +1,232 @@
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.g-time-wrapper {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    min-width: 300px;
+    min-height: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+}
+
+.g-flex {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+}
+
+.g-head {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.g-head-content {
+    font-size: 3em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.g-current {
+    margin: 0 2px;
+}
+
+.g-clock-wrapper {
+    -webkit-box-flex: 4;
+        -ms-flex-positive: 4;
+            flex-grow: 4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.g-clock {
+    position: relative;
+    border-radius: 100%;
+    height: 240px;
+    width: 240px;
+    cursor: default;
+}
+
+.g-clock.g-clock-inner {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 160px;
+    width: 160px;
+}
+
+.g-clock-item {
+    position: absolute;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 10px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: default;
+    font-size: 1.1em;
+    z-index: 3;
+}
+
+.g-clock-item.g-clock-inner {
+    font-size: 0.9em;
+    z-index: 3;
+}
+
+
+.g-clock-outer {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 18px solid #1976D2;
+    background: whitesmoke;
+    color: whitesmoke;
+    border-radius: 100%;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.g-clock-outer.g-selected {
+    visibility: visible;
+}
+
+.g-middle-dot {
+    z-index: 2;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 7px;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+
+.g-hand-of-a-clock {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    height: 3px;
+    width: 20px;
+}
+
+.g-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 0.5;
+        -ms-flex-positive: 0.5;
+            flex-grow: 0.5;
+
+}
+
+.g-button {
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    margin-right: 16px;
+    padding: 8px;
+}
+
+.g-button:hover {
+    cursor: pointer;
+    background: #CFD8DC;
+}
+
+.g-fade-in {
+    -webkit-animation: fade-in 0.4s;
+            animation: fade-in 0.4s;
+}
+
+.g-fade-out {
+    -webkit-animation: fade-out 0.4s;
+            animation: fade-out 0.4s;
+}
+
+.g-pointer:hover {
+    cursor: pointer;
+}
