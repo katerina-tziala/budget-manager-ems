@@ -38,10 +38,10 @@ var folder_src_css = src+'assets/css',
 var folder_libs = src+'assets/libs',
     fontawesome = folder_libs+'/fontawesome-free-5.2.0-web',
     charts = folder_libs+'/Chart.js/Chart.min.js',
-    blobselect = folder_libs+'/blob-select-master/dist/blobselect.min.js',
-    moment = folder_libs+'/md-date-time-picker-master/dist/js/moment.min.js',
-    datepicker = folder_libs+'/md-date-time-picker-master/dist/js/mdDateTimePicker.min.js',
-    timepicker = folder_libs+'/Timepicker-master/dist/grudus-timepicker.es5.js';
+    blobselect = folder_libs+'/blob-select-master/blobselect.min.js',
+    moment = folder_libs+'/md-date-time-picker-master/moment.min.js',
+    datepicker = folder_libs+'/md-date-time-picker-master/mdDateTimePicker.min.js',
+    timepicker = folder_libs+'/Timepicker-master/grudus-timepicker.es5.js';
 //variables for development and production
 var production_folder = 'dev',
     clean_folder = 'dev',
