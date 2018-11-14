@@ -419,14 +419,6 @@ pages['budget_and_goals'] = {
   css: cssfolder+"budget_and_goals.min.css",
   js_script:jsfolder+"budget_and_goals.min.js"
 };
-
-
-
-
-
-
-
-
 //function to redirect user
 const redirectUser = (url) => {
   setTimeout(() =>{
