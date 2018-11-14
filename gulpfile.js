@@ -58,11 +58,11 @@ gulp.task('build_for_dist', function(callback) {
   production_folder="dist";
   clean_folder = production_folder;
   //variables that depend on the server where the app is uploaded
-  link =`the_link_of_the_uploaded_app`;
-  db_username = "username_to_access_database_on_server";
-  db_password = "password_to_access_database_on_server";
-  db_name = "database_name_of_the_app";
-  app_scope = "scope_of_the_app";
+  link =`https://budgetmanager.codemix.gr/`;
+  db_username = "codemixg_budget";
+  db_password = "M@nS30w%mjQ,";
+  db_name = "codemixg_budgetmanager";
+  app_scope = "/budgetmanager.codemix.gr/";
   gulp.start('build_app');
 });
 /*
@@ -167,10 +167,11 @@ gulp.task('prepare_app_js', function(cb) {
 //modify start url in manifest
 gulp.task('manifest_modify', function () {
   var jsonfile = src+'manifest.json';
+  var start_url = link+'index.html';
   return gulp.src([jsonfile])
     .pipe(json_modify({
       key: 'start_url',
-      value: link
+      value: start_url
     }))
     .pipe(gulp.dest(root_files));
 });

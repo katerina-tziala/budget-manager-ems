@@ -49,21 +49,6 @@ const cacheFiles = [
   'assets/css/signin.min.css',
   'assets/css/signup.min.css',
   'assets/css/terms_of_use.min.css',
-  'assets/webfonts/fa-brands-400.eot',
-  'assets/webfonts/fa-brands-400.svg',
-  'assets/webfonts/fa-brands-400.ttf',
-  'assets/webfonts/fa-brands-400.woff',
-  'assets/webfonts/fa-brands-400.woff2',
-  'assets/webfonts/fa-regular-400.eot',
-  'assets/webfonts/fa-regular-400.svg',
-  'assets/webfonts/fa-regular-400.ttf',
-  'assets/webfonts/fa-regular-400.woff',
-  'assets/webfonts/fa-regular-400.woff2',
-  'assets/webfonts/fa-solid-900.eot',
-  'assets/webfonts/fa-solid-900.svg',
-  'assets/webfonts/fa-solid-900.ttf',
-  'assets/webfonts/fa-solid-900.woff',
-  'assets/webfonts/fa-solid-900.woff2'
 ];
 //images to be cached
 const cacheImages = [
@@ -114,7 +99,7 @@ const cacheImages = [
   'assets/img/logo/logo256.png',
   'assets/img/logo/logo333333.svg',
   'assets/img/logo/logomonocolor.svg',
-  'assets/img/logo/safari-pinned-tab.svg'
+  'assets/img/logo/safari-pinned-tab.svg',
 ];
 //Install Service Worker and cache files:
 self.addEventListener('install', (event) => {

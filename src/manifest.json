@@ -3,6 +3,16 @@
   "orientation": "portrait-primary",
   "short_name": "budget mngr",
   "description": "Budget Manager is an app that helps you monitor your expenses and stay on budget!",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "scope": "/",
+  "serviceworker": {
+    "src": "ServiceWorker.js",
+    "scope": "/"
+  },
+  "start_url": "start_url_of_app",
+  "theme_color": "#0d0d0d",
+  "lang": "en-US",
   "icons": [{
       "src": "favicon.ico",
       "sizes": "32x32",
@@ -48,11 +58,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "display": "standalone",
-  "background_color": "#f5f5f5",
-  "scope": "/",
-  "start_url": "start_url_of_app",
-  "theme_color": "#0d0d0d",
-  "lang": "en-US"
+  ]
 }
