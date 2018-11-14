@@ -287,13 +287,14 @@ const initAccountActivationPage = () => {
   });
 };
 //initialize terms page
-const initTermsPage = (parentNode = self.main, userInfo = self.userInfo) => {
+const initTermsPage = (main = self.main, userInfo = self.userInfo) => {
   loadStyle(pages.terms_of_use.css, ()=>{
-    parentNode.appendChild(createTermsList());
+    main.append(createTermsList());
     if (userInfo.signed_in===0) {
-      parentNode.append(createSignInLink());
-      parentNode.append(createSignUpLink());
-      parentNode.append(createContactLink());
+      const linksWrapper = document.createElement('div');
+      linksWrapper.className = "btnWrapper";
+      linksWrapper.append(createSignInLink(), createSignUpLink(), createContactLink());
+      main.append(linksWrapper);
     }else{
       createNavMenu();
       if (userInfo.has_current_budget==="no") {
@@ -304,6 +305,9 @@ const initTermsPage = (parentNode = self.main, userInfo = self.userInfo) => {
     document.getElementById('terms_list').style.display="block";
   });
 };
+
+
+
 //initialize contact page
 const initContactPage = (parentNode = self.main, userInfo = self.userInfo) => {
   loadStyle(pages.contact.css, ()=>{
