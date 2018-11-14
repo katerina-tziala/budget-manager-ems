@@ -116,10 +116,10 @@ const createSortingSection = () => {
   const timeButton = createButton('sortBtn_time', time_text, 'sort expenses by time', addSortOption);
   timeButton.className = "sortBtn";
   const store_text = `<i id='iconsrt_store' class='sortIcon fas fa-sort-alpha-down'></i><span id='textsrt_store' class='sort_indicator'>asc</span><span id='sorttag_store' class='sort_tag'>store</span>`;
-  const storeButton = createButton('sortBtn_store', time_text, 'sort expenses by store', addSortOption);
+  const storeButton = createButton('sortBtn_store', store_text, 'sort expenses by store', addSortOption);
   storeButton.className = "sortBtn";
   const location_text = `<i id='iconsrt_location' class='sortIcon fas fa-sort-alpha-down'></i><span id='textsrt_location' class='sort_indicator'>asc</span><span id='sorttag_location' class='sort_tag'>location</span>`;
-  const locationButton = createButton('sortBtn_location', time_text, 'sort expenses by location', addSortOption);
+  const locationButton = createButton('sortBtn_location', location_text, 'sort expenses by location', addSortOption);
   locationButton.className = "sortBtn";
   buttons_wrapper.append(dateButton, amountButton, categoryButton, paymentButton, timeButton, storeButton, locationButton);
   const header_h4 = document.createElement('h4');
