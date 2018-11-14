@@ -118,8 +118,6 @@ const renderStatisticsView = (options, statisticsView = self.statisticsView) => 
     message.classList.add("no_expense_indicator");
     message.innerHTML = `There are no expenses for this week!`;
     statisticsView.insertBefore(message, statisticsView.childNodes[1]);
-    const add_exp = createAddLink('add_expense', 'add<br>expense', 'add expense', pages.add_expense.url);
-    statisticsView.append(add_exp);
   }else{
     statisticsView.insertBefore(createBudgetOverviewCard(options.mode), statisticsView.childNodes[1]);
     statisticsView.insertBefore(createExpensesOverviewCard(options.mode), statisticsView.childNodes[2]);
