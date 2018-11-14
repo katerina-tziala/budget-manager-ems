@@ -212,7 +212,7 @@ const createAddGoalSection = () => {
   const save_btn = createButton('saveAddGoalBtn', 'save goal', 'save budget goal', setGoal);
   save_btn.classList.add('formBtn', 'add_goal_btn');
   const addGoalContainer = document.createElement('div');
-  addGoalContainer.setAttribute('id','addGoalFormContainer');
+  addGoalContainer.setAttribute('id','addGoalContainer');
   addGoalContainer.className = "addGoalContainer";
   const input_tag = document.createElement('span');
   input_tag.innerHTML = "Amount";
@@ -850,8 +850,10 @@ const setGoal = (event, currentBudget = self.currentBudget, addGoalForm = self.a
         sendData('addBudgetGoal', data).then((response)=>{
           document.getElementById('adding_goal_msg').remove();
           displayElement(addBtn);
+console.log(response);
+
           if(response.message==="invalid_request"){
-            invalidRequestHandler(data);
+            //invalidRequestHandler(data);
           } else if(response.message==="success"){
             const newGoal = {
               "id": parseInt(response.added_id),
@@ -1035,7 +1037,7 @@ const createGoalCard = (goal) => {
   const cancel_btn = createCancelButton('goal', goal.id, toggleForm);
   const save_btn = createSaveButton('goal', goal.id, updateGoal);
   const card = document.createElement('li');
-  card.setAttribute('role', 'list item');
+  card.setAttribute('role', 'listitem');
   card.classList.add("goalCard");
   card.setAttribute("id", `goalCard_${goal.id}`);
   const cardHeader = document.createElement('p');

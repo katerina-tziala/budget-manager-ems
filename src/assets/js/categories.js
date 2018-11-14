@@ -277,7 +277,7 @@ const updateCategory = (event) => {
 //create card for basic category
 const createBasicCategoryCard = (category, icon, id) => {
   const card = document.createElement('li');
-  card.setAttribute('role', 'list item');
+  card.setAttribute('role', 'listitem');
   card.classList.add("card", "category_card");
   const category_icon = document.createElement('div');
   category_icon.classList.add("category_icon", icon);

@@ -748,7 +748,7 @@ const updateSelectedOption = (id, ordertype) => {
 const createSelectedOption = (id, ordertype, container = self.selectedSortOptionsContainer) => {
   const sortoptcard = document.createElement('li');
   sortoptcard.setAttribute('id', `sortoptcard_${id}`);
-  sortoptcard.setAttribute('role', 'list item');
+  sortoptcard.setAttribute('role', 'listitem');
   sortoptcard.className = "sortCard";
   const sortopt = document.createElement('span');
   sortopt.setAttribute('id', `sortopt_${id}`);
@@ -778,7 +778,7 @@ const createExpenseCard = (expense) => {
   let category_base = expense.category.split(" ")[0];
   categoryicon = categoryicon+category_base;
   const card = document.createElement('li');
-  card.setAttribute('role', 'list item');
+  card.setAttribute('role', 'listitem');
   card.className = 'expenseCard';
   card.setAttribute('id',`expenseCard_${expense.id}`);
   const expenseHeader = document.createElement('div');
