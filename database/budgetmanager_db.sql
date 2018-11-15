@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2018 at 03:31 AM
+-- Generation Time: Nov 10, 2018 at 08:15 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -253,80 +253,80 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `budget`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserLimit` (`user_id`);
+  ADD KEY `fk_budgetUserId` (`user_id`);
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserCategory` (`added_by`);
+  ADD KEY `fk_categoryUserId` (`added_by`);
 
 --
 -- Indexes for table `expense`
 --
 ALTER TABLE `expense`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserExpense` (`user_id`);
+  ADD KEY `fk_expenseUserId` (`user_id`);
 
 --
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_BudgetFeedback` (`budget_id`),
-  ADD KEY `FK_UserFeedback` (`user_id`);
+  ADD KEY `fk_feedbackBudgetId` (`budget_id`),
+  ADD KEY `fk_feedbackUserId` (`user_id`);
 
 --
 -- Indexes for table `goal`
 --
 ALTER TABLE `goal`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_BudgetGoal` (`budget_id`),
-  ADD KEY `FK_UserGoal` (`user_id`);
+  ADD KEY `fk_goalBudgetId` (`budget_id`),
+  ADD KEY `fk_goalUserId` (`user_id`);
 
 --
 -- Indexes for table `log_activity`
 --
 ALTER TABLE `log_activity`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserActivity` (`user_id`);
+  ADD KEY `fk_logActivityUserId` (`user_id`);
 
 --
 -- Indexes for table `log_budget`
 --
 ALTER TABLE `log_budget`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserLimit` (`user_id`);
+  ADD KEY `fk_logBudgetUserId` (`user_id`);
 
 --
 -- Indexes for table `log_category`
 --
 ALTER TABLE `log_category`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_UserLogCategory` (`user_id`);
+  ADD KEY `fk_logCategoryUserId` (`user_id`);
 
 --
 -- Indexes for table `log_expense`
 --
 ALTER TABLE `log_expense`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_user` (`user_id`);
+  ADD KEY `fk_logExpenseUserId` (`user_id`);
 
 --
 -- Indexes for table `log_goal`
 --
 ALTER TABLE `log_goal`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_BudgetGoal` (`budget_id`),
-  ADD KEY `FK_UserGoal` (`user_id`);
+  ADD KEY `fk_logGoalBudgetId` (`budget_id`),
+  ADD KEY `fk_logGoalUserId` (`user_id`);
 
 --
 -- Indexes for table `log_user`
 --
 ALTER TABLE `log_user`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_LogUserInfo` (`user_id`);
+  ADD KEY `fk_logUserId` (`user_id`);
 
 --
 -- Indexes for table `user`
@@ -350,7 +350,7 @@ ALTER TABLE `budget`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `expense`
@@ -420,57 +420,70 @@ ALTER TABLE `user`
 -- Constraints for table `budget`
 --
 ALTER TABLE `budget`
-  ADD CONSTRAINT `FK_UserLimit` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_budgetUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `category`
 --
 ALTER TABLE `category`
-  ADD CONSTRAINT `FK_UserCategory` FOREIGN KEY (`added_by`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_categoryUserId` FOREIGN KEY (`added_by`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `expense`
 --
 ALTER TABLE `expense`
-  ADD CONSTRAINT `FK_UserExpense` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_expenseUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
-  ADD CONSTRAINT `FK_BudgetFeedback` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
-  ADD CONSTRAINT `FK_UserFeedback` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_feedbackBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
+  ADD CONSTRAINT `fk_feedbackUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `goal`
 --
 ALTER TABLE `goal`
-  ADD CONSTRAINT `FK_BudgetGoal` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
-  ADD CONSTRAINT `FK_UserGoal` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_goalBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
+  ADD CONSTRAINT `fk_goalUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `log_activity`
 --
 ALTER TABLE `log_activity`
-  ADD CONSTRAINT `FK_UserActivity` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_logActivityUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `log_budget`
+--
+ALTER TABLE `log_budget`
+  ADD CONSTRAINT `fk_logBudgetUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `log_category`
 --
 ALTER TABLE `log_category`
-  ADD CONSTRAINT `FK_UserLogCategory` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_logCategoryUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `log_expense`
 --
 ALTER TABLE `log_expense`
-  ADD CONSTRAINT `FK_UserLogExpense` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_logExpenseUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `log_goal`
+--
+ALTER TABLE `log_goal`
+  ADD CONSTRAINT `fk_logGoalBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
+  ADD CONSTRAINT `fk_logGoalUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `log_user`
 --
 ALTER TABLE `log_user`
-  ADD CONSTRAINT `FK_LogUserInfo` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_logUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
