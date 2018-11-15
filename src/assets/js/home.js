@@ -265,7 +265,7 @@ const initFeedbackView = (feedbackView = self.feedbackView, statistics = self.st
   setTimeout(() =>{displayProgressBar(getDecimalFormat(Math.ceil(budget_left_perc)), feedbackProgressBars[1]);},200);
   if(self.feedbackAllowance===true){
     const feedbackImageCard = populateAffectiveCard(user_performance);
-    feedbackView.insertBefore(feedbackImageCard, feedbackView.childNodes[1]);
+    feedbackView.insertBefore(feedbackImageCard, feedbackView.childNodes[0]);
   }
   hideElement(self.statisticsView);
   displayElement(self.feedbackView);
