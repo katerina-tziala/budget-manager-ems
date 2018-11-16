@@ -60,7 +60,6 @@
   padding: 4px 8px;
   margin-top: 5px;
 }
-
 .setBudgetWallet.fas.fa-wallet{
   margin-right: 10px;
   font-size: 1.4rem;
@@ -713,7 +712,7 @@
   max-width: 400px;
   min-width: 260px;
   margin: 16px;
-  padding: 16px 16px 30px;
+  padding: 19px 16px 30px;
 }
 #feedbackHeader{
   font-size: 1.4rem;
