@@ -7,22 +7,6 @@
     public function __construct(){
       $this->db = new Database();
     }
-    //function to set feedback for users:
-    private function setFeedback($connection){
-      $query_a_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=1");
-      $query_b_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=0");
-      $feedback = $this->db->countColumn($query_a_params);
-      $nofeedback = $this->db->countColumn($query_b_params);
-      $addfeedback_value;
-      if($feedback==$nofeedback){//same number of users with feedback and without feedback:
-        $addfeedback_value=(rand(0,1));
-      } elseif ($feedback > $nofeedback) {//if we have more users with feedback then we add a user without feedback:
-        $addfeedback_value=0;
-      } else {//if we have more users without feedback then we add a user with feedback:
-        $addfeedback_value=1;
-      }
-      return $addfeedback_value;
-    }
     //function to save user's activity:
 		public function saveActivity($args){
       $connection = $args['connection'];
@@ -61,12 +45,12 @@
 			return $save_results;
 		}
     //function to send email
-    public function sendEmail($args){
-      $to = $args['receiver'];
+    public function sendEmail($sender, $sendername,  $receiver, $subject, $message){
+      $to = $receiver;
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-      $headers .= "From: '".$args['sendername']."' <".$args['sender'].">" . "\r\n";
-      if (mail($to,$args['subject'],$args['message'],$headers)) {
+      $headers .= "From: '".$sendername."' <".$sender.">" . "\r\n";
+      if (mail($to,$subject,$message,$headers)) {
         return true;
       }else{
         return false;
@@ -122,7 +106,9 @@
       if($db_usernames===0 && $db_emails===0){
         $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
         $user_pass = password_hash($password, PASSWORD_DEFAULT);
-        $feedback = $this->setFeedback($connection);
+        //$feedback = $this->setFeedback($connection);
+        $feedback = 0;
+
         $saveuser_params = array('connection' => $connection, 'username' => $username, 'email' => $email, 'user_pass' => $user_pass, 'gender' => $gender, 'birthday' => $birthday, 'feedback' => $feedback, 'activationcode' => $activationcode);
         $user_saved = $this->saveUser($saveuser_params);
         if($user_saved[0]===true){
@@ -130,8 +116,7 @@
           $linkpart = "?id=".$user_saved[1]."&username=".$username."&code=".$activationcode;
           $mail_params = array('type' => "activation", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $email, 'subject' => $subject,'message' =>$mailtosend);
-          $send_mail = $this->sendEmail($sent_mail_params);
+          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
           if($send_mail===true){
             $message="success";
           } else {
@@ -151,13 +136,41 @@
       $results = array("message" => $message, 'target' => "signup");
       return $results;
     }
+    //function to set feedback for users:
+    private function setFeedback(){
+      $query_a_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=1 AND verified=1");
+      $query_b_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=0 AND verified=1");
+      $feedback = $this->db->countColumn($query_a_params);
+      $nofeedback = $this->db->countColumn($query_b_params);
+      $addfeedback_value;
+      if($feedback==$nofeedback){//same number of users with feedback and without feedback:
+        $addfeedback_value=(rand(0,1));
+      } elseif ($feedback > $nofeedback) {//if we have more users with feedback then we add a user without feedback:
+        $addfeedback_value=0;
+      } else {//if we have more users without feedback then we add a user with feedback:
+        $addfeedback_value=1;
+      }
+      return $addfeedback_value;
+    }
+    //function to verify user and set feedback in db:
+		private function verifyAndSetFeedback($args){
+      $connection = $args['connection'];
+      $sql = "UPDATE user SET feedback=?, verified=?  WHERE ".$args['where']."";
+      $stmt = $connection->prepare($sql);
+      $stmt->bind_param('ii', $args['feedback'], $args['verified']);
+      if($stmt->execute()){
+        return true;
+      } else {
+        return false;
+      }
+		}
     //function to verify user and activate account:
     public function activateAccount($data){
       $id = $this->prepareDataId($data['id']);
       $username = $this->prepareDataString($data['username']);
       $activationcode = $this->prepareDataString($data['activationcode']);
       $message = "";
-      $this->db->dbConnect();
+      $connection=$this->db->dbConnect();
       $row_params = array('select' => 'verified, activationcode','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
       $db_user = $this->db->getRow($row_params);
       if(count($db_user)===0){
@@ -166,8 +179,9 @@
         if(count($db_user)>0 && $db_user['verified']===1){
           $message = "already_active";
         } else if($db_user['activationcode']===$activationcode){
-          $update_params = array('table' => 'user', 'column' => 'verified', 'value' => 1, 'where' => "id='".$id."'");
-          $updated = $this->db->updateIntColumn($update_params);
+          $feedback=$this->setFeedback();
+          $update_params = array('connection' => $connection,'feedback' => $feedback, 'verified' => 1, 'where' => "id='".$id."' AND username='".$username."'");
+          $updated = $this->verifyAndSetFeedback($update_params);
           if ($updated===true) {
             $message = "success";
           }
@@ -199,8 +213,7 @@
           $linkpart = "?account=".$username."&code=".$activationcode;
           $mail_params = array('type' => "reset", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $email, 'subject' => $subject,'message' =>$mailtosend);
-          $send_mail = $this->sendEmail($sent_mail_params);
+          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
           if($send_mail===true){
             $message = "success";
           }
@@ -243,8 +256,7 @@
               $subject = "Your Password Changed";
               $mail_params = array('type' => "pass_change",'app_host'=>$apphost, 'sendinguser' => $username);
               $mailtosend = $this->getAppMail($mail_params);
-              $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $db_account['email'], 'subject' => $subject,'message' =>$mailtosend);
-              $send_mail = $this->sendEmail($sent_mail_params);
+              $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $db_account['email'], $subject, $mailtosend);
               if($send_mail===true){
                 $message = "success";
               }else{
@@ -280,8 +292,7 @@
       }else{
         $subject = ucwords($subject);
       }
-      $sent_mail_params = array('sender' => $email, 'sendername' => $fullname, 'receiver' => $this->app_mail, 'subject' => $subject,'message' =>$email_message);
-      $send_mail = $this->sendEmail($sent_mail_params);
+      $send_mail = $this->sendEmail($email, $fullname, $this->app_mail, $subject, $email_message);
       if($send_mail===true){
         $message = "success";
       } else {

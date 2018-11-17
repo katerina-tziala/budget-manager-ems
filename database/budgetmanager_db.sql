@@ -25,6 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` enum('male','female') COLLATE utf8_unicode_ci NOT NULL,
+  `birthdate` date NOT NULL,
+  `feedback` int(1) NOT NULL,
+  `registered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `activationcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `verified` int(1) NOT NULL DEFAULT '0',
+  `signed_in` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
 -- Table structure for table `budget`
 --
 
@@ -225,25 +243,6 @@ CREATE TABLE `log_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` enum('male','female') COLLATE utf8_unicode_ci NOT NULL,
-  `birthdate` date NOT NULL,
-  `feedback` int(1) NOT NULL,
-  `registered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `activationcode` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
-  `verified` int(1) NOT NULL DEFAULT '0',
-  `signed_in` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 --
 -- Indexes for dumped tables
 --
