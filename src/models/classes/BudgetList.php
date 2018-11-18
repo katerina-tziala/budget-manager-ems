@@ -1,8 +1,8 @@
 <?php
-  class Budget{
+  class BudgetList{
     private $db;
     private $budget_list = [];
-    //construct the Limits model:
+    //construct the model:
     public function __construct($database, $user_id){
       $this->db = $database;
       $this->loadUserBudgetList($user_id);

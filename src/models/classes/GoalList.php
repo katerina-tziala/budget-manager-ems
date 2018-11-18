@@ -1,8 +1,8 @@
 <?php
-  class Goals{
+  class GoalList{
     private $db;
     private $goal_list = [];
-    //construct the Limits model:
+    //construct the model:
     public function __construct($database){
       $this->db = $database;
     }

@@ -1,8 +1,8 @@
 <?php
-  class Expenses{
+  class ExpenseList{
     private $db;
     private $expenseList = [];
-    //construct the Expenses model:
+    //construct the model:
     public function __construct($database){
       $this->db = $database;
     }
@@ -53,11 +53,14 @@
       $connection = $args['connection'];
     	$stmt = $connection->prepare("INSERT INTO log_expense	(user_id, expense_id, amount, category, payment, expense_date, expense_time, location, store, comments, log_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			$stmt->bind_param("iidssssssss", $args['user_id'], $args['expense_id'], $args['amount'], $args['category'], $args['payment'], $args['date'], $args['time'], $args['location'], $args['store'], $args['comments'], $args['log_type']);
-      if($stmt->execute()){
-				return true;
+			$save_results = array();
+			if($stmt->execute()){
+				$id = $stmt->insert_id;
+				$save_results = array(true, $id);
 			} else {
-				return false;
+				$save_results = array(false, 'no_id');
 			}
+			return $save_results;
 		}
     //function to update expense:
 		private function updateExpense($args){

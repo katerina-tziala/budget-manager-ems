@@ -1,9 +1,9 @@
 <?php
   require_once("User.php");
-  require_once('Categories.php');
-  require_once('Budget.php');
-  require_once('Goals.php');
-  require_once('Expenses.php');
+  require_once('CategoyList.php');
+  require_once('BudgetList.php');
+  require_once('GoalList.php');
+  require_once('ExpenseList.php');
     class LoggedUser extends User{
     private $db;
     private $id;
@@ -24,10 +24,10 @@
       $this->username = $logged_username;
       $this->db = new Database();
       $this->loadUserInfo($logged_username);
-      $this->userBudget = new Budget($this->db, $this->id);
-      $this->userCategories = new Categories($this->db);
-      $this->userGoals = new Goals($this->db);
-      $this->userExpenses = new Expenses($this->db);
+      $this->userBudget = new BudgetList($this->db, $this->id);
+      $this->userCategories = new CategoyList($this->db);
+      $this->userGoals = new GoalList($this->db);
+      $this->userExpenses = new ExpenseList($this->db);
     }
     //destructor
     public function __destruct() {}
@@ -309,8 +309,7 @@
             $linkpart = "?id=".$this->id."&username=".$this->username."&code=".$activationcode;
             $mail_params = array('type' => "re_activation",'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $this->username);
             $mailtosend = $this->getAppMail($mail_params);
-            $sent_mail_params = array('sender' => $this->app_mail, 'sendername' => "Budget Manager", 'receiver' => $new_email, 'subject' => $subject,'message' =>$mailtosend);
-            $sendmail = $this->sendEmail($sent_mail_params);
+            $sendmail = $this->sendEmail($this->app_mail, "Budget Manager", $new_email, $subject, $mailtosend);
             if($sendmail===true){
               $signed_out = $this->signOut($connection);
               if($signed_out===true){

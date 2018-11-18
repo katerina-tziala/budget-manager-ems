@@ -1,8 +1,8 @@
 <?php
-  class Categories{
+  class CategoyList{
     private $db;
     private $basic_categories = [];
-    //construct the Categories model:
+    //construct the model:
     public function __construct($database){
       $this->db = $database;
     }
