@@ -32,14 +32,6 @@
 			$results = $stmt->get_result();
 			return $results;
 		}
-		//function to count one column:
-		public function countColumn($args){
-			$column = $args['column'];
-			$sql ="SELECT COUNT('".$column."') FROM ".$args['table']." WHERE ".$args['where']."";
-			$result = $this->runQuery($sql);
-			$cell = $result->fetch_row();
-			return $cell[0];
-		}
 		//function to select one row:
 		public function getRow($args){
 			$sql ="SELECT ".$args['select']." FROM ".$args['table']." WHERE ".$args['where']."";
@@ -51,10 +43,22 @@
 			}
 			return $data;
 		}
-		/*
-		* FUNCTIONS TO DELETE, SAVE AND UPDATE TABLES IN DATABASE:
-		*/
-		//function to confirm deletion from database:
+		//function to get value of one cell:
+		public function getCell($args){
+			$sql ="SELECT ".$args['column']." FROM ".$args['table']." WHERE ".$args['where']."";
+			$result = $this->runQuery($sql);
+			$cell = $result->fetch_row();
+			return $cell[0];
+		}
+		//function to count one column:
+		public function countColumn($args){
+			$column = $args['column'];
+			$sql ="SELECT COUNT('".$column."') FROM ".$args['table']." WHERE ".$args['where']."";
+			$result = $this->runQuery($sql);
+			$cell = $result->fetch_row();
+			return $cell[0];
+		}
+		//function to delete from the database:
 		public function deleteFromDB($sql){
 			$stmt = $this->db_connection->prepare($sql);
 			if($stmt->execute()){
@@ -95,13 +99,6 @@
 			} else {
 				return false;
 			}
-		}
-		//function to get value of one cell:
-		public function getCell($args){
-			$sql ="SELECT ".$args['column']." FROM ".$args['table']." WHERE ".$args['where']."";
-			$result = $this->runQuery($sql);
-			$cell = $result->fetch_row();
-			return $cell[0];
 		}
 	}
 ?>
