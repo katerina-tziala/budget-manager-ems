@@ -1,33 +1,18 @@
--- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Nov 10, 2018 at 08:15 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `budgetmanager`
 --
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `user`
 --
-
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -41,11 +26,9 @@ CREATE TABLE `user` (
   `verified` int(1) NOT NULL DEFAULT '0',
   `signed_in` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 --
 -- Table structure for table `budget`
 --
-
 CREATE TABLE `budget` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -54,23 +37,18 @@ CREATE TABLE `budget` (
   `budget_to` date NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `category`
 --
-
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `added_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 --
 -- Dumping data for table `category`
 --
-
 INSERT INTO `category` (`id`, `category_name`, `added_by`) VALUES
 (1, 'bar & café', NULL),
 (2, 'bills & fees', NULL),
@@ -92,13 +70,10 @@ INSERT INTO `category` (`id`, `category_name`, `added_by`) VALUES
 (18, 'traveling & vacation', NULL),
 (19, 'vehicle', NULL),
 (20, 'miscellaneous', NULL);
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `expense`
 --
-
 CREATE TABLE `expense` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -112,13 +87,10 @@ CREATE TABLE `expense` (
   `comments` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `feedback`
 --
-
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -127,13 +99,10 @@ CREATE TABLE `feedback` (
   `user_performance` enum('fail','success') COLLATE utf8_unicode_ci NOT NULL,
   `served_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `goal`
 --
-
 CREATE TABLE `goal` (
   `id` int(11) NOT NULL,
   `budget_id` int(11) NOT NULL,
@@ -142,13 +111,10 @@ CREATE TABLE `goal` (
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_activity`
 --
-
 CREATE TABLE `log_activity` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
