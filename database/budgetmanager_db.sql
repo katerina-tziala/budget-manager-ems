@@ -79,7 +79,9 @@ CREATE TABLE `expense` (
   `user_id` int(11) NOT NULL,
   `amount` float NOT NULL,
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `payment` enum('cash','credit card','debit card','prepaid card','gift card','bank transfer','check','mobile payment','web payment') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
+  `payment` enum('cash','credit card','debit card','prepaid card','gift card',
+    'bank transfer','check','mobile payment','web payment')
+    COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
   `expense_date` date NOT NULL,
   `expense_time` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -121,13 +123,10 @@ CREATE TABLE `log_activity` (
   `log_time` datetime NOT NULL,
   `activity_type` enum('sign_in','sign_out') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_budget`
 --
-
 CREATE TABLE `log_budget` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -138,7 +137,6 @@ CREATE TABLE `log_budget` (
   `log_type` enum('inserted','deleted','updated') COLLATE utf8_unicode_ci NOT NULL,
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
 
 --
