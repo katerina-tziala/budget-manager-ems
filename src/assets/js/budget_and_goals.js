@@ -332,8 +332,6 @@ const initNobudgetView = (previousBudget = self.previousBudget, pickerDates = se
   const budget_form = document.getElementById('budget_form');
   initDatePickerCalendar(self.budgetCalendar, dayPicker, pickerDates, dayPickerInput);
   instantAmountValidation(budget_form);
-  //displayElement(self.noBudgetView);
-  //hideElement(self.currentBudgetView);
 };
 //initialize current budget view
 const initCurrentBudgetView = (previousBudget = self.previousBudget, currentBudget = self.currentBudget, pickerDates = self.budgetPickerDates) => {
@@ -342,8 +340,6 @@ const initCurrentBudgetView = (previousBudget = self.previousBudget, currentBudg
   initBudgetCard();
   initAddGoalForm();
   initGoalsSectionHtml();
-  //hideElement(self.noBudgetView);
-  //displayElement(self.currentBudgetView);
 };
 //initialize goals section
 const initGoalsSectionHtml = (currentBudget = self.currentBudget) =>{
@@ -850,10 +846,8 @@ const setGoal = (event, currentBudget = self.currentBudget, addGoalForm = self.a
         sendData('addBudgetGoal', data).then((response)=>{
           document.getElementById('adding_goal_msg').remove();
           displayElement(addBtn);
-console.log(response);
-
           if(response.message==="invalid_request"){
-            //invalidRequestHandler(data);
+            invalidRequestHandler(data);
           } else if(response.message==="success"){
             const newGoal = {
               "id": parseInt(response.added_id),
@@ -1153,11 +1147,15 @@ const createCategoriesSelectBox = () => {
     boxChecker[0].remove();
   }
   const options = getSelectBoxOptions();
+  const add_goal_btn = document.getElementById('btn_goal_add');
   if (options.length>0) {
     const selectbox = createSelectBox('category_select', options, 'addGoalContainer', 'input_tag select_tag', 'Select Category', 'add_goal_input', 'goal_category', options[0], 'add_goal_label');
     self.addGoalform.insertBefore(selectbox, self.addGoalform.childNodes[1]);
     const addGoalSelectBox = document.getElementById('category_select');
     initSelectBox(addGoalSelectBox, options[0]);
+    displayElement(add_goal_btn);
+  }else {
+    hideElement(add_goal_btn);
   }
   displayElement(self.actionButtonsContainer);
 };
