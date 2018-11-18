@@ -44,7 +44,7 @@
 			}
 			return $save_results;
 		}
-    //function to send email
+    //function to exchange emails between a user and the app
     public function sendEmail($sender, $sendername,  $receiver, $subject, $message){
       $to = $receiver;
       $headers = "MIME-Version: 1.0" . "\r\n";
@@ -56,7 +56,7 @@
         return false;
       }
     }
-    //function to create emails that are sent from the app
+    //function to create emails that are sent from the app to the user
     public function getAppMail($args){
       $app_host = "";
       $linkpart = "";
