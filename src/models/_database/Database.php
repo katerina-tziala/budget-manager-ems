@@ -50,7 +50,7 @@
 			$cell = $result->fetch_row();
 			return $cell[0];
 		}
-		//function to count one column:
+		//function to count the records of one column of a table:
 		public function countColumn($args){
 			$column = $args['column'];
 			$sql ="SELECT COUNT('".$column."') FROM ".$args['table']." WHERE ".$args['where']."";
