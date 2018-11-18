@@ -138,11 +138,9 @@ CREATE TABLE `log_budget` (
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_category`
 --
-
 CREATE TABLE `log_category` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -151,13 +149,10 @@ CREATE TABLE `log_category` (
   `log_type` enum('inserted','deleted','updated') COLLATE utf8_unicode_ci NOT NULL,
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_expense`
 --
-
 CREATE TABLE `log_expense` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -173,13 +168,10 @@ CREATE TABLE `log_expense` (
   `log_type` enum('inserted','deleted','updated') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'inserted',
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_goal`
 --
-
 CREATE TABLE `log_goal` (
   `id` int(11) NOT NULL,
   `goal_id` int(11) NOT NULL,
@@ -190,13 +182,10 @@ CREATE TABLE `log_goal` (
   `log_type` enum('inserted','updated','deleted') COLLATE utf8_unicode_ci NOT NULL,
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `log_user`
 --
-
 CREATE TABLE `log_user` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -205,7 +194,6 @@ CREATE TABLE `log_user` (
   `new_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `log_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- --------------------------------------------------------
 --
 -- Indexes for dumped tables
