@@ -159,7 +159,9 @@ CREATE TABLE `log_expense` (
   `expense_id` int(11) NOT NULL,
   `amount` float NOT NULL,
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `payment` enum('cash','credit card','debit card','prepaid card','gift card','bank transfer','check','mobile payment','web payment') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
+  `payment` enum('cash','credit card','debit card','prepaid card','gift card',
+    'bank transfer','check','mobile payment','web payment')
+    COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
   `expense_date` date NOT NULL,
   `expense_time` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -198,28 +200,24 @@ CREATE TABLE `log_user` (
 --
 -- Indexes for dumped tables
 --
-
 --
 -- Indexes for table `budget`
 --
 ALTER TABLE `budget`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_budgetUserId` (`user_id`);
-
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_categoryUserId` (`added_by`);
-
 --
 -- Indexes for table `expense`
 --
 ALTER TABLE `expense`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_expenseUserId` (`user_id`);
-
 --
 -- Indexes for table `feedback`
 --
@@ -227,7 +225,6 @@ ALTER TABLE `feedback`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_feedbackBudgetId` (`budget_id`),
   ADD KEY `fk_feedbackUserId` (`user_id`);
-
 --
 -- Indexes for table `goal`
 --
@@ -235,35 +232,30 @@ ALTER TABLE `goal`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_goalBudgetId` (`budget_id`),
   ADD KEY `fk_goalUserId` (`user_id`);
-
 --
 -- Indexes for table `log_activity`
 --
 ALTER TABLE `log_activity`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logActivityUserId` (`user_id`);
-
 --
 -- Indexes for table `log_budget`
 --
 ALTER TABLE `log_budget`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logBudgetUserId` (`user_id`);
-
 --
 -- Indexes for table `log_category`
 --
 ALTER TABLE `log_category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logCategoryUserId` (`user_id`);
-
 --
 -- Indexes for table `log_expense`
 --
 ALTER TABLE `log_expense`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logExpenseUserId` (`user_id`);
-
 --
 -- Indexes for table `log_goal`
 --
@@ -271,14 +263,12 @@ ALTER TABLE `log_goal`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logGoalBudgetId` (`budget_id`),
   ADD KEY `fk_logGoalUserId` (`user_id`);
-
 --
 -- Indexes for table `log_user`
 --
 ALTER TABLE `log_user`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_logUserId` (`user_id`);
-
 --
 -- Indexes for table `user`
 --
