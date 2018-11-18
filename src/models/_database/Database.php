@@ -32,7 +32,7 @@
 			$results = $stmt->get_result();
 			return $results;
 		}
-		//function to select one row:
+		//function to retrieve one record:
 		public function getRow($args){
 			$sql ="SELECT ".$args['select']." FROM ".$args['table']." WHERE ".$args['where']."";
 			$results = $this->runQuery($sql);
@@ -43,7 +43,7 @@
 			}
 			return $data;
 		}
-		//function to get value of one cell:
+		//function to retrieve the value of one cell:
 		public function getCell($args){
 			$sql ="SELECT ".$args['column']." FROM ".$args['table']." WHERE ".$args['where']."";
 			$result = $this->runQuery($sql);
@@ -67,7 +67,7 @@
 				return false;
 			}
 		}
-		//function to update a cell of a table that contains integer:
+		//function to update a cell of a table that contains an integer value:
 		public function updateIntColumn($args){
 			$sql = "UPDATE ".$args['table']." SET ".$args['column']."=? WHERE ".$args['where']."";
 			$stmt = $this->db_connection->prepare($sql);
@@ -78,7 +78,7 @@
 				return false;
 			}
 		}
-		//function to update column that contains string:
+		//function to update a cell of a table that contains a string value:
 		public function updateStringColumn($args){
 			$sql = "UPDATE ".$args['table']." SET ".$args['column']."=? WHERE ".$args['where']."";
 			$stmt = $this->db_connection->prepare($sql);
@@ -89,7 +89,7 @@
 				return false;
 			}
 		}
-		//function to update column that contains decimal:
+		//function to update a cell of a table that contains a decimal value:
 		public function updateFloatColumn($args){
 			$sql = "UPDATE ".$args['table']." SET ".$args['column']."=? WHERE ".$args['where']."";
 			$stmt = $this->db_connection->prepare($sql);
