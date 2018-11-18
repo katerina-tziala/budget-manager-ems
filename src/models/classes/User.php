@@ -7,7 +7,7 @@
     public function __construct(){
       $this->db = new Database();
     }
-    //function to save user's activity:
+    //function to save user's activity - insert a new record in the log_activity table:
 		public function saveActivity($args){
       $connection = $args['connection'];
 			$stmt = $connection->prepare("INSERT INTO log_activity (user_id, log_time, activity_type) VALUES (?, ?, ?)");
@@ -18,7 +18,7 @@
 				return false;
 			}
 		}
-    //function to save user's activity:
+    //function to update columns password and activationcode of the user table:
 		public function updatePasswordCells($args){
       $connection = $args['connection'];
       $sql = "UPDATE user SET password=?, activationcode=?  WHERE ".$args['where']."";
@@ -30,11 +30,11 @@
         return false;
       }
 		}
-    //function to save user:
+    //function to save user - insert a new record in the user table:
 		private function saveUser($args){
       $connection = $args['connection'];
     	$stmt = $connection->prepare("INSERT INTO user (username, email, password, gender, birthdate, feedback, activationcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
-			$stmt->bind_param("sssssis",  $args['username'], $args['email'], $args['user_pass'], $args['gender'],  $args['birthday'], $args['feedback'], $args['activationcode']);
+			$stmt->bind_param("sssssis",  $args['username'], $args['email'], $args['user_pass'], $args['gender'], $args['birthday'], $args['feedback'], $args['activationcode']);
 			$save_results = array();
 			if($stmt->execute()){
 				$id = $stmt->insert_id;
