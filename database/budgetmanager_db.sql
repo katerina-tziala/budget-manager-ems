@@ -334,80 +334,67 @@ ALTER TABLE `log_goal`
 --
 ALTER TABLE `log_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- Constraints for dumped tables
 --
-
 --
 -- Constraints for table `budget`
 --
 ALTER TABLE `budget`
   ADD CONSTRAINT `fk_budgetUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `category`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `fk_categoryUserId` FOREIGN KEY (`added_by`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `expense`
 --
 ALTER TABLE `expense`
   ADD CONSTRAINT `fk_expenseUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `fk_feedbackBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   ADD CONSTRAINT `fk_feedbackUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `goal`
 --
 ALTER TABLE `goal`
   ADD CONSTRAINT `fk_goalBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   ADD CONSTRAINT `fk_goalUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_activity`
 --
 ALTER TABLE `log_activity`
   ADD CONSTRAINT `fk_logActivityUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_budget`
 --
 ALTER TABLE `log_budget`
   ADD CONSTRAINT `fk_logBudgetUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_category`
 --
 ALTER TABLE `log_category`
   ADD CONSTRAINT `fk_logCategoryUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_expense`
 --
 ALTER TABLE `log_expense`
   ADD CONSTRAINT `fk_logExpenseUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_goal`
 --
 ALTER TABLE `log_goal`
   ADD CONSTRAINT `fk_logGoalBudgetId` FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   ADD CONSTRAINT `fk_logGoalUserId` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
 --
 -- Constraints for table `log_user`
 --
