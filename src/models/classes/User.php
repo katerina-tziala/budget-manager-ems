@@ -291,7 +291,8 @@
         $db_account = $this->db->getRow($row_params);
         $numb = count($db_account);
         if($numb>0 && $db_account['verified']===1){//acount exists and is valid
-          if($db_account['activationcode']===$activationcode){//activation code is a match to the activation code in the link
+          //activation code is a match to the activation code in the link
+          if($db_account['activationcode']===$activationcode){
             $newactivationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
             $user_pass = password_hash($newpass, PASSWORD_DEFAULT);
             $update_params = array('connection' => $connection,
