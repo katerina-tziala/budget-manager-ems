@@ -111,7 +111,7 @@
       $db_usernames_params = array('table' => 'user', 'column' => 'username', 'where' => "email='".$email."'");
       $db_emails = $this->db->countColumn($db_emails_params);
       $db_usernames = $this->db->countColumn($db_usernames_params);
-      if($db_usernames===0 && $db_emails===0){
+      if($db_usernames===0 && $db_emails===0){//new user for the system
         $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
         $user_pass = password_hash($password, PASSWORD_DEFAULT);
         $feedback = 0;
@@ -123,25 +123,28 @@
           'feedback' => $feedback,
           'activationcode' => $activationcode);
         $user_saved = $this->saveUser($saveuser_params);
-        if($user_saved[0]===true){
+        if($user_saved[0]===true){//user was successfully added in the database
           $subject = "Account Activation";
           $linkpart = "?id=".$user_saved[1]."&username=".$username."&code=".$activationcode;
-          $mail_params = array('type' => "activation", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
+          $mail_params = array('type' => "activation",
+            'app_host'=>$apphost,
+            'linkpart' => $linkpart,
+            'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
           $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
-          if($send_mail===true){
+          if($send_mail===true){//activation email was send
             $message="success";
-          } else {
+          } else {//activation email was not send
             $message = "saved_no_ver_email";
           }
-        }else {
+        }else {//user was not added in the database
           $message="db_error";
         }
-      }elseif ($db_usernames!=0 && $db_emails!=0) {
+      }elseif ($db_usernames!=0 && $db_emails!=0) {//both username and email exist in the database
         $message = "username_email_exists";
-      } elseif ($db_usernames!=0 && $db_emails==0) {
+      } elseif ($db_usernames!=0 && $db_emails==0) {//username exists in the database
         $message = "username_exists";
-      } elseif ($db_usernames==0 && $db_emails!=0) {
+      } elseif ($db_usernames==0 && $db_emails!=0) {//email exists in the database
         $message = "email_exists";
       }
       $this->db->dbDisconnect();
