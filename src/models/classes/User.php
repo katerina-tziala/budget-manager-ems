@@ -359,7 +359,8 @@
           'where' => $update_sql);
           $saved_activity = $this->saveActivity($save_activity_params);
           $update_status = $this->db->updateIntColumn($update_params);
-          if($saved_activity===true && $update_status===true){//activity was saved in the database status was updated in the user table
+          //activity was saved in the database status was updated in the user table
+          if($saved_activity===true && $update_status===true){
             $_SESSION['bm_ems_user'] = $db_user['username'];
             if($cookie===true){//remember me option is checked - set the cookie
               $cookie_name = "bm_ems_user";
