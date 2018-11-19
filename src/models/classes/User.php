@@ -373,7 +373,7 @@
             $message = "login_error";
           }
         }
-      } elseif (count($db_user)>0 && $db_user['verified']===0) {//account is unverified
+      } elseif (count($db_user)>0 && $db_user['verified']===0) {//account is not verified
         $message = "unverified_account";
       } else {//wrong email or username
         $message = "wrong_email_username";
