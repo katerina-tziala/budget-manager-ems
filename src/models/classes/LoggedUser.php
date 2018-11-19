@@ -308,8 +308,13 @@
             $subject = "Account Activation";
             $linkpart = "?id=".$this->id."&username=".$this->username."&code=".$activationcode;
             $mail_params = array('type' => "re_activation",'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $this->username);
-            $mailtosend = $this->getAppMail($mail_params);
-            $sendmail = $this->sendEmail($this->app_mail, "Budget Manager", $new_email, $subject, $mailtosend);
+            $mailtosend = $this->getAppMail($mail_params);  
+            $send_mail_params = array('receiver' => $this->app_mail,
+            'sendername' => "Budget Manager",
+            'sender' => $new_email,
+            'subject' => $subject,
+            'message' => $mailtosend);
+            $send_mail = $this->sendEmail($send_mail_params);
             if($sendmail===true){
               $signed_out = $this->signOut($connection);
               if($signed_out===true){

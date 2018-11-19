@@ -45,19 +45,17 @@
 			return $save_results;
 		}
     //function to exchange emails between a user and the app
-    public function sendEmail($sender, $sendername,  $receiver, $subject, $message){
-      $to = $receiver;
+    public function sendEmail($args){
+      $to = $args['receiver'];
       $headers = "MIME-Version: 1.0" . "\r\n";
       $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-      $headers .= "From: '".$sendername."' <".$sender.">" . "\r\n";
-      if (mail($to,$subject,$message,$headers)) {
+      $headers .= "From: '".$args['sendername']."' <".$args['sender'].">" . "\r\n";
+      if (mail($to,$args['subject'],$args['message'],$headers)) {
         return true;
       }else{
         return false;
       }
     }
-
-
     //function to create emails that are sent from the app to the user
     public function getAppMail($args){
       $app_host = "";
@@ -131,7 +129,12 @@
             'linkpart' => $linkpart,
             'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
+          $send_mail_params = array('receiver' => $email,
+          'sendername' => "Budget Manager",
+          'sender' => $this->app_mail,
+          'subject' => $subject,
+          'message' => $mailtosend);
+          $send_mail = $this->sendEmail($send_mail_params);
           if($send_mail===true){//activation email was send
             $message="success";
           } else {//activation email was not send
@@ -237,7 +240,12 @@
           $linkpart = "?account=".$username."&code=".$activationcode;
           $mail_params = array('type' => "reset", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
-          $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
+          $send_mail_params = array('receiver' => $email,
+          'sendername' => "Budget Manager",
+          'sender' => $this->app_mail,
+          'subject' => $subject,
+          'message' => $mailtosend);
+          $send_mail = $this->sendEmail($send_mail_params);
           if($send_mail===true){//send email to reset password
             $message = "success";
           }else{//email was not send
@@ -283,7 +291,12 @@
               $subject = "Your Password Changed";
               $mail_params = array('type' => "pass_change",'app_host'=>$apphost, 'sendinguser' => $username);
               $mailtosend = $this->getAppMail($mail_params);
-              $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $db_account['email'], $subject, $mailtosend);
+              $send_mail_params = array('receiver' => $db_account['email'],
+              'sendername' => "Budget Manager",
+              'sender' => $this->app_mail,
+              'subject' => $subject,
+              'message' => $mailtosend);
+              $send_mail = $this->sendEmail($send_mail_params);
               if($send_mail===true){//email was send
                 $message = "success";
               }else{//password changed but the email was not send
@@ -319,7 +332,12 @@
       }else{
         $subject = ucwords($subject);
       }
-      $send_mail = $this->sendEmail($email, $fullname, $this->app_mail, $subject, $email_message);
+      $send_mail_params = array('receiver' => $this->app_mail,
+      'sendername' => $fullname,
+      'sender' => $email,
+      'subject' => $subject,
+      'message' => $email_message);
+      $send_mail = $this->sendEmail($send_mail_params);
       if($send_mail===true){
         $message = "success";
       } else {
