@@ -13,9 +13,15 @@
     private function loadUserCategories($id){
       $this->basic_categories = [];
       $this->db->dbConnect();
-      $db_categories = $this->db->runQuery("(SELECT * FROM `category` WHERE added_by=$id ORDER BY category_name) UNION (SELECT * FROM `category` WHERE added_by IS NULL) ORDER BY added_by DESC, category_name ASC");
+      $db_categories = $this->db->runQuery("(SELECT * FROM `category`
+      WHERE added_by=$id ORDER BY category_name)
+      UNION
+      (SELECT * FROM `category` WHERE added_by IS NULL)
+      ORDER BY added_by DESC, category_name ASC");
       while ($row = $db_categories->fetch_array(MYSQLI_ASSOC)) {
-        $category = array('id' => $row['id'], 'name' => utf8_encode($row['category_name']), 'added_by' => $row['added_by'] );
+        $category = array('id' => $row['id'],
+        'name' => utf8_encode($row['category_name']),
+        'added_by' => $row['added_by'] );
         array_push($this->basic_categories, $category);
       }
       $this->db->dbDisconnect();
@@ -37,7 +43,8 @@
 		//function to save category to 'log_category' table:
 		private function saveCategoryLog($args){
       $connection = $args['connection'];
-			$stmt = $connection->prepare("INSERT INTO log_category (user_id, category_id, category_name, log_type) VALUES (?, ?, ?, ?)");
+      $sql = "INSERT INTO log_category (user_id, category_id, category_name, log_type) VALUES (?, ?, ?, ?)";
+			$stmt = $connection->prepare($sql);
 			$stmt->bind_param("iiss", $args['user_id'], $args['category_id'], $args['category'], $args['type']);
 			if($stmt->execute()){
 				return true;
