@@ -33,8 +33,10 @@
     //function to save user - insert a new record in the user table:
 		private function saveUser($args){
       $connection = $args['connection'];
-    	$stmt = $connection->prepare("INSERT INTO user (username, email, password, gender, birthdate, feedback, activationcode)  VALUES (?, ?, ?, ?, ?, ?, ?)");
-			$stmt->bind_param("sssssis",  $args['username'], $args['email'], $args['user_pass'], $args['gender'], $args['birthday'], $args['feedback'], $args['activationcode']);
+    	$stmt = $connection->prepare("INSERT INTO user (username, email, password, gender, birthdate, feedback, activationcode)
+      VALUES (?, ?, ?, ?, ?, ?, ?)");
+			$stmt->bind_param("sssssis", $args['username'], $args['email'], $args['user_pass'], $args['gender'],
+      $args['birthday'], $args['feedback'], $args['activationcode']);
 			$save_results = array();
 			if($stmt->execute()){
 				$id = $stmt->insert_id;
@@ -95,7 +97,7 @@
         $compiled_email = $greeting.$messages[$args['type']].$bye_greeting;
         return $compiled_email;
       }
-    //function to sign up user:
+    //function to sign up a user:
     public function signUp($data){
       $message="";
       $username = $this->prepareDataString($data['username']);
@@ -105,8 +107,12 @@
       $birthday = $this->prepareDataDate($data['birth']);
       $apphost = $this->prepareDataString($data['apphost']);
       $connection = $this->db->dbConnect();
-      $db_emails_params = array('table' => 'user', 'column' => 'email', 'where' => "email='".$email."'");
-      $db_usernames_params = array('table' => 'user', 'column' => 'username', 'where' => "email='".$email."'");
+      $db_emails_params = array('table' => 'user',
+      'column' => 'email',
+      'where' => "email='".$email."'");
+      $db_usernames_params = array('table' => 'user',
+      'column' => 'username',
+      'where' => "email='".$email."'");
       $db_emails = $this->db->countColumn($db_emails_params);
       $db_usernames = $this->db->countColumn($db_usernames_params);
       if($db_usernames===0 && $db_emails===0){//new user for the system
@@ -189,14 +195,17 @@
       $activationcode = $this->prepareDataString($data['activationcode']);
       $message = "";
       $connection=$this->db->dbConnect();
-      $row_params = array('select' => 'verified, activationcode','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
+      $row_params = array('select' => 'verified, activationcode',
+      'table' => 'user',
+      'where' => "id='".$id."' AND username='".$username."'");
       $db_user = $this->db->getRow($row_params);
       if(count($db_user)===0){//the account of the user was not found
         $message = "account_not_found";
       }else{//account was found
         if(count($db_user)>0 && $db_user['verified']===1){//account is already active
           $message = "already_active";
-        } else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){//account is not active and the activation code is valid
+        } //account is not active and the activation code is valid
+        else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){
           $feedback=$this->setFeedback();
           $update_params = array('connection' => $connection,
             'feedback' => $feedback,
@@ -238,7 +247,10 @@
         if($update_code===true){//update activation code
           $subject =  "Reset Password";
           $linkpart = "?account=".$username."&code=".$activationcode;
-          $mail_params = array('type' => "reset", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
+          $mail_params = array('type' => "reset",
+          'app_host'=>$apphost,
+          'linkpart' => $linkpart,
+          'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
           $send_mail_params = array('receiver' => $email,
           'sendername' => "Budget Manager",
@@ -320,6 +332,55 @@
         $results = array("message" => $message, 'target' => "resetpassword");
         return $results;
       }
+    //function to sign in user:
+    public function signIn($data){
+      $password = $this->prepareDataString($data['password']);
+      $credential =  $this->prepareDataString($data['credential']);
+      $cookie = $data['cookie'];
+      $message = "";
+      $connection = $this->db->dbConnect();
+      $row_args = array('select' => 'id, username, password, verified',
+      'table' => 'user',
+      'where' => "username='".$credential."' OR email='".$credential."'");
+      $db_user = $this->db->getRow($row_args);
+      if(count($db_user)>0 && $db_user['verified']===1){//account exists and is verified
+        if(!password_verify($password, $db_user['password'])){//wrong password
+          $message = "wrong_password";
+        } else {
+          $login_time = date('Y-m-d H:i:s');
+          $save_activity_params = array('connection' => $connection,
+          'user_id' => $db_user['id'],
+          'time' => $login_time,
+          'activity_type' => 'sign_in');
+          $update_sql = "username='".$credential."' OR email='".$credential."'";
+          $update_params = array('table' => 'user',
+          'column' => 'signed_in',
+          'value' => 1,
+          'where' => $update_sql);
+          $saved_activity = $this->saveActivity($save_activity_params);
+          $update_status = $this->db->updateIntColumn($update_params);
+          if($saved_activity===true && $update_status===true){//activity was saved in the database status was updated in the user table
+            $_SESSION['bm_ems_user'] = $db_user['username'];
+            if($cookie===true){//remember me option is checked - set the cookie
+              $cookie_name = "bm_ems_user";
+              $cookie_value = $db_user['username'];
+              setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+            }
+            $message = "success";
+            $username = $db_user['username'];
+          } else {//error when updating log_activity or user table
+            $message = "login_error";
+          }
+        }
+      } elseif (count($db_user)>0 && $db_user['verified']===0) {//account is unverified
+        $message = "unverified_account";
+      } else {//wrong email or username
+        $message = "wrong_email_username";
+      }
+      $this->db->dbDisconnect();
+      $results = array("message" => $message, 'target' => "signin");
+      return $results;
+    }
     //function to send contact email:
     public function sendContactEmail($data){
       $fullname = $this->prepareDataString($data['fullname']);
@@ -327,9 +388,9 @@
       $subject = $this->prepareDataString($data['subject']);
       $email_message = $this->prepareDataString($data['message']);
       $message = "";
-      if(strlen($subject)==0){
+      if(strlen($subject)==0){//email was send without a subject
           $subject = "NO SUBJECT";
-      }else{
+      }else{//capitalize the subject of the email
         $subject = ucwords($subject);
       }
       $send_mail_params = array('receiver' => $this->app_mail,
@@ -338,57 +399,17 @@
       'subject' => $subject,
       'message' => $email_message);
       $send_mail = $this->sendEmail($send_mail_params);
-      if($send_mail===true){
+      if($send_mail===true){//the email was sent to the email address of the system
         $message = "success";
-      } else {
+      } else {//the email was not send
         $message = "error";
       }
       $results = array("message" => $message, 'target' => "contactemail");
       return $results;
     }
-    //function to sign in user:
-    public function signIn($data){
-      $password = $this->prepareDataString($data['password']);
-      $credential =  $this->prepareDataString($data['credential']);
-      $cookie = $data['cookie'];
-      $message = "";
-      $connection = $this->db->dbConnect();
-      $row_args = array('select' => 'id, username, password, verified','table' => 'user','where' => "username='".$credential."' OR email='".$credential."'");
-      $db_user = $this->db->getRow($row_args);
-      if(count($db_user)>0 && $db_user['verified']===1){
-        if(!password_verify($password, $db_user['password'])){
-          $message = "wrong_password";
-        } else {
-          $login_time = date('Y-m-d H:i:s');
-          $save_activity_params = array('connection' => $connection,'user_id' => $db_user['id'],'time' => $login_time,'activity_type' => 'sign_in');
-          $update_sql = "username='".$credential."' OR email='".$credential."'";
-          $update_params = array('table' => 'user','column' => 'signed_in','value' => 1,'where' => $update_sql);
-          $saved_activity = $this->saveActivity($save_activity_params);
-          $update_status = $this->db->updateIntColumn($update_params);
-          if($saved_activity===true && $update_status===true){
-            $_SESSION['bm_ems_user'] = $db_user['username'];
-            if($cookie===true){
-              $cookie_name = "bm_ems_user";
-              $cookie_value = $db_user['username'];
-              setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-            }
-            $message = "success";
-            $username = $db_user['username'];
-          } else {
-            $message = "login_error";
-          }
-        }
-        } elseif (count($db_user)>0 && $db_user['verified']===0) {
-          $message = "unverified_account";
-        } else {
-          $message = "wrong_email_username";
-      }
-      $this->db->dbDisconnect();
-      $results = array("message" => $message, 'target' => "signin");
-      return $results;
-    }
     /*
     * FUNCTIONS TO PREPARE DATA BEFORE SENDING THEM TO THE DATABASE
+    * TRIM, VALIDATE, SANITIZE, AND FORMAT DATA
     */
     public function prepareDataString($string){
       $ready_string = filter_var(trim($string), FILTER_SANITIZE_STRING);
