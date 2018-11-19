@@ -195,7 +195,10 @@
           $message = "already_active";
         } else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){//account is not active and the activation code is valid
           $feedback=$this->setFeedback();
-          $update_params = array('connection' => $connection,'feedback' => $feedback, 'verified' => 1, 'where' => "id='".$id."' AND username='".$username."'");
+          $update_params = array('connection' => $connection,
+            'feedback' => $feedback,
+            'verified' => 1,
+            'where' => "id='".$id."' AND username='".$username."'");
           $updated = $this->verifyAndSetFeedback($update_params);
           if ($updated===true) {//the account was successfully activated
             $message = "success";
@@ -217,35 +220,38 @@
       $apphost = $this->prepareDataString($data['apphost']);
       $message = "";
       $this->db->dbConnect();
-      $row_params = array('select' => 'id, username, email, verified','table' => 'user','where' => "username='".$username."' AND email='".$email."'");
+      $row_params = array('select' => 'id, username, email, verified',
+        'table' => 'user',
+        'where' => "username='".$username."' AND email='".$email."'");
       $db_account = $this->db->getRow($row_params);
       $numb = count($db_account);
-      if($numb>0 && $db_account['verified']==1){
+      if($numb>0 && $db_account['verified']==1){//valid account for the user
         $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
-        $update_params = array('table' =>'user', 'column' =>'activationcode', 'value' =>$activationcode, 'where' =>"email='".$email."'");
+        $update_params = array('table' =>'user',
+        'column' =>'activationcode',
+        'value' =>$activationcode,
+        'where' =>"email='".$email."'");
         $update_code = $this->db->updateStringColumn($update_params);
-        if($update_code===true){
+        if($update_code===true){//update activation code
           $subject =  "Reset Password";
           $linkpart = "?account=".$username."&code=".$activationcode;
           $mail_params = array('type' => "reset", 'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $username);
           $mailtosend = $this->getAppMail($mail_params);
           $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $email, $subject, $mailtosend);
-          if($send_mail===true){
+          if($send_mail===true){//send email to reset password
             $message = "success";
-          }
-          else{
+          }else{//email was not send
             $message = "process_error";
           }
-        }else{
+        }else{//activation code was not updated
           $message = "process_error";
         }
-      }elseif ($numb>0 && $db_account['verified']==0) {
+      }elseif ($numb>0 && $db_account['verified']==0) {//unverified account
         $message = "unverified_account";
-      }else{
+      }else{//account was not found
         $message = "noaccount";
       }
       $this->db->dbDisconnect();
-
       $results = array("message" => $message, 'target' => "forgotpassword");
       return $results;
     }
@@ -257,40 +263,45 @@
       $newpass_conf = $this->prepareDataString($data['newpass_conf']);
       $apphost = $this->prepareDataString($data['apphost']);
       $message = "";
-      if($newpass===$newpass_conf){
+      if($newpass===$newpass_conf){//new password and confirmation password match
         $connection = $this->db->dbConnect();
-        $row_params = array('select' => 'id, email, verified, activationcode','table' => 'user','where' => "username='".$username."'");
+        $row_params = array('select' => 'id, email, verified, activationcode',
+        'table' => 'user',
+        'where' => "username='".$username."'");
         $db_account = $this->db->getRow($row_params);
         $numb = count($db_account);
-        if($numb>0 && $db_account['verified']===1){
-          if($db_account['activationcode']===$activationcode){
+        if($numb>0 && $db_account['verified']===1){//acount exists and is valid
+          if($db_account['activationcode']===$activationcode){//activation code is a match to the activation code in the link
             $newactivationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
             $user_pass = password_hash($newpass, PASSWORD_DEFAULT);
-            $update_params = array('connection' => $connection, 'where' => "username='".$username."'", 'value_one' => $user_pass, 'value_two' => $newactivationcode);
+            $update_params = array('connection' => $connection,
+            'where' => "username='".$username."'",
+            'value_one' => $user_pass,
+            'value_two' => $newactivationcode);
             $updated = $this->updatePasswordCells($update_params);
-            if($updated===true){
+            if($updated===true){//password successfully changed
               $subject = "Your Password Changed";
               $mail_params = array('type' => "pass_change",'app_host'=>$apphost, 'sendinguser' => $username);
               $mailtosend = $this->getAppMail($mail_params);
               $send_mail = $this->sendEmail($this->app_mail, "Budget Manager", $db_account['email'], $subject, $mailtosend);
-              if($send_mail===true){
+              if($send_mail===true){//email was send
                 $message = "success";
-              }else{
+              }else{//password changed but the email was not send
                 $message = "success_no_email";
               }
-            }else{
+            }else{//password was not changed
               $message = "process_error";
             }
-          }else{
+          }else{//activation code is not a match to the activation code in the link
               $message = "code_error";
             }
-          }elseif ($numb>0 && $db_account['verified']===0) {
+          }elseif ($numb>0 && $db_account['verified']===0) {//unverified account
             $message = "unverified_account";
-          }else{
+          }else{//acount does not exist
             $message = "noaccount";
           }
           $this->db->dbDisconnect();
-        }else{
+        }else{//passwords do not match
           $message = "process_error";
         }
         $results = array("message" => $message, 'target' => "resetpassword");
