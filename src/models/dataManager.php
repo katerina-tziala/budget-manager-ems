@@ -31,7 +31,6 @@
 		$basicUser = new User();
 		if (isset($_GET['action']) && !empty($_GET['action'])) {
 			$required_action = $_GET['action'];
-
 			if (in_array($required_action, $allowed_actions)) {
 				$input_data = json_decode(file_get_contents('php://input'), true);
 				$return_data = $basicUser->{$required_action}($input_data);
