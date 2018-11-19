@@ -188,21 +188,22 @@
       $connection=$this->db->dbConnect();
       $row_params = array('select' => 'verified, activationcode','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
       $db_user = $this->db->getRow($row_params);
-      if(count($db_user)===0){
+      if(count($db_user)===0){//the account of the user was not found
         $message = "account_not_found";
-      }else{
-        if(count($db_user)>0 && $db_user['verified']===1){
+      }else{//account was found
+        if(count($db_user)>0 && $db_user['verified']===1){//account is already active
           $message = "already_active";
-        } else if($db_user['activationcode']===$activationcode){
+        } else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){//account is not active and the activation code is valid
           $feedback=$this->setFeedback();
           $update_params = array('connection' => $connection,'feedback' => $feedback, 'verified' => 1, 'where' => "id='".$id."' AND username='".$username."'");
           $updated = $this->verifyAndSetFeedback($update_params);
-          if ($updated===true) {
+          if ($updated===true) {//the account was successfully activated
             $message = "success";
-          }
-          else {
+          }else {//the account was not activated
             $message = "activation_error";
           }
+        }elseif ($db_user['activationcode']!=$activationcode) {//activation code is not valid
+          $message = "error";
         }
       }
       $this->db->dbDisconnect();
