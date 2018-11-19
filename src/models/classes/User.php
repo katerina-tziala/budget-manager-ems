@@ -33,7 +33,7 @@
     //function to save user - insert a new record in the user table:
 		private function saveUser($args){
       $connection = $args['connection'];
-    	$stmt = $connection->prepare("INSERT INTO user (username, email, password, gender, birthdate, feedback, activationcode) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    	$stmt = $connection->prepare("INSERT INTO user (username, email, password, gender, birthdate, feedback, activationcode)  VALUES (?, ?, ?, ?, ?, ?, ?)");
 			$stmt->bind_param("sssssis",  $args['username'], $args['email'], $args['user_pass'], $args['gender'], $args['birthday'], $args['feedback'], $args['activationcode']);
 			$save_results = array();
 			if($stmt->execute()){
@@ -56,6 +56,8 @@
         return false;
       }
     }
+
+
     //function to create emails that are sent from the app to the user
     public function getAppMail($args){
       $app_host = "";
@@ -79,11 +81,17 @@
           <br>If you requested this, just click on the following link to reset your password, otherwise ignore this email!<br>
           <a href='".$links['reset']."'>Reset You Password Here!</a>",
         'pass_change' =>"<br/><br/>You successfully changed your password!
-          <br>You can now login to your account with your new password!<br/><a href='".$links['index']."'>Login</a><br/><br/>If you did not perform this action contact us immediately!</b>
-          You can reply at this email or contact us via the app by clicking the following link:<br/><a href='".$links['contact']."'>Contact Us</a>",
-        'activation' =>"<br><br><b>Welcome to Budget Manager!</b><br/>To finish your registration and activate your account click on the following link:<br/><a href='".$links['activation']."'>Activate You Account Here!</a>",
-        're_activation' =>"<br/><br/><b>You just changed your account's email address!</b><br/><br/>You have to activate again your account by following the link below:<br/>
-        <br/><a href='".$links['activation']."'>Activate You Account Here!</a><br/><br/><b><i>PS: If you didn't perform that action or you cannot activate your account please contact use immediately!</i></b>"
+          <br>You can now login to your account with your new password!<br/>
+          <a href='".$links['index']."'>Login</a><br/><br/>If you did not perform this action contact us immediately!</b>
+          You can reply at this email or contact us via the app by clicking the following link:<br/>
+          <a href='".$links['contact']."'>Contact Us</a>",
+        'activation' =>"<br><br><b>Welcome to Budget Manager!</b><br/>
+        To finish your registration and activate your account click on the following link:<br/>
+        <a href='".$links['activation']."'>Activate You Account Here!</a>",
+        're_activation' =>"<br/><br/><b>You just changed your account's email address!</b><br/>
+        <br/>You have to activate again your account by following the link below:<br/>
+        <br/><a href='".$links['activation']."'>Activate You Account Here!</a><br/><br/><b>
+        <i>PS: If you didn't perform that action or you cannot activate your account please contact use immediately!</i></b>"
       );
         $bye_greeting = "<br><br>Thank you!<br><i>the Budget Manager team</i>";
         $compiled_email = $greeting.$messages[$args['type']].$bye_greeting;
@@ -106,10 +114,14 @@
       if($db_usernames===0 && $db_emails===0){
         $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
         $user_pass = password_hash($password, PASSWORD_DEFAULT);
-        //$feedback = $this->setFeedback($connection);
         $feedback = 0;
-
-        $saveuser_params = array('connection' => $connection, 'username' => $username, 'email' => $email, 'user_pass' => $user_pass, 'gender' => $gender, 'birthday' => $birthday, 'feedback' => $feedback, 'activationcode' => $activationcode);
+        $saveuser_params = array('connection' => $connection,
+          'username' => $username, 'email' => $email,
+          'user_pass' => $user_pass,
+          'gender' => $gender,
+          'birthday' => $birthday,
+          'feedback' => $feedback,
+          'activationcode' => $activationcode);
         $user_saved = $this->saveUser($saveuser_params);
         if($user_saved[0]===true){
           $subject = "Account Activation";
