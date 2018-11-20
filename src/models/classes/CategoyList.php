@@ -29,8 +29,7 @@
     //function to save user's category:
 		private function saveCategory($args){
       $connection = $args['connection'];
-      $sql="INSERT INTO category (category_name, added_by) VALUES (?, ?)";
-			$stmt = $connection->prepare($sql);
+			$stmt = $connection->prepare("INSERT INTO category (category_name, added_by) VALUES (?, ?)");
 			$stmt->bind_param("si", $args['category'], $args['user_id']);
 			$save_results = array();
 			if($stmt->execute()){
@@ -65,21 +64,15 @@
       $message = "";
       $return_data = array();
       $connection = $this->db->dbConnect();
-      $count_params = array('table' => 'category',
-      'column' => 'category_name',
-      'where' => "category_name='".$category."' AND added_by='".$user_id."'");
+      $count_params = array('table' => 'category', 'column' => 'category_name', 'where' => "category_name='".$category."' AND added_by='".$user_id."'");
       $db_category = $this->db->countColumn($count_params);
       if($db_category>0){
         $message = "exists";
       }else{
-        $save_params  = array('connection' => $connection,
-        'user_id' => $user_id,
-        'category' => $category);
+        $save_params  = array('connection' => $connection,'user_id' => $user_id,'category' => $category);
         $saved = $this->saveCategory($save_params);
         if($saved[0]===true){
-          $log_params  = array('connection' => $connection,
-          'user_id' => $user_id,'category_id' => $saved[1],
-          'category' => $category,'type' => 'inserted');
+          $log_params  = array('connection' => $connection,'user_id' => $user_id,'category_id' => $saved[1],'category' => $category,'type' => 'inserted');
           $this->saveCategoryLog($log_params);
           $message = "success";
           $return_data = array('id' => $saved[1], 'name' => utf8_encode($category), 'added_by' => $user_id);
@@ -96,18 +89,13 @@
       $user_id = $args['user_id'];
       $category_id = $args['category_id'];
       $connection = $this->db->dbConnect();
-      $dbrec = $this->db->runQuery("SELECT category_name FROM category
-        WHERE id='".$category_id."' AND added_by='".$user_id."'");
+      $dbrec = $this->db->runQuery("SELECT category_name FROM category WHERE id='".$category_id."' AND added_by='".$user_id."'");
       $db_category = $dbrec->fetch_array(MYSQLI_ASSOC);
       $numb = mysqli_num_rows($dbrec);
       $message = "";
       if($numb>0){
         $deleted = $this->db->deleteFromDB("DELETE FROM `category` WHERE id='".$category_id."'");
-        $log_params  = array('connection' => $connection,
-        'user_id' => $user_id,
-        'category_id' => $category_id,
-        'category' => $db_category['category_name'],
-        'type' => 'deleted');
+        $log_params  = array('connection' => $connection,'user_id' => $user_id,'category_id' => $category_id,'category' => $db_category['category_name'],'type' => 'deleted');
         $this->saveCategoryLog($log_params);
         if($deleted===true){
           $message = "success";
@@ -127,23 +115,14 @@
       $user_id = $args['user_id'];
       $category_id = $args['category_id'];
       $message = "";
-      $count_params = array('table' => 'category',
-      'column' => 'category_name',
-      'where' => "category_name='".$category."' AND added_by='".$user_id."'");
+      $count_params = array('table' => 'category', 'column' => 'category_name', 'where' => "category_name='".$category."' AND added_by='".$user_id."'");
       $connection = $this->db->dbConnect();
       $db_category = $this->db->countColumn($count_params);
       if($db_category>0){
         $message = "exists";
       } else {
-        $upadate_params = array('table' => 'category',
-        'column' => 'category_name',
-        'value' => $category,
-        'where' => "id='".$category_id."' AND added_by='".$user_id."'");
-        $log_params  = array('connection' => $connection,
-        'user_id' => $user_id,
-        'category_id' => $category_id,
-        'category' => $category,
-        'type' => 'updated');
+        $upadate_params = array('table' => 'category', 'column' => 'category_name', 'value' => $category, 'where' => "id='".$category_id."' AND added_by='".$user_id."'");
+        $log_params  = array('connection' => $connection,'user_id' => $user_id,'category_id' => $category_id,'category' => $category,'type' => 'updated');
         $updated = $this->db->updateStringColumn($upadate_params);
         $this->saveCategoryLog($log_params);
           if($updated===true){

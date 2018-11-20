@@ -34,15 +34,9 @@
     //save sign out
     public function saveSignOut($connection){
       $logout_time = date('Y-m-d H:i:s');
-      $save_activity_params = array('connection' => $connection,
-      'user_id' => $this->id,
-      'time' => $logout_time,
-      'activity_type' => 'sign_out');
+      $save_activity_params = array('connection' => $connection,'user_id' => $this->id,'time' => $logout_time,'activity_type' => 'sign_out');
       $saved_activity = $this->saveActivity($save_activity_params);
-      $update_params = array('table' => 'user',
-      'column' => 'signed_in',
-      'value' => 0,
-      'where' =>"id=$this->id");
+      $update_params = array('table' => 'user','column' => 'signed_in','value' => 0,'where' =>"id=$this->id");
       $update_status = $this->db->updateIntColumn($update_params);
       if($saved_activity===true && $update_status===true){
         return true;
@@ -124,14 +118,9 @@
     public function getFeedbackList(){
       $feedbackList = [];
       $this->db->dbConnect();
-      $sql="SELECT * FROM `feedback` WHERE user_id=$this->id ORDER BY served_at";
-      $db_feedbackList = $this->db->runQuery($sql);
+      $db_feedbackList = $this->db->runQuery("SELECT * FROM `feedback` WHERE user_id=$this->id ORDER BY served_at");
       while ($row = $db_feedbackList->fetch_array(MYSQLI_ASSOC)) {
-        $feedback_item = array('id' => $row['id'],
-        'budget_id' => $row['budget_id'],
-        'type' => $row['type'],
-        'user_performance' => $row['user_performance'],
-        'served_at' => $row['served_at']);
+        $feedback_item = array('id' => $row['id'], 'budget_id' => $row['budget_id'], 'type' => $row['type'], 'user_performance' => $row['user_performance'], 'served_at' => $row['served_at']);
         array_push($feedbackList, $feedback_item);
       }
       $this->db->dbDisconnect();
@@ -140,8 +129,7 @@
     //function to save served feedback
     private function saveFeedback($args){
       $connection = $args['connection'];
-      $sql="INSERT INTO feedback (user_id, budget_id, type, user_performance) VALUES (?, ?, ?, ?)";
-      $stmt = $connection->prepare($sql);
+      $stmt = $connection->prepare("INSERT INTO feedback (user_id, budget_id, type, user_performance) VALUES (?, ?, ?, ?)");
       $stmt->bind_param("iiss", $args['user_id'], $args['budget_id'], $args['type'], $args['user_performance']);
       $save_results = array();
       if($stmt->execute()){
@@ -160,24 +148,18 @@
       $type = $this->prepareDataString($data['type']);
       $user_performance = $this->prepareDataString($data['user_performance']);
       $connection = $this->db->dbConnect();
-      $count_params = array('table' => 'feedback',
-      'column' => 'id',
-      'where' => "user_id='".$this->id."' AND budget_id='".$budget_id."'");
+      $count_params = array('table' => 'feedback', 'column' => 'id', 'where' => "user_id='".$this->id."' AND budget_id='".$budget_id."'");
       $feedbacknumb = $this->db->countColumn($count_params);
-      if ($feedbacknumb===0) {//feedback was not provided to the user
-        $params = array('connection' => $connection,
-        'user_id' => $this->id,
-        'budget_id' => $budget_id,
-        'type' => $type,
-        'user_performance' => $user_performance);
+      if ($feedbacknumb===0) {
+        $params = array('connection' => $connection, 'user_id' => $this->id, 'budget_id' => $budget_id, 'type' => $type, 'user_performance' => $user_performance);
         $saved =  $this->saveFeedback($params);
-        if ($saved[0]===true) {//feedback saved
+        if ($saved[0]===true) {
           $message = "success";
           $saved_id = $saved[1];
-        }else{//feedback was not saved
+        }else{
           $message = "db_error";
         }
-      }else{//feedback was already served to the user
+      }else{
         $message = "db_error";
       }
       $this->db->dbDisconnect();
@@ -190,8 +172,7 @@
     //function to save user's changes of personal info:
     private function saveUserInfoLog($args){
       $connection = $args['connection'];
-      $sql="INSERT INTO log_user (user_id, updated_field, prev_value, new_value) VALUES (?, ?, ?, ?)";
-      $stmt = $connection->prepare($sql);
+      $stmt = $connection->prepare("INSERT INTO log_user (user_id, updated_field, prev_value, new_value) VALUES (?, ?, ?, ?)");
       $stmt->bind_param("isss", $args['user_id'], $args['updated_field'], $args['prev_val'], $args['new_val']);
       if($stmt->execute()){
         return true;
@@ -220,17 +201,10 @@
         $message = "current";
       }else{
         $connection = $this->db->dbConnect();
-        $update_params = array('table' =>'user',
-        'column' =>$update_field,
-        'value' =>$field_value,
-        'where' =>"id=$this->id");
+        $update_params = array('table' =>'user', 'column' =>$update_field, 'value' =>$field_value, 'where' =>"id=$this->id");
         $saved = $this->db->updateStringColumn($update_params);
         if($saved===true){
-          $log_params = array('connection' =>$connection,
-          'user_id' =>$this->id,
-          'updated_field' =>$update_field,
-          'prev_val' =>$this->{$update_field},
-          'new_val'=>$field_value);
+          $log_params = array('connection' =>$connection, 'user_id' =>$this->id, 'updated_field' =>$update_field, 'prev_val' =>$this->{$update_field}, 'new_val'=>$field_value);
           $this->saveUserInfoLog($log_params);
           $message = "success";
         }else{
@@ -249,24 +223,15 @@
         $message = "this_username";
       }else{
         $connection = $this->db->dbConnect();
-        $count_params = array('table' => 'user',
-        'column' => 'username',
-        'where' => "username='".$new_username."'");
+        $count_params = array('table' => 'user', 'column' => 'username', 'where' => "username='".$new_username."'");
         $db_usernames = $this->db->countColumn($count_params);
         if($db_usernames>0){
           $message = "username_exists";
         }else{
-          $update_params = array('table' =>'user',
-          'column' =>'username',
-          'value' =>$new_username,
-           'where' =>"id=$this->id");
+          $update_params = array('table' =>'user', 'column' =>'username', 'value' =>$new_username, 'where' =>"id=$this->id");
           $saved = $this->db->updateStringColumn($update_params);
           if($saved===true){
-            $log_params = array('connection' =>$connection,
-            'user_id' =>$this->id,
-            'updated_field' =>'username',
-            'prev_val' =>$this->username,
-            'new_val'=>$new_username);
+            $log_params = array('connection' =>$connection, 'user_id' =>$this->id, 'updated_field' =>'username', 'prev_val' =>$this->username, 'new_val'=>$new_username);
             $this->saveUserInfoLog($log_params);
             $signed_out = $this->signOut($connection);
             if($signed_out===true){
@@ -297,17 +262,10 @@
           $message = "current_password";
         } else{
           $new_pass = password_hash($new_password, PASSWORD_DEFAULT);
-          $update_params = array('table' =>'user',
-          'column' =>'password',
-          'value' =>$new_pass,
-          'where' =>"id=$this->id");
+          $update_params = array('table' =>'user', 'column' =>'password', 'value' =>$new_pass, 'where' =>"id=$this->id");
           $saved = $this->db->updateStringColumn($update_params);
           if($saved===true){
-            $log_params = array('connection' =>$connection,
-            'user_id' =>$this->id,
-            'updated_field' =>'password',
-            'prev_val' =>$db_user['password'],
-            'new_val'=>$new_pass);
+            $log_params = array('connection' =>$connection, 'user_id' =>$this->id, 'updated_field' =>'password', 'prev_val' =>$db_user['password'], 'new_val'=>$new_pass);
             $this->saveUserInfoLog($log_params);
             $signed_out = $this->signOut($connection);
             if($signed_out===true){
@@ -336,32 +294,20 @@
         $message = "current_email";
       }else{
         $connection = $this->db->dbConnect();
-        $count_params = array('table' => 'user',
-        'column' => 'email',
-        'where' => "email='".$new_email."'");
+        $count_params = array('table' => 'user', 'column' => 'email', 'where' => "email='".$new_email."'");
         $db_emails = $this->db->countColumn($count_params);
         if($db_emails>0){
           $message = "email_exists";
         }else{
           $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
-          $update_params = array('connection' =>$connection,
-          'new_email' =>$new_email,
-          'activationcode' =>$activationcode,
-          'verified' =>0);
+          $update_params = array('connection' =>$connection,'new_email' =>$new_email,'activationcode' =>$activationcode,'verified' =>0);
           $saved = $this->updateDatabaseEmail($update_params);
           if($saved===true){
-            $log_params = array('connection'=>$connection,
-            'user_id' =>$this->id,
-            'updated_field' =>'email',
-            'prev_val' =>$this->email,
-            'new_val'=>$new_email);
+            $log_params = array('connection'=>$connection, 'user_id' =>$this->id, 'updated_field' =>'email', 'prev_val' =>$this->email, 'new_val'=>$new_email);
             $this->saveUserInfoLog($log_params);
             $subject = "Account Activation";
             $linkpart = "?id=".$this->id."&username=".$this->username."&code=".$activationcode;
-            $mail_params = array('type' => "re_activation",
-            'app_host'=>$apphost,
-            'linkpart' => $linkpart,
-            'sendinguser' => $this->username);
+            $mail_params = array('type' => "re_activation",'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $this->username);
             $mailtosend = $this->getAppMail($mail_params);
             $send_mail_params = array('receiver' => $this->app_mail,
             'sendername' => "Budget Manager",
@@ -406,15 +352,7 @@
       $location = strtolower($this->prepareDataString($data['location']));
       $store = strtolower($this->prepareDataString($data['store']));
       $comments = $this->prepareDataString($data['comments']);
-      $params = array('user_id' => $this->id,
-      'amount' => $amount,
-      'category' => $category,
-      'payment' => $payment,
-      'date' => $exp_date,
-      'time' => $exp_time,
-      'location' => $location,
-      'store' => $store,
-      'comments' => $comments);
+      $params = array('user_id' => $this->id,'amount' => $amount, 'category' => $category, 'payment' => $payment, 'date' => $exp_date, 'time' => $exp_time, 'location' => $location, 'store' => $store, 'comments' => $comments);
       return $this->userExpenses->addExpense($params);
     }
     //function to delete user's expense:
@@ -428,19 +366,10 @@
       $location = strtolower($this->prepareDataString($data['location']));
       $store = strtolower($this->prepareDataString($data['store']));
       $comments = $this->prepareDataString($data['comments']);
-      $params = array('user_id' => $this->id,
-      'expense_id' => $exp_id,
-      'amount' => $amount,
-      'category' => $category,
-      'payment' => $payment,
-      'date' => $exp_date,
-      'time' => $exp_time,
-      'location' => $location,
-      'store' => $store,
-      'comments' => $comments);
+      $params = array('user_id' => $this->id,'expense_id' => $exp_id,'amount' => $amount, 'category' => $category, 'payment' => $payment, 'date' => $exp_date, 'time' => $exp_time, 'location' => $location, 'store' => $store, 'comments' => $comments);
       return $this->userExpenses->deleteExpense($params);
     }
-    //function to update user's expense:
+    //function to delete user's expense:
     public function updateUserExpense($data){
       $exp_id = $this->prepareDataId($data['id']);
       $amount = $this->prepareDataFloat($data['amount']);
@@ -451,16 +380,7 @@
       $location = strtolower($this->prepareDataString($data['location']));
       $store = strtolower($this->prepareDataString($data['store']));
       $comments = $this->prepareDataString($data['comments']);
-      $params = array('user_id' => $this->id,
-      'expense_id' => $exp_id,
-      'amount' => $amount,
-      'category' => $category,
-      'payment' => $payment,
-      'date' => $exp_date,
-      'time' => $exp_time,
-      'location' => $location,
-      'store' => $store,
-      'comments' => $comments);
+      $params = array('user_id' => $this->id,'expense_id' => $exp_id,'amount' => $amount, 'category' => $category, 'payment' => $payment, 'date' => $exp_date, 'time' => $exp_time, 'location' => $location, 'store' => $store, 'comments' => $comments);
       return $this->userExpenses->editExpense($params);
     }
     /*
@@ -475,41 +395,30 @@
       $amount = $this->prepareDataFloat($data['amount']);
       $budget_from = $this->prepareDataDate($data['budget_from']);
       $budget_to = $this->prepareDataDate($data['budget_to']);
-      $params = array('user_id' => $this->id,
-      'amount' => $amount,
-      'budget_from' => $budget_from,
-      'budget_to' => $budget_to);
+      $params = array('user_id' => $this->id, 'amount' => $amount, 'budget_from' => $budget_from, 'budget_to' => $budget_to);
       return $this->userBudget->addBudget($params);
     }
-    //function to update amount weekly budget:
+    //function to add weekly budget:
     public function updateBudgetAmount($data){
       $budget_id = $this->prepareDataId($data['id']);
       $amount = $this->prepareDataFloat($data['amount']);
       $budget_from = $this->prepareDataDate($data['budget_from']);
       $budget_to = $this->prepareDataDate($data['budget_to']);
-      $params = array('user_id' => $this->id,'budget_id'=>$budget_id,
-      'amount' => $amount,
-      'budget_from' => $budget_from,
-      'budget_to' => $budget_to);
+      $params = array('user_id' => $this->id,'budget_id'=>$budget_id, 'amount' => $amount, 'budget_from' => $budget_from, 'budget_to' => $budget_to);
       return $this->userBudget->updateAmount($params);
     }
-    //function to update period of weekly budget:
+    //function to add weekly budget:
     public function updateBudgetPeriod($data){
       $budget_id = $this->prepareDataId($data['id']);
       $amount = $this->prepareDataFloat($data['amount']);
       $budget_from = $this->prepareDataDate($data['budget_from']);
       $budget_to = $this->prepareDataDate($data['budget_to']);
-      $params = array('user_id' => $this->id,
-      'budget_id'=>$budget_id,
-      'amount' => $amount,
-      'budget_from' => $budget_from,
-      'budget_to' => $budget_to);
+      $params = array('user_id' => $this->id,'budget_id'=>$budget_id, 'amount' => $amount, 'budget_from' => $budget_from, 'budget_to' => $budget_to);
       return $this->userBudget->updatePeriod($params);
     }
     /*
     * MANAGE GOALS
     */
-    //function to get goal list:
     public function getUserGoalList(){
       return $this->userGoals->getGoalsList($this->id);
     }
@@ -518,10 +427,7 @@
       $amount = $this->prepareDataFloat($data['amount']);
       $category = $this->prepareDataCategory($data['category']);
       $budget_id = $this->prepareDataId($data['budget_id']);
-      $params = array('user_id' => $this->id,
-      'budget_id'=>$budget_id,
-      'amount' => $amount,
-      'category' => $category);
+      $params = array('user_id' => $this->id,'budget_id'=>$budget_id, 'amount' => $amount, 'category' => $category);
       return $this->userGoals->addGoal($params);
     }
     //delete a weekly goal for a user
@@ -530,11 +436,7 @@
       $budget_id = $this->prepareDataId($data['budget_id']);
       $category = $this->prepareDataCategory($data['category']);
       $amount = $this->prepareDataFloat($data['amount']);
-      $params = array('user_id' => $this->id,
-      'goal_id'=>$goal_id,
-      'budget_id'=>$budget_id,
-      'amount' => $amount,
-      'category' => $category);
+      $params = array('user_id' => $this->id,'goal_id'=>$goal_id, 'budget_id'=>$budget_id, 'amount' => $amount, 'category' => $category);
       return $this->userGoals->deleteGoal($params);
     }
     //update a weekly goal for a user
@@ -543,11 +445,7 @@
       $goal_id = $this->prepareDataId($data['id']);
       $category = $this->prepareDataCategory($data['category']);
       $budget_id = $this->prepareDataId($data['budget_id']);
-      $params = array('user_id' => $this->id,
-      'goal_id'=>$goal_id,
-      'budget_id'=>$budget_id,
-      'amount' => $amount,
-      'category' => $category);
+      $params = array('user_id' => $this->id,'goal_id'=>$goal_id, 'budget_id'=>$budget_id, 'amount' => $amount, 'category' => $category);
       return $this->userGoals->updateGoal($params);
     }
     /*

@@ -58,8 +58,7 @@
       $message = "";
       $newId = "";
       $connection = $this->db->dbConnect();
-      $dbtotalgoals = $this->db->runQuery("SELECT SUM(`amount`) AS `goals_total`
-      FROM `goal` WHERE `budget_id`='".$args['budget_id']."'");
+      $dbtotalgoals = $this->db->runQuery("SELECT SUM(`amount`) AS `goals_total` FROM `goal` WHERE `budget_id`='".$args['budget_id']."'");
       $dbtotalgoals = $dbtotalgoals->fetch_array(MYSQLI_ASSOC);
       $totalgoals=0;
       if ($dbtotalgoals['goals_total']=== NULL) {
@@ -72,14 +71,10 @@
       $budgetamount = $budgetamount->fetch_array(MYSQLI_ASSOC);
       $budgetamount = $budgetamount['amount'];
       if ($new_total_goals<=$budgetamount) {
-        $categories = $this->db->runQuery("SELECT * FROM `category`
-          WHERE category_name='".$args['category']."'
-          AND (added_by='".$args['user_id']."' OR added_by IS NULL)");
+        $categories = $this->db->runQuery("SELECT * FROM `category` WHERE category_name='".$args['category']."' AND (added_by='".$args['user_id']."' OR added_by IS NULL)");
         $rowcount=mysqli_num_rows($categories);
         if ($rowcount>0) {
-          $count_params = array('table' => 'goal',
-          'column' => 'category',
-          'where' => "`category`='".$args['category']."' AND `budget_id`='".$args['budget_id']."'");
+          $count_params = array('table' => 'goal', 'column' => 'category', 'where' => "`category`='".$args['category']."' AND `budget_id`='".$args['budget_id']."'");
           $goalincategory = $this->db->countColumn($count_params);
           if ($goalincategory===0) {
             $save_params = $args;
@@ -113,8 +108,7 @@
       $message = "";
       $message = "";
       $connection = $this->db->dbConnect();
-      $deleted = $this->db->deleteFromDB("DELETE FROM `goal` WHERE id='".$args['goal_id']."'
-        AND budget_id='".$args['budget_id']."' AND user_id='".$args['user_id']."'");
+      $deleted = $this->db->deleteFromDB("DELETE FROM `goal` WHERE id='".$args['goal_id']."' AND budget_id='".$args['budget_id']."' AND user_id='".$args['user_id']."'");
       if($deleted===true){
         $log_params = $args;
         $log_params['connection'] = $connection;
@@ -128,12 +122,11 @@
       $results = array('message' => $message, 'target' => "goal");
       return $results;
     }
-    //update user's weekly budget goal
+    //delete user's weekly budget goal
     public function updateGoal($args){
       $message = "";
       $connection = $this->db->dbConnect();
-      $dbtotalgoals = $this->db->runQuery("SELECT SUM(`amount`) AS `goals_total` FROM `goal`
-      WHERE `budget_id`='".$args['budget_id']."' AND id!='".$args['goal_id']."'");
+      $dbtotalgoals = $this->db->runQuery("SELECT SUM(`amount`) AS `goals_total` FROM `goal` WHERE `budget_id`='".$args['budget_id']."' AND id!='".$args['goal_id']."'");
       $dbtotalgoals = $dbtotalgoals->fetch_array(MYSQLI_ASSOC);
       $totalgoals=0;
       if ($dbtotalgoals['goals_total']=== NULL) {
@@ -146,10 +139,7 @@
       $budgetamount = $budgetamount->fetch_array(MYSQLI_ASSOC);
       $budgetamount = $budgetamount['amount'];
       if ($new_total_goals<=$budgetamount) {
-        $update_params = array('table' =>'goal',
-        'column' =>'amount',
-        'value' =>$args['amount'],
-        'where' =>"id='".$args['goal_id']."' AND budget_id='".$args['budget_id']."' AND user_id='".$args['user_id']."'");
+        $update_params = array('table' =>'goal', 'column' =>'amount', 'value' =>$args['amount'], 'where' =>"id='".$args['goal_id']."' AND budget_id='".$args['budget_id']."' AND user_id='".$args['user_id']."'");
         $saved = $this->db->updateFloatColumn($update_params);
         if($saved===true){
           $log_params = $args;

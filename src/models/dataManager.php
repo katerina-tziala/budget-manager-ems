@@ -31,6 +31,7 @@
 		$basicUser = new User();
 		if (isset($_GET['action']) && !empty($_GET['action'])) {
 			$required_action = $_GET['action'];
+
 			if (in_array($required_action, $allowed_actions)) {
 				$input_data = json_decode(file_get_contents('php://input'), true);
 				$return_data = $basicUser->{$required_action}($input_data);
@@ -42,9 +43,9 @@
 						'gender' => "no_gender",
 						'birthdate' => "no_birthdate",
 						'feedback' => 0,
-						'signed_in' => 0,
+						'signed_in' => false,
 						'registration_date' => "no_date",
-						'has_current_budget'=> "no");
+						'has_current_budget'=> false);
 				}else{
 					$results = array("message" => "invalid_request", 'target' => "no_target");
 					$return_data = $results;
