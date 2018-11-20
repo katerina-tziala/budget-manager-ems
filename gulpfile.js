@@ -20,7 +20,7 @@ var gulp = require('gulp'),
 //basic variables
 var src = './src/',
     temp =  src+'temp',
-    root_files =  src+'root_files',
+    root_files = src+'root_files',
     folder_img = src+'assets/images';
 //javascript variables
 var src_js = src+'assets/js',
