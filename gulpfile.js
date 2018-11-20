@@ -615,10 +615,3 @@ gulp.task('signup_scripts', function() {
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-
-
-
-
-
-
-//
