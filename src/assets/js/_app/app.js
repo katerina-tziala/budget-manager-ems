@@ -305,9 +305,6 @@ const initTermsPage = (main = self.main, userInfo = self.userInfo) => {
     document.getElementById('terms_list').style.display="block";
   });
 };
-
-
-
 //initialize contact page
 const initContactPage = (parentNode = self.main, userInfo = self.userInfo) => {
   loadStyle(pages.contact.css, ()=>{
