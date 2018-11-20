@@ -43,7 +43,7 @@
 						'gender' => "no_gender",
 						'birthdate' => "no_birthdate",
 						'feedback' => 0,
-						'signed_in' => false,
+						'signed_in' => 0,
 						'registration_date' => "no_date",
 						'has_current_budget'=> false);
 				}else{
