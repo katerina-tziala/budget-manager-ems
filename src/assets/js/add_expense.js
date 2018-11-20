@@ -414,7 +414,6 @@ const addExpense = (event) => {
       "request_type": "add_expense"
     }
     clearExpenseForm(labels, formFields);
-
     sendData('addUserExpense', data).then((response)=>{
       if(response.message==="invalid_request"){
         invalidRequestHandler(data);
