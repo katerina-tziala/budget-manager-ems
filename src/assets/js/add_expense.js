@@ -27,13 +27,6 @@ const initAddExpenseView = (personalInfo, categories) => {
     showBudgetNotification();
   }
 };
-
-
-
-
-
-
-
 //create view
 const createAddExpenseHTMLContent = (main = self.main) => {
   const h2 = document.createElement('h2');
@@ -368,8 +361,6 @@ const clearExpenseForm = (labels, formFields, moreSectionsContainer = self.moreS
   self.openedSections = 0;
   displayElement(document.getElementById('formMenuBtn'));
 };
-
-
 //add expense
 const addExpense = (event) => {
   event.preventDefault();
