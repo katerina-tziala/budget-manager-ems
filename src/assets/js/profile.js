@@ -20,7 +20,6 @@ window.addEventListener('keydown', (event)=>{
     }
   }
 });
-
 //initialize profile view
 const renderProfile = () =>{
   prepareMain("clear");

@@ -1,6 +1,3 @@
-
-
-
 //create add link
 const createAddLink = (btnid, btntext, aria, url) => {
   const txt = `<i class='plus_icon_add fas fa-plus'></i><span class='plus_txt_add'>${btntext}</span>`;
