@@ -189,6 +189,7 @@
       $id = $this->prepareDataId($data['id']);
       $username = $this->prepareDataString($data['username']);
       $activationcode = $this->prepareDataString($data['activationcode']);
+      $activation_type = $this->prepareDataString($data['activation_type']);
       $message = "";
       $connection=$this->db->dbConnect();
       $row_params = array('select' => 'verified, activationcode','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
@@ -199,7 +200,11 @@
         if(count($db_user)>0 && $db_user['verified']===1){//account is already active
           $message = "already_active";
         } else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){//account is not active and the activation code is valid
-          $feedback=$this->setFeedback();
+          if ($activation_type==="reactivation") {
+            $feedback = $this->prepareDataId($data['feedback']);
+            }else{
+            $feedback=$this->setFeedback();
+          }
           $update_params = array('connection' => $connection,
             'feedback' => $feedback,
             'verified' => 1,

@@ -228,17 +228,31 @@
         if($db_usernames>0){
           $message = "username_exists";
         }else{
-          $update_params = array('table' =>'user', 'column' =>'username', 'value' =>$new_username, 'where' =>"id=$this->id");
-          $saved = $this->db->updateStringColumn($update_params);
+          $update_params = array('connection' =>$connection,'new_email' =>$new_email,'activationcode' =>$activationcode,'verified' =>0);
+          $saved = $this->updateDatabaseEmail($update_params);
           if($saved===true){
-            $log_params = array('connection' =>$connection, 'user_id' =>$this->id, 'updated_field' =>'username', 'prev_val' =>$this->username, 'new_val'=>$new_username);
+            $log_params = array('connection'=>$connection, 'user_id' =>$this->id, 'updated_field' =>'email', 'prev_val' =>$this->email, 'new_val'=>$new_email);
             $this->saveUserInfoLog($log_params);
-            $signed_out = $this->signOut($connection);
-            if($signed_out===true){
-              $message="success";
-              $this->__destruct();
-            }else{
-              $message="signout_error";
+            $subject = "Account Activation";
+            $linkpart = "?id=".$this->id."&username=".$this->username."&code=".$activationcode;
+            $mail_params = array('type' => "re_activation",'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $this->username);
+            $mailtosend = $this->getAppMail($mail_params);
+            $send_mail_params = array('receiver' => $this->app_mail,
+            'sendername' => "Budget Manager",
+            'sender' => $new_email,
+            'subject' => $subject,
+            'message' => $mailtosend);
+            $send_mail = $this->sendEmail($send_mail_params);
+            if($send_mail===true){
+              $signed_out = $this->signOut($connection);
+              if($signed_out===true){
+                $message="success";
+                $this->__destruct();
+              }else{
+                $message="signout_error";
+              }
+            } else {
+              $message = "saved_no_ver_email";
             }
           }else{
             $message = "db_error";
@@ -300,22 +314,23 @@
           $message = "email_exists";
         }else{
           $activationcode = password_hash(uniqid(rand()), PASSWORD_DEFAULT);
+          $request_type = $this->prepareDataString($data['request_type']);
           $update_params = array('connection' =>$connection,'new_email' =>$new_email,'activationcode' =>$activationcode,'verified' =>0);
           $saved = $this->updateDatabaseEmail($update_params);
           if($saved===true){
             $log_params = array('connection'=>$connection, 'user_id' =>$this->id, 'updated_field' =>'email', 'prev_val' =>$this->email, 'new_val'=>$new_email);
             $this->saveUserInfoLog($log_params);
             $subject = "Account Activation";
-            $linkpart = "?id=".$this->id."&username=".$this->username."&code=".$activationcode;
+            $linkpart = "?id=".$this->id."_re"."&username=".$this->username."&code=".$activationcode;
             $mail_params = array('type' => "re_activation",'app_host'=>$apphost, 'linkpart' => $linkpart,'sendinguser' => $this->username);
             $mailtosend = $this->getAppMail($mail_params);
-            $send_mail_params = array('receiver' => $this->app_mail,
+            $send_mail_params = array('receiver' => $new_email,
             'sendername' => "Budget Manager",
-            'sender' => $new_email,
+            'sender' => $this->app_mail,
             'subject' => $subject,
             'message' => $mailtosend);
             $send_mail = $this->sendEmail($send_mail_params);
-            if($sendmail===true){
+            if($send_mail===true){
               $signed_out = $this->signOut($connection);
               if($signed_out===true){
                 $message="success";
