@@ -11,7 +11,7 @@ const renderContact = () =>{
   prepareMain("clear");
   createContactHTMLContent(userInfo);
   if (userInfo.signed_in) {
-    createNavMenu();
+    createNavigationMenu();
     styleNavMenu(7);
     if (!self.userInfo.has_current_budget) {
       showBudgetNotification();
