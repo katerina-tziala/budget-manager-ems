@@ -13,54 +13,9 @@ const renderSignIn = () =>{
   initializePage();
   hideLoader();
 };
-//create view
-const createView = (main = self.main) => {
-  const h2 = document.createElement('h2');
-  h2.innerHTML = "Welcome to Budget Manager!";
-  const p = document.createElement('p');
-  p.innerHTML = "The app that helps you monitor your expenses and stay on budget!";
-  const form = createSignInForm();
-  const linksWrapper = document.createElement('div');
-  linksWrapper.className = "btnWrapper";
-  linksWrapper.append(createSignUpLink(), createContactLink());
-  main.append(h2, p, form, linksWrapper);
-};
-//create sign in form
-const createSignInForm = () => {
-  const form = document.createElement('form');
-  form.setAttribute('id', 'signin_form');
-  form.classList.add('centeredFlexbox', 'form_style');
-  const p = document.createElement('p');
-  p.innerHTML = "Sign in to your account";
-  p.className = "form_tag";
-  const cred_input = createInput('text', 'Email or Username', 'enter email or username', 'credential');
-  cred_input.classList.add('sign_ininpt');
-  const cred_label = createLabel('credential');
-  cred_label.classList.add('si_label');
-  const pass_input = createPasswordInput('sipass', 'Password', 'enter password', 'signin_pass', 'sign_ininpt', 'btn_view_sipass');
-  const pass_label = createLabel('signin_pass');
-  pass_label.classList.add('si_label');
-  const a = document.createElement('a');
-  a.setAttribute('id', 'psw_forgot');
-  a.href=pages.forgot_password.url;
-  a.innerHTML = "Forgot your password";
-  const cookie = document.createElement('label');
-  cookie.classList.add('cookie_container');
-  cookie.setAttribute('tabindex', 0);
-  const span_a = document.createElement('span');
-  span_a.innerHTML = "Remember me";
-  const cookie_inpt = createInput('checkbox', '', 'stay signed in checkbox', 'cookie', 'cookie_check');
-  cookie_inpt.setAttribute('tabindex', -1);
-  cookie_inpt.classList.add('sign_ininpt');
-  cookie_inpt.checked = true;
-  const checkmark = document.createElement('span');
-  checkmark.className = 'cookie_checkmark';
-  cookie.append(span_a, cookie_inpt, checkmark);
-  const button = createButton('loginBtn', 'sign in', 'sign in', signIn);
-  button.classList.add('formBtn');
-  form.append(p, cred_input, cred_label, pass_input, pass_label, a, cookie, button);
-  return form;
-};
+/*
+* ACTIONS & BEHAVIOR
+*/
 //initialize page
 const initializePage = () => {
   const siForm = document.getElementById('signin_form');
@@ -120,13 +75,64 @@ const signIn = (event) => {
           "container_classes":["show_toast"]
         };
         if(response.message==="unverified_account"){
-          toast_options.message = messageGenerator({initiator:"signin", message_type:"unverified_account"});
+          toast_options.message = messageGenerator({initiator:"signin", message_type:response.message});
           toast_options.timer=16000;
          } else {
-          toast_options.message = messageGenerator({initiator:"signin", message_type:"unverified_account", error_part:"sign you into your account"});
+          toast_options.message = messageGenerator({initiator:"signin", message_type:"else_error", error_part:"sign you into your account"});
          }
          showToaster(toast_options);
       }
    });
   }
+};
+/*
+* CREATE HTML FOR SIGN IN INTERFACE
+*/
+//create view
+const createView = (main = self.main) => {
+  const h2 = document.createElement('h2');
+  h2.innerHTML = "Welcome to Budget Manager!";
+  const p = document.createElement('p');
+  p.innerHTML = "The app that helps you monitor your expenses and stay on budget!";
+  const form = createSignInForm();
+  const linksWrapper = document.createElement('div');
+  linksWrapper.className = "btnWrapper";
+  linksWrapper.append(createSignUpLink(), createContactLink());
+  main.append(h2, p, form, linksWrapper);
+};
+//create sign in form
+const createSignInForm = () => {
+  const form = document.createElement('form');
+  form.setAttribute('id', 'signin_form');
+  form.classList.add('centeredFlexbox', 'form_style');
+  const p = document.createElement('p');
+  p.innerHTML = "Sign in to your account";
+  p.className = "form_tag";
+  const cred_input = createInput('text', 'Email or Username', 'enter email or username', 'credential');
+  cred_input.classList.add('sign_ininpt');
+  const cred_label = createLabel('credential');
+  cred_label.classList.add('si_label');
+  const pass_input = createPasswordInput('sipass', 'Password', 'enter password', 'signin_pass', 'sign_ininpt', 'btn_view_sipass');
+  const pass_label = createLabel('signin_pass');
+  pass_label.classList.add('si_label');
+  const a = document.createElement('a');
+  a.setAttribute('id', 'psw_forgot');
+  a.href=pages.forgot_password.url;
+  a.innerHTML = "Forgot your password";
+  const cookie = document.createElement('label');
+  cookie.classList.add('cookie_container');
+  cookie.setAttribute('tabindex', 0);
+  const span_a = document.createElement('span');
+  span_a.innerHTML = "Remember me";
+  const cookie_inpt = createInput('checkbox', '', 'stay signed in checkbox', 'cookie', 'cookie_check');
+  cookie_inpt.setAttribute('tabindex', -1);
+  cookie_inpt.classList.add('sign_ininpt');
+  cookie_inpt.checked = true;
+  const checkmark = document.createElement('span');
+  checkmark.className = 'cookie_checkmark';
+  cookie.append(span_a, cookie_inpt, checkmark);
+  const button = createButton('loginBtn', 'sign in', 'sign in', signIn);
+  button.classList.add('formBtn');
+  form.append(p, cred_input, cred_label, pass_input, pass_label, a, cookie, button);
+  return form;
 };

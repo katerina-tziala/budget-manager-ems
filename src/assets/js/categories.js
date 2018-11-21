@@ -12,40 +12,19 @@ window.addEventListener('keydown', (event)=>{
   }
 });
 //initialize categories view
-const initCategoriesView = (budgetIndicator, categories) => {
+const renderCategories = (categories) => {
+  prepareMain("clear");
   createCategoriesHTMLContent();
-  initPage(budgetIndicator, categories);
+  categories.sort((item_a, item_b)=>{
+    return sortByName(item_a, item_b, 'asc');
+  });
+  initPage(categories);
 };
-//create categories view
-const createCategoriesHTMLContent = (main = self.main) => {
-  const addtext = `<i id='plus_icon_add' class='plus_icon_add fas fa-plus'></i><span id='plus_txt_add' class='plus_txt_add'>add<br>category</span>`;
-  const add_ctgr_btn = createButton('btn_category_add', addtext, 'add new category', toggleForm);
-  add_ctgr_btn.classList.add('add_btn_link');
-  const add_exp = createAddLink('add_expense', 'add<br>expense', 'add expense', pages.add_expense.url);
-  const addSection = document.createElement('div');
-  addSection.setAttribute('id', 'add_section');
-  addSection.classList.add('centeredFlexbox', 'add_section');
-  const form = document.createElement('form');
-  form.setAttribute('id', 'form_add');
-  form.classList.add("form_style", "categoryForm", "hidden");
-  const input = createInput('text', 'New Category', 'enter category name','category', 'add_category_input');
-  input.classList.add("formInputs", 'inpt_add');
-  const label = createLabel('category');
-  label.classList.add("label_add");
-  const cancel_btn = createButton('cancelcategory_canceladd', '', 'close add category form', toggleForm);
-  cancel_btn.classList.add('round_btn', 'editBtn', 'fas', 'fa-times', 'cancelBtn');
-  const add_btn = createButton('savecategory_add', 'save category', 'save new category', addNewCategory);
-  add_btn.classList.add('formBtn');
-  form.append(input, label, cancel_btn,add_btn);
-  addSection.append(form);
-  const categoriesContainer = document.createElement('ul');
-  categoriesContainer.setAttribute('id', 'categories_container');
-  categoriesContainer.setAttribute('aria-label', 'categories list');
-  categoriesContainer.className = 'categories_container';
-  main.append(add_ctgr_btn, add_exp, addSection, categoriesContainer);
-};
-//manage how elements display, add categories html
-const initPage = (budgetIndicator, categories) => {
+/*
+* ACTIONS & BEHAVIOR
+*/
+//manage how elements display, add categories html, initialize variables
+const initPage = (categories) => {
   self.categoryForms = [];
   self.addCategorySection = document.getElementById('add_section');
   self.categoriesContainer = document.getElementById('categories_container');
@@ -66,7 +45,7 @@ const initPage = (budgetIndicator, categories) => {
   const category_icons = document.querySelectorAll('.category_icon');
   loadCategoryIcons(category_icons);
   self.categoryForms = document.querySelectorAll('.categoryForm');
-  if (budgetIndicator===false) {
+  if (!self.userInfo.has_current_budget) {
     showBudgetNotification();
   }
   hideLoader();
@@ -272,8 +251,36 @@ const updateCategory = (event) => {
   }
 };
 /*
-* CREATE ELEMENTS
+* CREATE HTML FOR CATEGORIES INTERFACE
 */
+//create categories view
+const createCategoriesHTMLContent = (main = self.main) => {
+  const addtext = `<i id='plus_icon_add' class='plus_icon_add fas fa-plus'></i><span id='plus_txt_add' class='plus_txt_add'>add<br>category</span>`;
+  const add_ctgr_btn = createButton('btn_category_add', addtext, 'add new category', toggleForm);
+  add_ctgr_btn.classList.add('add_btn_link');
+  const add_exp = createAddLink('add_expense', 'add<br>expense', 'add expense', pages.add_expense.url);
+  const addSection = document.createElement('div');
+  addSection.setAttribute('id', 'add_section');
+  addSection.classList.add('centeredFlexbox', 'add_section');
+  const form = document.createElement('form');
+  form.setAttribute('id', 'form_add');
+  form.classList.add("form_style", "categoryForm", "hidden");
+  const input = createInput('text', 'New Category', 'enter category name','category', 'add_category_input');
+  input.classList.add("formInputs", 'inpt_add');
+  const label = createLabel('category');
+  label.classList.add("label_add");
+  const cancel_btn = createButton('cancelcategory_canceladd', '', 'close add category form', toggleForm);
+  cancel_btn.classList.add('round_btn', 'editBtn', 'fas', 'fa-times', 'cancelBtn');
+  const add_btn = createButton('savecategory_add', 'save category', 'save new category', addNewCategory);
+  add_btn.classList.add('formBtn');
+  form.append(input, label, cancel_btn,add_btn);
+  addSection.append(form);
+  const categoriesContainer = document.createElement('ul');
+  categoriesContainer.setAttribute('id', 'categories_container');
+  categoriesContainer.setAttribute('aria-label', 'categories list');
+  categoriesContainer.className = 'categories_container';
+  main.append(add_ctgr_btn, add_exp, addSection, categoriesContainer);
+};
 //create card for basic category
 const createBasicCategoryCard = (category, icon, id) => {
   const card = document.createElement('li');

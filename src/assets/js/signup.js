@@ -8,7 +8,8 @@ window.addEventListener('keydown', (event)=>{
 });
 let signUpData;
 //initialize sign up view
-const initSignUpView = () =>{
+const renderSignUp = () =>{
+  prepareMain("clear");
   hideLoader();
   createSignUpHTMLContent();
   self.signUpData="";
@@ -43,6 +44,154 @@ const initSignUpView = () =>{
     }
   });
 };
+/*
+* ACTIONS & BEHAVIOR
+*/
+//sign up
+const signUp = (event) => {
+  event.preventDefault();
+  const labels = document.querySelectorAll('.su_label');
+  const formFields = document.querySelectorAll('.sign_upinpt');
+  const username = formFields[0].value.trim();
+  const email = formFields[1].value.trim();
+  const pass = formFields[2].value.trim();
+  const pass_conf = formFields[3].value.trim();
+  const birth = formFields[4].innerHTML;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
+  const valid_username = usernameValidation(username, labels[0]);
+  const valid_email = emailValidation(email, labels[1]);
+  const valid_pass = passwordValidation(pass, labels[2]);
+  const valid_pass_conf = passwordValidation(pass_conf, labels[3], pass);
+  const valid_birthday = dateValidation(birth, labels[4], "* Birthday");
+  if(valid_username===true && valid_email===true && valid_pass===true && valid_pass_conf===true && valid_birthday===true){
+    const sending_birthday = birth.split("/").reverse().join("-");
+    self.signUpData = {
+      "apphost": domain,
+      "username": username.toString(),
+      "email": email.toString(),
+      "password": pass.toString(),
+      "birth": sending_birthday.toString(),
+      "gender": gender.toString().toLowerCase(),
+      "request_type":"sign_up"
+    };
+    displayConsentView();
+  }
+};
+//display consent view
+const displayConsentView = () =>{
+  document.body.append(createConsentView(), document.body.childNodes[2]);
+  displayElement(self.opacity_layer);
+};
+//remove concentView
+const removeConsentView = () =>{
+  const termsview = document.querySelectorAll('.terms_layer');
+  if (termsview.length>0) {
+    termsview[0].remove();
+    hideElement(self.opacity_layer);
+  }
+};
+//close consent view on click
+const closeConsentView = (event) => {
+  event.preventDefault();
+  removeConsentView();
+};
+//concent to terms and sign up
+const concentToTermsAndSignUp = (event, data = self.signUpData) => {
+  event.preventDefault();
+  const labels = document.querySelectorAll('.su_label');
+  const formFields = document.querySelectorAll('.sign_upinpt');
+  removeConsentView();
+  showSignUpLoader();
+  sendData('signUp', data).then((response)=>{
+    hideSignUpLoader();
+    if(response.message==="invalid_request"){
+      invalidRequestHandler(data);
+    }else{
+      if(response.message==="username_email_exists") {
+        labels[0].innerHTML="This username is taken! Try another one.";
+        displayElement(labels[0]);
+        labels[1].innerHTML="There is already an account for this email!";
+        displayElement(labels[1]);
+      }else if(response.message==="username_exists"){
+        labels[0].innerHTML="This username is taken! Try another one.";
+        displayElement(labels[0]);
+      }else if(response.message==="email_exists"){
+        labels[1].innerHTML="There is already an account for this email!";
+        displayElement(labels[1]);
+      }else{
+        clearSignupForm(labels, formFields);
+        const toast_options = {
+          "message": "",
+          "type": "fadeout",
+          "timer": 0,
+          "buttonsmode": "got_it",
+          "container_classes":["show_toast"]
+        };
+        if (response.message==="success") {
+          toast_options.message = messageGenerator({initiator:"signup", message_type:response.message});
+          toast_options.timer=15000;
+        }else if (response.message==="saved_no_ver_email") {
+          toast_options.type='keep_open';
+          toast_options.message = messageGenerator({initiator:"signup", message_type:response.message});
+        }else{
+          toast_options.message = messageGenerator({initiator:"signup", message_type:"else_error", error_part:"create an account for you"});
+          toast_options.timer=12000;
+        }
+        showToaster(toast_options);
+      }
+    }
+  });
+};
+//show message when signing up
+const showSignUpLoader = () => {
+  const sendImage = document.createElement('div');
+  sendImage.setAttribute('id', 'signUpLoaderImage');
+  const sendText = document.createElement('p');
+  sendText.setAttribute('id', 'signUpLoaderText');
+  sendText.innerHTML = `Creating your account....<br><span>Please wait.</span><span>This might take a while!<span>`
+  self.loader.insertBefore(sendImage, self.loader.childNodes[0]);
+  self.loader.insertBefore(sendText, self.loader.childNodes[1]);
+  showLoader();
+};
+//hide message after signing up
+const hideSignUpLoader = () => {
+  document.getElementById('signUpLoaderImage').remove();
+  document.getElementById('signUpLoaderText').remove();
+  hideLoader();
+};
+//clear sign up form
+const resetClearForm = (event) => {
+  event.preventDefault();
+  const labels = document.querySelectorAll('.su_label');
+  const formFields = document.querySelectorAll('.sign_upinpt');
+  clearSignupForm(labels, formFields);
+};
+//clear sign up form
+const clearSignupForm = (labels, formFields) => {
+  self.signUpData="";
+  formFields[4].innerHTML="Birthday";
+  formFields[4].classList.remove('has_selected_datetime');
+  clearAppForm(labels, formFields);
+  document.querySelector('input[value="male"]').checked = true;
+  document.querySelector('input[value="female"]').checked = false;
+  formFields[2].type = "text";
+  formFields[3].type = "text";
+  passwordVisibilityHandler(formFields[2], document.getElementById('btn_view_supass'));
+  passwordVisibilityHandler(formFields[3], document.getElementById('btn_view_surpass'));
+};
+//initialize birthday picker:
+const initBirthDatePicker = () => {
+  let pickerDates = [];
+  pickerDates["today"] = new Date("1990-01-01");
+  pickerDates["past"] = new Date("1918-01-01");
+  pickerDates["future"] = new Date("2008-01-01");
+  const dayPicker = document.getElementById('birthdayPick');
+  const dayPickerInput = document.getElementById('datepickerInput');
+  initDatePickerCalendar(self.signBirthdayCalendar, dayPicker, pickerDates, dayPickerInput);
+};
+/*
+* CREATE HTML FOR SIGN UP INTERFACE
+*/
 //create view
 const createSignUpHTMLContent = (main = self.main) => {
   const h2 = document.createElement('h2');
@@ -64,10 +213,9 @@ const createSignUpHTMLContent = (main = self.main) => {
   const sendBtn = createButton('signupBtn', 'sign up', 'sign up', signUp);
   sendBtn.classList.add('formBtn', 'signupBtn');
   form.append(form_tag, username_container, email_container, pass_container, pass_conf_container, birthday_container, gender_container, resetBtn,sendBtn);
-  const linksWrapper = document.createElement('div');
-  linksWrapper.className = "btnWrapper";
-  linksWrapper.append(createSignInLink(), createContactLink());
-  main.append(h2, form, linksWrapper);
+  main.append(h2, form);
+  const links=['signin','contact'];
+  createNavigationLinks(links);
 };
 //create section for inputs in form
 const createBasicContainer = (placeholder, aria, name) => {
@@ -128,41 +276,10 @@ const createGenderContainer = () => {
   container.append(gender_section);
   return container;
 };
-//sign up
-const signUp = (event) => {
-  event.preventDefault();
-  const labels = document.querySelectorAll('.su_label');
-  const formFields = document.querySelectorAll('.sign_upinpt');
-  const username = formFields[0].value.trim();
-  const email = formFields[1].value.trim();
-  const pass = formFields[2].value.trim();
-  const pass_conf = formFields[3].value.trim();
-  const birth = formFields[4].innerHTML;
-  const gender = document.querySelector('input[name="gender"]:checked').value;
-  const valid_username = usernameValidation(username, labels[0]);
-  const valid_email = emailValidation(email, labels[1]);
-  const valid_pass = passwordValidation(pass, labels[2]);
-  const valid_pass_conf = passwordValidation(pass_conf, labels[3], pass);
-  const valid_birthday = dateValidation(birth, labels[4], "* Birthday");
-  if(valid_username===true && valid_email===true && valid_pass===true && valid_pass_conf===true && valid_birthday===true){
-    const sending_birthday = birth.split("/").reverse().join("-");
-    self.signUpData = {
-      "apphost": domain,
-      "username": username.toString(),
-      "email": email.toString(),
-      "password": pass.toString(),
-      "birth": sending_birthday.toString(),
-      "gender": gender.toString().toLowerCase(),
-      "request_type":"sign_up"
-    };
-    displayConsentView();
-  }
-};
 //create consent view
 const createConsentView = ()=>{
   const container = document.createElement('div');
   container.classList.add("terms_layer");
-  //container.classList.add("terms_layer", "hidden");
   container.setAttribute('id', 'terms_layer');
   const terms_card = document.createElement('div');
   terms_card.setAttribute('id', 'terms_card');
@@ -175,116 +292,4 @@ const createConsentView = ()=>{
   terms_card.append(termsheader, createTermsList(), consent_btn, close_btn);
   container.append(terms_card);
   return container;
-};
-//display consent view
-const displayConsentView = () =>{
-  document.body.append(createConsentView(), document.body.childNodes[2]);
-  displayElement(self.opacity_layer);
-};
-//remove concentView
-const removeConsentView = () =>{
-  const termsview = document.querySelectorAll('.terms_layer');
-  if (termsview.length>0) {
-    termsview[0].remove();
-    hideElement(self.opacity_layer);
-  }
-};
-//close consent view on click
-const closeConsentView = (event) => {
-  event.preventDefault();
-  removeConsentView();
-};
-//concent to terms and sign up
-const concentToTermsAndSignUp = (event, data = self.signUpData) => {
-  event.preventDefault();
-  const labels = document.querySelectorAll('.su_label');
-  const formFields = document.querySelectorAll('.sign_upinpt');
-  removeConsentView();
-  showSignUpLoader();
-  sendData('signUp', data).then((response)=>{
-    hideSignUpLoader();
-    if(response.message==="invalid_request"){
-      invalidRequestHandler(data);
-    }else{
-      if(response.message==="username_email_exists") {
-        labels[0].innerHTML="This username is taken! Try another one.";
-        displayElement(labels[0]);
-        labels[1].innerHTML="There is already an account for this email!";
-        displayElement(labels[1]);
-      }else if(response.message==="username_exists"){
-        labels[0].innerHTML="This username is taken! Try another one.";
-        displayElement(labels[0]);
-      }else if(response.message==="email_exists"){
-        labels[1].innerHTML="There is already an account for this email!";
-        displayElement(labels[1]);
-      }else{
-        clearSignupForm(labels, formFields);
-        const toast_options = {
-          "message": "",
-          "type": "fadeout",
-          "timer": 0,
-          "buttonsmode": "got_it",
-          "container_classes":["show_toast"]
-        };
-        if (response.message==="success") {
-          toast_options.message = messageGenerator({initiator:"signup", message_type:"success"});
-          toast_options.timer=15000;
-        }else if (response.message==="saved_no_ver_email") {
-          toast_options.type='keep_open';
-          toast_options.message = messageGenerator({initiator:"signup", message_type:"saved_no_ver_email"});
-        }else{
-          toast_options.message = messageGenerator({initiator:"signup", message_type:"else_error", error_part:"create an account for you"});
-          toast_options.timer=12000;
-        }
-        showToaster(toast_options);
-      }
-    }
-  });
-};
-//show message when signing up
-const showSignUpLoader = () => {
-  const sendImage = document.createElement('div');
-  sendImage.setAttribute('id', 'signUpLoaderImage');
-  const sendText = document.createElement('p');
-  sendText.setAttribute('id', 'signUpLoaderText');
-  sendText.innerHTML = `Creating your account....<br><span>Please wait.</span><span>This might take a while!<span>`
-  self.loader.insertBefore(sendImage, self.loader.childNodes[0]);
-  self.loader.insertBefore(sendText, self.loader.childNodes[1]);
-  showLoader();
-};
-//hide message after signing up
-const hideSignUpLoader = () => {
-  document.getElementById('signUpLoaderImage').remove();
-  document.getElementById('signUpLoaderText').remove();
-  hideLoader();
-};
-//clear sign up form
-const resetClearForm = (event) => {
-  event.preventDefault();
-  const labels = document.querySelectorAll('.su_label');
-  const formFields = document.querySelectorAll('.sign_upinpt');
-  clearSignupForm(labels, formFields);
-};
-//clear sign up form
-const clearSignupForm = (labels, formFields) => {
-  self.signUpData="";
-  formFields[4].innerHTML="Birthday";
-  formFields[4].classList.remove('has_selected_datetime');
-  clearAppForm(labels, formFields);
-  document.querySelector('input[value="male"]').checked = true;
-  document.querySelector('input[value="female"]').checked = false;
-  formFields[2].type = "text";
-  formFields[3].type = "text";
-  passwordVisibilityHandler(formFields[2], document.getElementById('btn_view_supass'));
-  passwordVisibilityHandler(formFields[3], document.getElementById('btn_view_surpass'));
-};
-//initialize birthday picker:
-const initBirthDatePicker = () => {
-  let pickerDates = [];
-  pickerDates["today"] = new Date("1990-01-01");
-  pickerDates["past"] = new Date("1918-01-01");
-  pickerDates["future"] = new Date("2008-01-01");
-  const dayPicker = document.getElementById('birthdayPick');
-  const dayPickerInput = document.getElementById('datepickerInput');
-  initDatePickerCalendar(self.signBirthdayCalendar, dayPicker, pickerDates, dayPickerInput);
 };
