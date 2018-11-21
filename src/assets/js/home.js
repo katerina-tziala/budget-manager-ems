@@ -58,7 +58,6 @@ const initView = (budgetList = self.budgetList, expenseList = self.expenseList, 
     self.feedbackView = document.getElementById('feedbackView');
     initFeedbackView();
     }else{
-      console.log(self.statistics);
       self.main.append(createStatisticsView());
       self.statisticsView = document.getElementById('statisticsView');
       self.statisticsView = document.getElementById('statisticsView');
