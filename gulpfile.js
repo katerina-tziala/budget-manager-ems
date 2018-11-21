@@ -2,6 +2,8 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
+  //  useref = require('gulp-useref'),
+  //  cssnano = require('gulp-cssnano'),
     babel = require('gulp-babel'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
@@ -10,6 +12,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     minifyhtml = require('gulp-htmlmin'),
     htmlreplace = require('gulp-html-replace'),
+    //gulpIf = require('gulp-if'),
     del = require('del'),
     sourcemaps = require('gulp-sourcemaps'),
     minify = require('gulp-minify'),
@@ -20,7 +23,7 @@ var gulp = require('gulp'),
 //basic variables
 var src = './src/',
     temp =  src+'temp',
-    root_files = src+'root_files',
+    root_files =  src+'root_files',
     folder_img = src+'assets/images';
 //javascript variables
 var src_js = src+'assets/js',
@@ -50,6 +53,7 @@ var production_folder = 'dev',
 /*
 * FUNCTION TO BUILD APP FOR DISTRIBUTION
 */
+//function to build app
 //function to build app
 gulp.task('build_for_dist', function(callback) {
   production_folder="dist";
@@ -510,108 +514,210 @@ gulp.task('budgetgoals_css',function(){
 //build appropriately javascript for the app
 gulp.task('build_scripts', function(callback) {
   runSequence(
-  'js_transp',
-  'move_scripts',
-  'app_scripts',
-  'home_scripts',
-  'profile_scripts',
-  'my_expenses_scripts',
-  'add_expense_scripts',
-  'expense_details_scripts',
-  'budget_goals_scripts',
-  'signup_scripts',
+  'transpile_js',
+  'move_ready_scripts',
+  'bundle_app_js',
+  'bundle_signin_js',
+  'bundle_signup_js',
+  'bundle_contact_js',
+  'bundle_forgot_password_js',
+  'bundle_reset_password_js',
+  'bundle_profile_js',
+  'bundle_categories_js',
+  'bundle_add_expense_js',
+  'bundle_my_expenses_js',
+  'bundle_expense_details_js',
+  'bundle_budget_goals_js',
+  'bundle_home_js',
    callback);
 });
-//transpile and minify source js files
-gulp.task('js_transp', () => {
+//transpile source js files
+gulp.task('transpile_js', () => {
   return gulp.src(src_js+'/**.js')
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(gulp.dest(folder_transpiled_js));
+  .pipe(babel({presets: ['es2015']}))
+  .pipe(gulp.dest(folder_transpiled_js));
 });
 //move ready scripts
-gulp.task('move_scripts',function(){
-  return gulp.src([
-    folder_transpiled_js+'/account_activation.js',
-    folder_transpiled_js+'/categories.js',
-    folder_transpiled_js+'/forgot_password.js',
-    folder_transpiled_js+'/reset_password.js',
-    folder_transpiled_js+'/contact.js',
-    folder_transpiled_js+'/signin.js',
-  ])
+gulp.task('move_ready_scripts',function(){
+  return gulp.src([folder_transpiled_js+'/account_activation.js'])
   .pipe(minify({
-        ext:{
-            min:'.min.js'
-        },
+        ext:{min:'.min.js'},
         noSource: true}))
     .pipe(gulp.dest(folder_bundle_js));
 });
 //create bundle js of the app
-gulp.task('app_scripts', function () {
+gulp.task('bundle_app_js', function () {
 	gulp.src([
   folder_transpiled_js+'/app.js',
-  folder_transpiled_js+'/utilities.js',
   folder_transpiled_js+'/data_handler.js',
-  folder_transpiled_js+'/element_creator.js'
+  folder_transpiled_js+'/notification.js',
+  folder_transpiled_js+'/navigation.js',
+  folder_transpiled_js+'/pages.js',
+  folder_transpiled_js+'/utilities.js',
+  folder_transpiled_js+'/create_basic_elements.js'
   ])
   .pipe(sourcemaps.init())
   .pipe(concat('app.min.js'))
   .pipe(minify({
-    ext:{
-      min:'.js'
-    },
+    ext:{min:'.js'},
     noSource: true}))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of home page
-gulp.task('home_scripts', function() {
-  return gulp.src([blobselect, charts, folder_transpiled_js+'/home.js'])
-  .pipe(concat('home.min.js'))
-  .pipe(uglify())
+//create bundle js of sign in interface
+gulp.task('bundle_signin_js', function () {
+	gulp.src([folder_transpiled_js+'/validation.js', folder_transpiled_js+'/form_manager.js', folder_transpiled_js+'/signin.js'])
+  .pipe(sourcemaps.init())
+  .pipe(concat('signin.min.js'))
+  .pipe(minify({
+    ext:{min:'.js'},
+    noSource: true}))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of profile page
-gulp.task('profile_scripts', function() {
-  return gulp.src([moment,datepicker,folder_transpiled_js+'/profile.js'
-  ])
+//create bundle js of sign up interface
+gulp.task('bundle_signup_js', function () {
+	gulp.src([moment, datepicker, folder_transpiled_js+'/validation.js',
+  folder_transpiled_js+'/form_manager.js', folder_transpiled_js+'/signup.js'])
+  .pipe(sourcemaps.init())
+  .pipe(concat('signup.min.js'))
+  .pipe(minify({
+    ext:{min:'.js'},
+    noSource: true}))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(folder_bundle_js));
+});
+//create bundle js of contact interface
+gulp.task('bundle_contact_js', function () {
+	gulp.src([folder_transpiled_js+'/validation.js', folder_transpiled_js+'/form_manager.js', folder_transpiled_js+'/contact.js'])
+  .pipe(sourcemaps.init())
+  .pipe(concat('contact.min.js'))
+  .pipe(minify({
+    ext:{min:'.js'},
+    noSource: true}))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(folder_bundle_js));
+});
+//create bundle js of forgot password interface
+gulp.task('bundle_forgot_password_js', function () {
+	gulp.src([folder_transpiled_js+'/validation.js', folder_transpiled_js+'/form_manager.js', folder_transpiled_js+'/forgot_password.js'])
+  .pipe(sourcemaps.init())
+  .pipe(concat('forgot_password.min.js'))
+  .pipe(minify({
+    ext:{min:'.js'},
+    noSource: true}))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(folder_bundle_js));
+});
+//create bundle js of reset password interface
+gulp.task('bundle_reset_password_js', function () {
+	gulp.src([folder_transpiled_js+'/validation.js', folder_transpiled_js+'/form_manager.js', folder_transpiled_js+'/reset_password.js'])
+  .pipe(sourcemaps.init())
+  .pipe(concat('reset_password.min.js'))
+  .pipe(minify({
+    ext:{min:'.js'},
+    noSource: true}))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(folder_bundle_js));
+});
+//create bundle js of profile interface
+gulp.task('bundle_profile_js', function() {
+  return gulp.src([moment, datepicker,
+   folder_transpiled_js+'/create_more_elements.js',
+   folder_transpiled_js+'/create_profile_html.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/profile.js',
+    folder_transpiled_js+'/requests_profile.js'])
   .pipe(concat('profile.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of my expenses page
-gulp.task('my_expenses_scripts', function() {
-  return gulp.src([blobselect, folder_transpiled_js+'/my_expenses.js'])
-  .pipe(concat('my_expenses.min.js'))
+//create bundle js of categories interface
+gulp.task('bundle_categories_js', function() {
+  return gulp.src([moment, datepicker, folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/categories.js'])
+  .pipe(concat('categories.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of add expense page
-gulp.task('add_expense_scripts', function() {
-  return gulp.src([moment, datepicker, timepicker, blobselect, folder_transpiled_js+'/add_expense.js'])
+//create bundle js of add expense interface
+gulp.task('bundle_add_expense_js', function() {
+  return gulp.src([moment, datepicker, timepicker, blobselect,
+    folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/create_add_expense_html.js',
+    folder_transpiled_js+'/add_expense.js'])
   .pipe(concat('add_expense.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of expense details page
-gulp.task('expense_details_scripts', function() {
-  return gulp.src([moment, datepicker, timepicker, blobselect, folder_transpiled_js+'/expense_details.js'])
+//create bundle js of my expenses interface
+gulp.task('bundle_my_expenses_js', function() {
+  return gulp.src([blobselect,
+    folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/filter_lists.js',
+    folder_transpiled_js+'/create_my_expenses_html.js',
+    folder_transpiled_js+'/statistics.js',
+    folder_transpiled_js+'/my_expenses.js'])
+  .pipe(concat('my_expenses.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest(folder_bundle_js));
+});
+//create bundle js of expense details interface
+gulp.task('bundle_expense_details_js', function() {
+  return gulp.src([moment, datepicker, timepicker, blobselect,
+    folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/filter_lists.js',
+    folder_transpiled_js+'/expense_details.js',
+    folder_transpiled_js+'/create_expense_details_html.js'])
   .pipe(concat('expense_details.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of budget and goals page
-gulp.task('budget_goals_scripts', function() {
-  return gulp.src([moment, datepicker, blobselect, folder_transpiled_js+'/budget_and_goals.js'])
+//create bundle js of budget and goals interface
+gulp.task('bundle_budget_goals_js', function() {
+  return gulp.src([moment, datepicker, blobselect,
+    folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/form_manager.js',
+    folder_transpiled_js+'/validation.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/filter_lists.js',
+    folder_transpiled_js+'/no_budget.js',
+    folder_transpiled_js+'/current_budget.js',
+    folder_transpiled_js+'/create_goals_html.js',
+    folder_transpiled_js+'/goals.js',
+    folder_transpiled_js+'/budget_and_goals.js']
+  )
   .pipe(concat('budget_and_goals.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
-//create bundle js of sign up page
-gulp.task('signup_scripts', function() {
-  return gulp.src([moment, datepicker, folder_transpiled_js+'/signup.js'])
-  .pipe(concat('signup.min.js'))
+//create bundle js of home interface
+gulp.task('bundle_home_js', function() {
+  return gulp.src([blobselect, charts,
+    folder_transpiled_js+'/create_more_elements.js',
+    folder_transpiled_js+'/sort_lists.js',
+    folder_transpiled_js+'/filter_lists.js',
+    folder_transpiled_js+'/statistics.js',
+    folder_transpiled_js+'/feedback.js',
+    folder_transpiled_js+'/create_stats_html.js',
+    folder_transpiled_js+'/home_stats.js',
+    folder_transpiled_js+'/home_charts_creator.js',
+    folder_transpiled_js+'/home_charts_configuration.js',
+    folder_transpiled_js+'/home.js'])
+  .pipe(concat('home.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest(folder_bundle_js));
 });
