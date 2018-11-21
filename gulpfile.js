@@ -212,7 +212,7 @@ gulp.task('minify_html', function () {
   .pipe(rename('index.html'))
   .pipe(gulp.dest(temp));
 });
-//function to help compile all html pages through iteration
+//function to help compile all html files through iteration
 function synchro(done) {
     return through2.obj(function (data, enc, cb) {
         cb();
@@ -222,7 +222,7 @@ function synchro(done) {
         done();
     });
 }
-//compile html pages
+//compile html files
 gulp.task('compile_html', function (done) {
   var minified_html = temp+'/index.html';
   var pages = [
@@ -386,7 +386,7 @@ gulp.task('critical_css',function(){
   .pipe(concat('critical.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for sign in page
+//create css for sign in interface
 gulp.task('signin_css',function(){
   return gulp.src([
     folder_optimized_css+'/form.css',
@@ -394,7 +394,7 @@ gulp.task('signin_css',function(){
   .pipe(concat('signin.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for home page
+//create css for home interface
 gulp.task('home_css',function(){
   return gulp.src([
   folder_optimized_css+'/blobselect.css',
@@ -409,7 +409,7 @@ gulp.task('home_css',function(){
   .pipe(concat('home.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for forgot password page
+//create css for forgot password interface
 gulp.task('passforgot_css',function(){
   return gulp.src([
     folder_optimized_css+'/form.css',
@@ -418,49 +418,49 @@ gulp.task('passforgot_css',function(){
   .pipe(concat('forgot_password.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for reset password page
+//create css for reset password interface
 gulp.task('passreset_css',function(){
   return gulp.src([folder_optimized_css+'/form.css',folder_optimized_css+'/reset_password.css'])
   .pipe(cleancss({}))
   .pipe(concat('reset_password.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css forterms page
+//create css forterms interface
 gulp.task('terms_css',function(){
   return gulp.src([folder_optimized_css+'/menu.css',folder_optimized_css+'/terms_of_use.css'])
   .pipe(cleancss({}))
   .pipe(concat('terms_of_use.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for contact page
+//create css for contact interface
 gulp.task('contact_css',function(){
   return gulp.src([folder_optimized_css+'/menu.css', folder_optimized_css+'/form.css', folder_optimized_css+'/contact.css'])
   .pipe(cleancss({}))
   .pipe(concat('contact.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for signup page
+//create css for signup interface
 gulp.task('signup_css',function(){
   return gulp.src([folder_optimized_css+'/form.css',folder_optimized_css+'/datepicker.css', folder_optimized_css+'/signup.css'])
   .pipe(cleancss({}))
   .pipe(concat('signup.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for categories page
+//create css for categories interface
 gulp.task('categories_css',function(){
   return gulp.src([folder_optimized_css+'/loggeduser.css', folder_optimized_css+'/menu.css', folder_optimized_css+'/form.css', folder_optimized_css+'/categories.css'])
   .pipe(cleancss({}))
   .pipe(concat('categories.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for profile page
+//create css for profile interface
 gulp.task('profile_css',function(){
   return gulp.src([folder_optimized_css+'/menu.css', folder_optimized_css+'/datepicker.css', folder_optimized_css+'/form.css', folder_optimized_css+'/profile.css'])
   .pipe(cleancss({}))
   .pipe(concat('profile.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for add expense page
+//create css for add expense interface
 gulp.task('add_expense_css',function(){
   return gulp.src([
     folder_optimized_css+'/timepicker.css',
@@ -475,14 +475,14 @@ gulp.task('add_expense_css',function(){
   .pipe(concat('add_expense.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for my expenses page
+//create css for my expenses interface
 gulp.task('my_expenses_css',function(){
   return gulp.src([folder_optimized_css+'/blobselect.css', folder_optimized_css+'/loggeduser.css', folder_optimized_css+'/menu.css', folder_optimized_css+'/my_expenses.css'])
   .pipe(cleancss({}))
   .pipe(concat('my_expenses.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for expense details page
+//create css for expense details interface
 gulp.task('expense_details_css',function(){
   return gulp.src([
   folder_optimized_css+'/blobselect.css',
@@ -497,7 +497,7 @@ gulp.task('expense_details_css',function(){
   .pipe(concat('expense_details.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
 });
-//create css for budget and goals page
+//create css for budget and goals interface
 gulp.task('budgetgoals_css',function(){
   return gulp.src([
     folder_optimized_css+'/blobselect.css',
@@ -505,7 +505,8 @@ gulp.task('budgetgoals_css',function(){
     folder_optimized_css+'/form.css',
     folder_optimized_css+'/loggeduser.css',
     folder_optimized_css+'/menu.css',
-    folder_optimized_css+'/budget_and_goals.css'
+    folder_optimized_css+'/budget_and_goals.css',
+    folder_optimized_css+'/goals.css',
   ])
   .pipe(cleancss({}))
   .pipe(concat('budget_and_goals.min.css'))
