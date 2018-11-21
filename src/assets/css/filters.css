@@ -1,0 +1,104 @@
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SWITCHERS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.switch_container{
+  padding: 16px 16px 12px;
+  width: auto;
+}
+.switch_label{
+  display: block;
+  padding-right: 20px;
+  font-size: 1.2rem;
+  text-align: right;
+  font-weight: 600;
+  cursor: pointer;
+}
+.switch_button{
+  width: 60px;
+  height: 16px;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+}
+.switch_button.unswitced{
+  background-color: #595959;
+}
+.switch_button.switced{
+  background-color: #006622;
+}
+.switch_indicator{
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: block;
+  position: absolute;
+  top: -7px;
+  left: -2px;
+  box-shadow: -0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+.switch_indicator.unswitced{
+  background-color: #808080;
+  background: -webkit-radial-gradient(#fff, #808080 80%, #fff);
+  background: -o-radial-gradient(#fff, #808080 80%, #fff);
+  background: -moz-radial-gradient(#fff, #808080 80%, #fff);
+  background: radial-gradient(#fff, #808080 80%, #fff);
+  background-image: radial-gradient(#fff, #808080 80%, #fff);
+}
+.switch_indicator.switced{
+  background-color: #009933;
+  background: -webkit-radial-gradient(#66ff99, #009933 80%, #66ff99);
+  background: -o-radial-gradient(#66ff99, #009933 80%, #66ff99);
+  background: -moz-radial-gradient(#66ff99, #009933 80%, #66ff99);
+  background: radial-gradient(#66ff99, #009933 80%, #66ff99);
+  background-image: radial-gradient(#66ff66, #009933 80%, #66ff66);
+  -moz-transform: translateX(36px);
+  -o-transform: translateX(36px);
+  -webkit-transform: translateX(36px);
+  transform: translateX(36px);
+}
+.switch_indicator:focus, .switch_indicator:hover{
+  background-image: radial-gradient(#fff, #fff 80%, #fff);
+  background-color: #fff!important;
+  outline: none;
+}
+.switch_button:hover .switch_indicator, .switch_button:focus .switch_indicator{
+  background-image: radial-gradient(#fff, #fff 80%, #fff);
+  background-color: #fff!important;
+}
+.switch_button:hover, .switch_button:focus {
+  background-color: rgba(0, 128, 0, 0.8)!important;
+}
+.switch_button:focus-within {
+  background-color: rgba(0, 128, 0, 0.8)!important;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FILLTERS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#filtersContainer_basic, #filtersContainer_amounts{
+  width: 100%;
+  padding: 8px 0px;
+}
+#filtersContainer_amounts{
+  margin-top: -16px;
+}
+.oneFilterContainer{
+  min-width: 160px;
+  margin: 8px 16px;
+}
+.categorySelectContainer, .locationSelectContainer, .storeSelectContainer, .paymentSelectContainer{
+  width: 220px;
+}
+.select_tag{
+  font-size: 1.2rem;
+  text-align: left;
+  display: block;
+  text-transform: capitalize;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+.goalSelectContainer, .goalSelectContainer>.blobselect{
+  width: 100%!important;
+  max-width: 800px!important;
+}
+.filters_wrapper.goals_filters{
+  max-width: 800px!important;
+  margin: auto!important;
+}

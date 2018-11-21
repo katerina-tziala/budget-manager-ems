@@ -1,0 +1,123 @@
+
+/* ~~~~~~~~~~~~~~~~~~~~ SORTING SECTION ~~~~~~~~~~~~~~~~~~~~ */
+.section_header.sorting{
+  padding-left: 70px;
+  padding-right: 70px;
+}
+#sorting_wrapper{
+  background-color: rgba(0, 153, 51, 0.14);
+}
+.sort_selected{
+  width: 100%;
+  font-style: italic;
+  font-size: 1.3rem;
+  padding: 16px 16px 4px;
+  color: #0d0d0d;
+  border-bottom: 2px dashed #1a1a1a;
+}
+.sort_selected>span{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-style: oblique;
+}
+/* ~~~~~~~~~~~~~~~~~ SORTING BUTTONS ~~~~~~~~~~~~~~~~~*/
+.sortBtn{
+  width: 90px;
+  height: 90px;
+  font-size: 1rem;
+  border-radius: 20px;
+  color: #f4fffd;
+  background-color: #333333;
+  margin: 16px 20px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+.sortBtn:hover, .sortBtn:focus{
+  background-color: #fff;
+  color: #333333;
+}
+.sortIcon{
+  font-size: 1.4rem;
+  display: block;
+}
+.sort_indicator{
+  display: block;
+  text-transform: uppercase;
+  padding: 8px 8px 0px;
+}
+.sort_tag{
+  display: block;
+  font-weight: 600;
+}
+/*~~~~~~~~~~~~~~ SELECTED SORTING OPTIONS ~~~~~~~~~~~~~~*/
+#selectedSortContainer{
+  width: 100%;
+}
+/* ----- selected sort options list ----- */
+#selectedSortOptions{
+  width: 100%;
+  list-style-position: inside;
+  font-weight: 600;
+  margin:0!important;
+  flex-flow: row wrap;
+}
+/* ----- sorting card ----- */
+.sortCard{
+  background-color: #f5f5f5;
+  margin: 16px;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  font-size: 1.15rem;
+  position: relative;
+  padding: 10px 36px 10px 10px;
+}
+.sortoptcard_sortopt{
+  padding-right: 8px;
+  font-weight: 400;
+  text-transform: capitalize;
+  display: inline-block;
+  width: 95px;
+  text-align: center;
+}
+.sortoptcard_ordertype{
+  width: 56px;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-right: 8px;
+  border-right: 2px solid #009933;
+  font-weight: 600;
+}
+.removeSortBtn{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 6px;
+  border-radius: 8px;
+  background-color: inherit;
+  color: #595959!important;
+}
+.removeSortBtn:hover,.removeSortBtn:focus {
+  background-color: #009933;
+  color: #fff!important;
+  text-shadow: 0px 0px 15px #000;
+}
+/*~~~~~~~~~~~~~~ SORTING BUTTONS CLEAR OPTIONS & APPLY SORTING ~~~~~~~~~~~~~~*/
+#sortActionBtnContainer{
+  padding: 16px 0;
+}
+.sortActionBtn{
+  background-color: #1f601f;
+  color: #f4fffd;
+  font-size: 1.15rem;
+  width: 140px;
+  margin: 0 20px;
+}
+.sortActionBtn:hover,.sortActionBtn:focus{
+  background-color: #1f601f;
+  color: #f4fffd;
+  font-size: 1.15rem;
+  color: #fff;
+  text-shadow: -2px 2px 5px #000;
+  background-color: #29a329;
+}

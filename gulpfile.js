@@ -477,7 +477,12 @@ gulp.task('add_expense_css',function(){
 });
 //create css for my expenses interface
 gulp.task('my_expenses_css',function(){
-  return gulp.src([folder_optimized_css+'/blobselect.css', folder_optimized_css+'/loggeduser.css', folder_optimized_css+'/menu.css', folder_optimized_css+'/my_expenses.css'])
+  return gulp.src([folder_optimized_css+'/blobselect.css',
+  folder_optimized_css+'/loggeduser.css',
+   folder_optimized_css+'/menu.css',
+   folder_optimized_css+'/sort.css',
+    folder_optimized_css+'/filters.css',
+   folder_optimized_css+'/my_expenses.css'])
   .pipe(cleancss({}))
   .pipe(concat('my_expenses.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
