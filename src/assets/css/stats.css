@@ -1,0 +1,397 @@
+.goalsOverviewCard>.cardHeader{
+  margin: 0 0px 10px!important;
+}
+.card, .feedbackcard{
+  background-color: #fff;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  width: 100%;
+  padding: 16px;
+  margin: 16px;
+  min-width: 280px;
+}
+.cardHeader{
+  width: 100%;
+  text-shadow: -2px 2px 20px #999999;
+  color: #0d0d0d;
+  padding-bottom: 4px;
+  margin: 0 60px 10px;
+  text-transform: capitalize;
+}
+.cardRow{
+  margin: 8px 0px;
+  width: 100%;
+}
+.goalOverviewCard>.cardRow:nth-of-type(1){
+  margin-top: 14px!important;
+}
+.goalOverviewCard>.cardRow>.progressBarBase{
+  margin-top: 20px;
+}
+.cardHeaderIcon{
+  width: 48px;
+  height: 48px;
+  border-right: 2px solid #333333;
+  margin-right: 8px;
+  color: #333333;
+  text-align: left;
+}
+.cardHeaderIcon_bo{
+  background-color: #fff!important;
+  background-repeat: no-repeat!important;
+  background-position: -4px 0px!important;
+  background-size: 46px!important;
+  background: url(../img/logo/logo333333.svg) center center no-repeat;
+}
+.cardHeaderIcon_expo, .cardHeaderIcon_day {
+  font-size: 32px!important;
+  padding-top: 9px;
+}
+.cardHeaderIcon_goalso{
+  font-size: 30px;
+  padding-top: 4px;
+  width:48px!important;
+  height: 36px!important
+}
+.cardHeaderIcon_goalso.success{
+  color: #009933;
+  font-size: 32px;
+  padding-top: 4px;
+}
+.cardHeaderIcon_goalso.fail {
+  color: #ff0000;
+  font-size: 34px;
+  padding-top: 2px;
+  padding-left: 4px;
+}
+.goalOverviewRow{
+  max-width: 150px;
+}
+.totalexpensesicon{
+  width: 40px;
+  height: 30px;
+  font-size: 24px!important;
+  color: #333333;
+  text-align: left;
+  padding-top: 4px;
+  padding-right: 8px;
+}
+.goalCategoryIcon, .categoryCategoryIcon{
+  text-align: center;
+}
+.goalCategory, .categoryCategory{
+  text-align: left;
+  margin-left: 8px;
+}
+.statsDataExp_goals{
+  padding-left: 8px;
+}
+.statsDataExpNumb{padding-left: 8px;}
+.goalsStatisticsContainer, .goalStatisticsContainer, .categoryStatisticsContainer, .paymentStatisticsContainer{
+  padding-right: 4px;
+}
+.goalStatisticsContainer>span:nth-of-type(2), .paymentStatisticsContainer>span:nth-of-type(2){
+  flex-direction: row-reverse;
+  max-width: 45%;
+  font-weight: 600;
+  float: right;
+}
+.goalDataCurrentContainer{
+  margin-left: -8px!important;
+}
+.statsDataCurr_goal, .statsDataMax_goal, .statsDataCurr_category, .statsDataCurr_payment, .statsData_day{
+  text-align: left!important;
+}
+.goalEuroEntity{
+  display: inline-block;
+  width: 20px;
+}
+.goalsData,.goalData, .categoryData{
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+  display: inline-block!important;
+}
+.cashicon, .crediticon, .debiticon, .prepaidicon, .gifticon, .bankicon, .checkicon, .mobileicon, .webicon{
+  width: 36px;
+  height: 36px;
+  display: block;
+  margin-right: 8px;
+  border-radius: 50%;
+  color: #f5f5f5;
+  background-color: #0d0d0d;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  text-align: center;
+}
+.cashicon{
+  font-size: 20px;
+  padding-top: 8px;
+}
+.crediticon,.debiticon,.prepaidicon,.gifticon{
+  font-size: 20px;
+  padding-top: 7px;
+}
+.bankicon,.checkicon{
+  font-size: 18px;
+  padding-top: 9px;
+}
+.mobileicon{
+  font-size: 22px;
+  padding-top: 7px;
+}
+.webicon.fas.fa-globe{
+  font-size: 23px;
+  padding-top: 7px;
+  padding-left: 1px;
+}
+.card{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.budgetOverviewCard, .expOverviewCard{
+  max-width: 450px;
+  width: 100%;
+}
+.card.budgetOverviewCard, .card.expOverviewCard{
+  min-height: 470px!important;
+}
+.card.paymentOverviewCard, .card.categoryOverviewCard{
+  width: 100%;
+  max-width: 300px!important;
+}
+.card.goalsOverviewCard{
+  max-width: 280px!important;
+}
+.card.goalOverviewCard{
+  max-width: 320px!important;
+}
+.card.dailyOverviewCard{
+  width: 100%;
+  max-width: 360px!important;
+}
+.card.budgetOverviewCard>.cardRow>.statisticsBox>.statisticsContainer{
+  padding-left: 0px!important;
+}
+.statisticsBox{
+  height: auto;
+  flex: 1 1 200px;
+}
+.statisticsTag, .goalTag, .categoryTag, .paymentTag{
+  text-align: left;
+  font-weight: 600;
+  color: #333333;
+  width: auto;
+  text-transform: capitalize;
+  justify-content: space-between;
+}
+.statisticsTag>span{
+  display: block;
+}
+.statisticsTag>span:nth-of-type(1){
+  display: inline-block;
+  max-width: 60%;
+}
+.perDaySpan{
+  display: inline-block;
+  font-style: oblique;
+  color: #595959;
+  padding-left: 4px;
+}
+.percTag{
+  padding-left: 8px;
+}
+.statisticsContainer{
+  font-size: 1.1rem;
+  padding-top: 3px;
+  height: auto;
+  padding-left: 8px;
+  justify-content: space-between!important;
+}
+.euroEntity{
+  padding-right: 4px;
+  display: block;
+}
+.statsData{
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 100%;
+}
+.performanceStatusTag{
+  width: 50px;
+  height: 65px;
+  position:absolute;
+  top: -3px;
+  right: 16px;
+  font-size: 4.2rem;
+  color: rgba(0,0,0,0.2);
+}
+.performanceStatusCup{
+  position:absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 36px;
+  color: #404040;
+  text-shadow: -2px 2px 20px rgba(0,0,0,0.6);
+}
+.performanceStatusSuccess{
+  color: #ffff00;
+}
+.goalFailBookMark{
+  position: absolute;
+  font-size: 40px!important;
+  top: 6px;
+  right: 12px;
+  color: #ff0000;
+  text-shadow: -2px 2px 20px #999999;
+}
+.goalSuccessBookMark{
+  position: absolute;
+  font-size: 40px;
+  top: 6px;
+  right: 5px;
+  color: #009933;
+  text-shadow: -2px 2px 20px #999999;
+}
+.paymentIcon{
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  border-radius: 50%;
+  color: #f5f5f5;
+  background-color: #009933;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  text-align: center;
+  color: #f5f5f5;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS ~~~~~~~~~~~~~~~~~~~~ */
+.category_icon{
+  border-radius: 50%;
+  color: #f5f5f5;
+  box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
+  width: 36px;
+  height: 36px;
+}
+.icon_bar{
+  background-color: #ff6600;
+}
+.icon_bills{
+  background-color: #b30000;
+}
+.icon_clothing{
+  background-color: #476b6b;
+  font-size: 1.2rem;
+  padding-top: 9px;
+  padding-left: 1px;
+}
+.icon_communication{
+  background-color: #1e90ff;
+  transform: rotate(-30deg);
+  font-size: 1.4rem;
+  padding-top: 8px;
+}
+.icon_cosmetics{
+  background-color: #ff6699!important;
+  background-repeat: no-repeat!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+  background: url(../img/beauty.svg) center center no-repeat;
+  display: inline-block;
+  background-position:5px 6px!important;
+  background-size: 22px!important;
+}
+.icon_donations{
+  background-color: #9900cc;
+}
+.icon_education{
+  background-color: #006699;
+}
+.icon_entertainment{
+  background-color: #ffa500;
+  font-size: 1.4rem;
+  padding-top: 6px;
+}
+.icon_gifts{
+  background-color: #ff884d;
+  font-size: 1.4rem;
+  padding-top: 6px;
+}
+.icon_health{
+  background-color: #00802b;
+}
+.icon_housing{
+  background-color: #b35900;
+}
+.icon_investments{
+  background-color: #008060;
+}
+.icon_restaurant{
+  background-color: #cc0000;
+  font-size: 1.3rem;
+  padding-top: 8px;
+}
+.icon_sports{
+  background-color: #ff1a75;
+  font-size: 1.5rem;
+  padding-top: 7px;
+}
+.icon_supermarket{
+  background-color: #ff4000;
+}
+.icon_technology{
+  background-color: #1f4060;
+  font-size: 1.1rem;
+  padding-top: 8.5px;
+}
+.icon_transportation{
+  background-color: #b38600;
+}
+.icon_traveling{
+  background-color: #00994d;
+}
+.icon_vehicle{
+  background-color: #262626;
+}
+.icon_miscellaneous{
+  background-color: #734d26;
+}
+.icon_ettiquete {
+  background-color: #2eb82e;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  font-size: 1.15rem;
+  padding-top: 10px;
+  padding-left: 2px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS COMMON ~~~~~~~~~~~~~~~~~~~~ */
+.icon_bar, .icon_bills, .icon_education{
+  font-size: 1.2rem;
+  padding-top: 7.5px;
+}
+.icon_donations, .icon_investments{
+  font-size: 1.3rem;
+  padding-top: 6px;
+  padding-left: 2px;
+}
+.icon_health, .icon_housing{
+  font-size: 1.3rem!important;
+  padding-top: 7px!important;
+}
+.icon_supermarket, .icon_traveling, .icon_miscellaneous{
+  font-size: 1.2rem;
+  padding-top: 10px;
+}
+.icon_transportation, .icon_vehicle{
+  font-size: 1.3rem;
+  padding-top: 8px;
+}

@@ -1,0 +1,230 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FEEDBACK VIEW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#feedbackView{
+  min-height: 100vh!important;
+  width: 100%;
+  background-color: inherit;
+  padding:16px;
+}
+#feedbackSummaryCard{
+  width: 100%;
+  max-width: 400px;
+  min-width: 260px;
+  margin: 16px;
+  padding: 19px 16px 30px;
+}
+#feedbackHeader{
+  font-size: 1.4rem;
+}
+#feedbackHeader>span, #feedbackParagraph>span{
+  display: inline-block;
+  padding: 0 4px;
+}
+#feedbackParagraph{
+  font-size: 1.2rem;
+  margin: 10px 0 20px;
+}
+.feedbackHeader.success{
+  color: #009933;
+}
+.feedbackHeader.fail{
+  color: #e60000;
+}
+#feedbackOverview{
+  font-style: oblique;
+  font-size: 1.3rem;
+  color: #404040;
+}
+.feedbackOverviewContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  font-size: 1.2rem;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+.feedbackOverviewIcon{
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+.feedbackOverviewIcon.fas.fa-wallet{
+  border-right: 2px solid #1a1a1a;
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  padding-top: 6px;
+}
+.feedbackOverviewIcon.fas.fa-money-bill-wave{
+  border-right: 2px solid #e60000;
+  color: #e60000;
+  font-size: 1.7rem;
+  padding-top: 11px;
+}
+.feedbackOverviewIcon.fas.fa-piggy-bank{
+  border-right: 2px solid #009933;
+  color: #009933;
+  font-size: 2rem;
+  padding-top: 10px;
+}
+.feedbackOverviewText{
+  width: 100%;
+}
+.feedbackOverviewHeader{
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+#fo_spend_perc{
+  color: #e60000;
+}
+#fo_saved_perc{
+  color: #009933;
+}
+.feedbackOverviewDataContainer{
+  padding-right: 8px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+.feedbackOverviewDataContainer>span{
+  display: block;
+}
+.feedbackOverviewData{
+  padding-left: 4px;
+  width: 100%;
+  max-width: 260px;
+  overflow: hidden;
+  display: block;
+}
+.perc_separator{
+  padding: 0 6px;
+}
+#feedbackProgressBar{
+  width: 95%;
+  height: 30px;
+  background-color: #b3b3b3;
+  border-radius: 20px;
+  text-align: left;
+  margin: auto;
+  margin-top: 40px;
+}
+.feedbackProgressBar{
+  height: 38px;
+  margin-top: -4px;
+  display: inline-block;
+  border-radius: 6px;
+}
+.feedbackProgressBar.spend{
+  background-color: #e60000;
+  background-image: linear-gradient(#e60000, #ff9999, #e60000);
+  width: 0;
+}
+.feedbackProgressBar.saved{
+  background-color: #009933;
+  background-image: linear-gradient(#009933, #66ff99, #009933);
+  width: 0;
+}
+#viewStatisticsBtn{
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 200px;
+  color: #f4fffd;
+  background-color: #004d1a;
+  font-size: 1.15rem;
+}
+#viewStatisticsBtn>.fas.fa-chart-bar{
+  font-size: 1.6rem;
+  margin-right: 10px;
+}
+#viewStatisticsBtn:hover, #viewStatisticsBtn:focus{
+  color: #fff;
+  background-color: #009933;
+}
+#viewStatisticsBtn:hover span, #viewStatisticsBtn:focus span{
+  text-shadow: -2px 2px 5px #000;
+}
+#viewStatisticsBtn:hover .fas.fa-chart-bar, #viewStatisticsBtn:focus .fas.fa-chart-bar{
+    text-shadow: -0px 0px 25px #000;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ FEEDBACK GIFS ~~~~~~~~~~~~~~~~~~~~ */
+.feedbackCard{
+  width: 100%;
+  max-width: 450px;
+  min-width: 260px;
+  height: auto;
+  -webkit-box-orient: horizontal;
+  flex-flow: row wrap;
+  margin: 16px;
+  padding: 8px;
+}
+.feedbackIcons{
+  border: 2px solid #fff;
+  background-color: #fff!important;
+  background-repeat: no-repeat!important;
+}
+.mainFeedbackIcon{
+  width: 100%;
+  height: 220px;
+}
+.secondaryFeedbackIcon{
+  width: 250px;
+  height: 220px;
+  flex: 1 1 150px;
+}
+.thirdFeedbackIcons{
+  width:  200px;
+  height: 220px;
+  flex: 1 1 150px;
+}
+.thirdOne, .thirdTwo{
+  width: 100%;
+  height: 110px;
+}
+.mainFeedbackIcon.success{
+  background-position: center!important;
+  background-size: 500px!important;
+  background: url(../img/feedback/money_rain_one.gif) center center no-repeat;
+}
+.secondaryFeedbackIcon.success{
+  background-size: 620px!important;
+  background-position: -170px 0px!important;
+  background: url(../img/feedback/toast.gif) center center no-repeat;
+}
+.thirdOne.success{
+  background-position: center!important;
+  background-size: 220px!important;
+  background: url(../img/feedback/money_girl.gif) center center no-repeat;
+}
+.thirdTwo.success{
+  background-size: 210px!important;
+  background-position:center top!important;
+  background: url(../img/feedback/excited.gif) center center no-repeat;
+}
+.mainFeedbackIcon.fail{
+  background-position: center!important;
+  background-size: 500px!important;
+  background: url(../img/feedback/empty_wallet.gif) center center no-repeat;
+}
+.secondaryFeedbackIcon.fail{
+  background-position: center top!important;
+  background-size: 250px!important;
+  background: url(../img/feedback/budget_folder.gif) center center no-repeat;
+}
+.thirdOne.fail{
+  background-position: 0px 0px!important;
+  background-size: 280px!important;
+  background: url(../img/feedback/empty_pockets.gif) center center no-repeat;
+}
+.thirdTwo.fail{
+  background-position: center top!important;
+  background-size: 235px!important;
+  background: url(../img/feedback/sad.gif) center center no-repeat;
+}

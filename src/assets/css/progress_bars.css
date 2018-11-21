@@ -1,0 +1,199 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ PROGRESS BARS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.progressBarBase{
+  width: 100%;
+  height: 26px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 8px 0 0px;
+}
+.progressBarIndicator{
+  height: 26px;
+  display: inline-block;
+  border-radius: 0px 12px 12px 0px;
+}
+.progressBarIndicator.success{
+  background-color: #009933;
+  background: -webkit-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: -o-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: -moz-linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background: linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+  background-image: linear-gradient(to bottom, #009933 0%, #66ff99 50%, #009933 100%);
+}
+.progressBarIndicator.fail{
+  background-color: #e60000;
+  background: -webkit-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: -o-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: -moz-linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background: linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+  background-image: linear-gradient(to bottom, #e60000 0%, #ff9999 50%, #e60000 100%);
+}
+/* ~~~~~~~~~~~~~~~~~~~~ PROGRESS BARS GOALS & CATEGORIES ~~~~~~~~~~~~~~~~~~~~ */
+.progressBar_bar{
+  background-color: #ff6600;
+  background: -webkit-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: -o-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: -moz-linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background: linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+  background-image: linear-gradient(to bottom, #ff6600 0%, #ffd480 50%, #ff6600 100%);
+}
+.progressBar_bills{
+  background-color: #b30000;
+  background: -webkit-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: -o-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: -moz-linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background: linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+  background-image: linear-gradient(to bottom, #b30000 0%, #ffb3b3 50%, #b30000 100%);
+}
+.progressBar_education{
+  background-color: #006699;
+  background: -webkit-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: -o-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: -moz-linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background: linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+  background-image: linear-gradient(to bottom, #006699 0%, #80d4ff 50%, #006699 100%);
+}
+.progressBar_clothing{
+  background-color: #476b6b;
+  background: -webkit-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: -o-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: -moz-linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background: linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+  background-image: linear-gradient(to bottom, #476b6b 0%, #a3c2c2 50%, #476b6b 100%);
+}
+.progressBar_communication{
+  background-color: #1e90ff;
+  background: -webkit-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: -o-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: -moz-linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background: linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+  background-image: linear-gradient(to bottom, #1e90ff 0%, #99d6ff 50%, #1e90ff 100%);
+}
+.progressBar_cosmetics{
+  background-color: #ff6699;
+  background: -webkit-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: -o-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: -moz-linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background: linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+  background-image: linear-gradient(to bottom, #ff6699 0%, #ffccdd 50%, #ff6699 100%);
+}
+.progressBar_donations{
+  background-color: #9900cc;
+  background: -webkit-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: -o-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: -moz-linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background: linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+  background-image: linear-gradient(to bottom, #9900cc 0%, #e699ff 50%, #9900cc 100%);
+}
+.progressBar_investments{
+  background-color: #008060;
+  background: -webkit-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: -o-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: -moz-linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background: linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+  background-image: linear-gradient(to bottom, #008060 0%, #66ffd9 50%, #008060 100%);
+}
+.progressBar_restaurant{
+  background-color: #cc0000;
+  background: -webkit-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: -o-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: -moz-linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background: linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+  background-image: linear-gradient(to bottom, #cc0000 0%, #ff9999 50%, #cc0000 100%);
+}
+.progressBar_entertainment{
+  background-color: #ffa500;
+  background: -webkit-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: -o-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: -moz-linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background: linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+  background-image: linear-gradient(to bottom, #ffa500 0%, #ffdb99 50%, #ffa500 100%);
+}
+.progressBar_gifts{
+  background-color: #ff884d;
+  background: -webkit-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff7733 100%);
+  background: -o-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background: -moz-linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background: linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+  background-image: linear-gradient(to bottom, #ff884d 0%, #ffccb3 50%, #ff884d 100%);
+}
+.progressBar_health{
+  background-color: #00802b;
+  background: -webkit-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: -o-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: -moz-linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background: linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+  background-image: linear-gradient(to bottom, #00802b 0%, #80ffaa 50%, #00802b 100%);
+}
+.progressBar_housing{
+  background-color: #b35900;
+  background: -webkit-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: -o-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: -moz-linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background: linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+  background-image: linear-gradient(to bottom, #b35900 0%, #ffcc99 50%, #b35900 100%);
+}
+.progressBar_sports{
+  background-color: #ff1a75;
+  background: -webkit-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: -o-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: -moz-linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background: linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+  background-image: linear-gradient(to bottom, #ff1a75 0%, #ff99c2 50%, #ff1a75 100%);
+}
+.progressBar_supermarket{
+  background-color: #ff4000;
+  background: -webkit-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: -o-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: -moz-linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background: linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+  background-image: linear-gradient(to bottom, #ff4000 0%, #ffb399 50%, #ff4000 100%);
+}
+.progressBar_traveling{
+  background-color: #00994d;
+  background: -webkit-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: -o-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: -moz-linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background: linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+  background-image: linear-gradient(to bottom, #00994d 0%, #80ffbf 50%, #00994d 100%);
+}
+.progressBar_miscellaneous{
+  background-color: #734d26;
+  background: -webkit-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: -o-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: -moz-linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background: linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+  background-image: linear-gradient(to bottom, #734d26 0%, #d9b38c 50%, #734d26 100%);
+}
+.progressBar_technology{
+  background-color: #1f4060;
+  background: -webkit-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: -o-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: -moz-linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background: linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+  background-image: linear-gradient(to bottom, #1f4060 0%, #6599cd 50%, #1f4060 100%);
+}
+.progressBar_transportation{
+  background-color: #b38600;
+  background: -webkit-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: -o-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: -moz-linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background: linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+  background-image: linear-gradient(to bottom, #b38600 0%, #ffdf80 50%, #b38600 100%);
+}
+.progressBar_vehicle{
+  background-color: #262626;
+  background: -webkit-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: -o-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: -moz-linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background: linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+  background-image: linear-gradient(to bottom, #262626 0%, #808080 50%, #262626 100%);
+}
+.progressBar_ettiquete{
+  background-color: #2eb82e;
+  background: -webkit-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: -o-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: -moz-linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background: linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+  background-image: linear-gradient(to bottom, #2eb82e 0%, #85e085 50%, #2eb82e 100%);
+}

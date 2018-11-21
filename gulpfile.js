@@ -400,8 +400,11 @@ gulp.task('home_css',function(){
   folder_optimized_css+'/blobselect.css',
   folder_optimized_css+'/loggeduser.css',
   folder_optimized_css+'/menu.css',
-  folder_optimized_css+'/home.css'
-  ])
+  folder_optimized_css+'/stats.css',
+  folder_optimized_css+'/home.css',
+  folder_optimized_css+'/charts.css',
+  folder_optimized_css+'/progress_bars.css',
+  folder_optimized_css+'/feedback.css'])
   .pipe(cleancss({}))
   .pipe(concat('home.min.css'))
   .pipe(gulp.dest(folder_bundle_css));
