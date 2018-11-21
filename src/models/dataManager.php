@@ -5,12 +5,12 @@
 		$_SESSION['bm_ems_user'] = $_COOKIE['bm_ems_user'];
 	}
 	if(isset($_SESSION['bm_ems_user']) && !empty($_SESSION['bm_ems_user'])){
-		$allowed_actions = ["getPersonalInfo",
-		"getFeedbackList", "saveFeedbackDisplay","updateGenderBirthday","updateUsername",
-		"updatePassword",	"updateEmail",	"getUserExpenseList",	"addUserExpense",	"deleteUserExpense","updateUserExpense",
-		"getUserBudgetList",	"setBudget",	"updateBudgetAmount",	"updateBudgetPeriod",	"getUserGoalList","addBudgetGoal",
-		"deleteBudgetGoal",	"updateBudgetGoal",	"getUserCategories",	"addNewCategory",	"deleteUserCategory",	"editUserCategory",
-		"signUserOut",	"sendContactEmail"];
+		$allowed_actions = ["getPersonalInfo","updateGenderBirthday","updateUsername","updatePassword",	"updateEmail",
+		"getUserBudgetList",	"setBudget",	"updateBudgetAmount",	"updateBudgetPeriod",
+		"getUserGoalList","addBudgetGoal","deleteBudgetGoal",	"updateBudgetGoal",
+		"getUserCategories",	"addNewCategory",	"deleteUserCategory",	"editUserCategory",
+		"getUserExpenseList",	"addUserExpense",	"deleteUserExpense","updateUserExpense",
+		"getFeedbackList", "saveFeedbackDisplay","signUserOut",	"sendContactEmail"];
 		require_once("classes/LoggedUser.php");
 		$loggedUser = new LoggedUser($_SESSION['bm_ems_user']);
 		if (isset($_GET['action']) && !empty($_GET['action'])) {
@@ -27,7 +27,7 @@
 		}
 	}else {
 		require_once("classes/User.php");
-		$allowed_actions = ["signUp", "signIn", "sendContactEmail", "forgotPasswordRequest", "resetPassword", "activateAccount"];
+		$allowed_actions = ["signUp", "activateAccount", "signIn", "sendContactEmail", "forgotPasswordRequest", "resetPassword"];
 		$basicUser = new User();
 		if (isset($_GET['action']) && !empty($_GET['action'])) {
 			$required_action = $_GET['action'];
