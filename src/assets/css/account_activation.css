@@ -34,3 +34,7 @@
   font-style: oblique;
   font-size: 1.18rem!important;
 }
+.notice>b, .notice>span, .notice>i{
+  display:inline-block;
+  padding: 0 4px;
+}

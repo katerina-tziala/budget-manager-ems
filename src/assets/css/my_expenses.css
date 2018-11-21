@@ -44,8 +44,6 @@
   color: #f4fffd;
   text-shadow: -0px 0px 25px #bfbfbf;
   background-color: #1a1a1a;
-  -webkit-box-shadow: -0px 0px 15px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: -0px 0px 15px rgba(0, 0, 0, 0.7);
   box-shadow: -0px 0px 15px rgba(0, 0, 0, 0.7);
 }
 .sort_toggle_btn:hover, .sort_toggle_btn:focus{
@@ -56,25 +54,13 @@
 .filters_wrapper, .sort_btns_wrapper{
   width: 100%;
   height: auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
-  -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
   align-content: flex-start;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SWITCHERS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -94,8 +80,6 @@
   width: 60px;
   height: 16px;
   display: block;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   position: relative;
 }
@@ -106,8 +90,6 @@
   background-color: #006622;
 }
 .switch_indicator{
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   width: 28px;
   height: 28px;
@@ -115,12 +97,7 @@
   position: absolute;
   top: -7px;
   left: -2px;
-  -webkit-box-shadow: -0px 0px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: -0px 0px 10px rgba(0, 0, 0, 0.5);
   box-shadow: -0px 0px 10px rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 .switch_indicator.unswitced{
@@ -215,14 +192,10 @@
   width: 90px;
   height: 90px;
   font-size: 1rem;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   color: #f4fffd;
   background-color: #333333;
   margin: 16px 20px;
-  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 .sortBtn:hover, .sortBtn:focus{
@@ -252,20 +225,14 @@
   list-style-position: inside;
   font-weight: 600;
   margin:0!important;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
 /* ----- sorting card ----- */
 .sortCard{
   background-color: #f5f5f5;
   margin: 16px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
   text-align: left;
-  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   font-size: 1.15rem;
   position: relative;
@@ -293,8 +260,6 @@
   width: 30px;
   height: 30px;
   top: 6px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
   border-radius: 8px;
   background-color: inherit;
   color: #595959!important;
@@ -348,49 +313,25 @@
 }
 #expensesList{
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
   align-items: flex-start;
-  -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
   align-content: flex-start;
   padding: 16px;
 }
 .expenseCard, .summaryCard{
   background-color: #fff;
-  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   Justify-content: flex-start;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   min-width: 280px;
@@ -435,12 +376,8 @@
   width: 100%;
   font-size: 1.2rem;
   padding: 9px;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   Justify-content: flex-start;
 }
 .summary_tag{
@@ -463,8 +400,6 @@
   width: 50px;
   height: 50px;
   font-size: 2rem;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   color: #fff;
   padding-top: 8px;
@@ -478,9 +413,6 @@
 }
 .summary_data{
   font-size: 1.1rem;
-  -webkit-box-flex: 1 0 150px;
-  -webkit-flex: 1 0 150px;
-  -ms-flex: 1 0 150px;
   flex: 1 0 150px;
   text-align: left;
   word-wrap: break-word;
@@ -493,8 +425,6 @@
   top: 16px;
   left:auto;
   right: 16px;
-  -webkit-box-shadow: -0px 0px 12px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: -0px 0px 12px rgba(0, 0, 0, 0.7);
   box-shadow: -0px 0px 12px rgba(0, 0, 0, 0.7);
 }
 .deleteRoundBtn:hover,.deleteRoundBtn:focus{
@@ -536,9 +466,6 @@
   line-height: 40px;
   width: 100%;
   font-size: 1.2rem;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   text-align: left;
   text-transform: capitalize;
@@ -563,9 +490,6 @@
   border-right: 2px solid #009933;
 }
 .expense_amount_payment{
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   text-align: left;
 }
@@ -588,15 +512,11 @@
   font-size: 1.2rem;
   padding: 8px 12px;
   min-width: 40px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
   margin: auto;
   margin-top: 20px;
   color: #f4fffd;
   background-color: #194d19;
-  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 9px 1px rgba(0, 0, 0, 0.2), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 .expenseDetailsBtn:hover,.expenseDetailsBtn:focus{
@@ -606,12 +526,8 @@
 }
 /* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS ~~~~~~~~~~~~~~~~~~~~ */
 .category_icon{
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   color: #f5f5f5;
-  -webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
-  -moz-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
   box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
   width: 48px;
   height: 48px;
@@ -766,9 +682,6 @@
 }
 @media screen and (max-width: 415px){
   #goalSummaryCard>.summary_section>.summary_data{
-    -webkit-box-flex: none!important;
-    -webkit-flex: none!important;
-    -ms-flex: none!important;
     flex: none!important;
     width: 110px!important;
   }
@@ -800,9 +713,6 @@
 }
 @media screen and (max-width: 350px){
   #expensesSummaryCard>.summary_section>.summary_data{
-    -webkit-box-flex: 1 0 120px;
-    -webkit-flex: 1 0 120px;
-    -ms-flex: 1 0 120px;
     flex: 1 0 120px;
   }
 }

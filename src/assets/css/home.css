@@ -393,8 +393,6 @@
   width: 100%;
   height: 26px;
   background-color: rgba(0,0,0,0.2);
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
   border-radius: 12px;
   overflow: hidden;
   margin: 8px 0 0px;
@@ -792,7 +790,6 @@
 .feedbackOverviewDataContainer{
   padding-right: 8px;
   -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
 }
@@ -813,8 +810,6 @@
   width: 95%;
   height: 30px;
   background-color: #b3b3b3;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
   border-radius: 20px;
   text-align: left;
   margin: auto;
@@ -824,8 +819,6 @@
   height: 38px;
   margin-top: -4px;
   display: inline-block;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 68px;
   border-radius: 6px;
 }
 .feedbackProgressBar.spend{
@@ -868,9 +861,6 @@
   min-width: 260px;
   height: auto;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
   margin: 16px;
   padding: 8px;
@@ -887,17 +877,11 @@
 .secondaryFeedbackIcon{
   width: 250px;
   height: 220px;
-  -webkit-box-flex: 1 1 150px;
-  -webkit-flex: 1 1 150px;
-  -ms-flex: 1 1 150px;
   flex: 1 1 150px;
 }
 .thirdFeedbackIcons{
   width:  200px;
   height: 220px;
-  -webkit-box-flex: 1 1 150px;
-  -webkit-flex: 1 1 150px;
-  -ms-flex: 1 1 150px;
   flex: 1 1 150px;
 }
 .thirdOne, .thirdTwo{
@@ -946,12 +930,8 @@
 }
 /* ~~~~~~~~~~~~~~~~~~~~ CATEGORY ICONS ~~~~~~~~~~~~~~~~~~~~ */
 .category_icon{
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   color: #f5f5f5;
-  -webkit-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
-  -moz-box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
   box-shadow: 0px 0px 8px rgba(255, 255, 255,0.5) inset;
   width: 36px;
   height: 36px;
@@ -1125,9 +1105,6 @@
     max-width: 300px;
   }
   .thirdFeedbackIcons{
-    -webkit-box-flex: 1 1 300px;
-    -webkit-flex: 1 1 300px;
-    -ms-flex: 1 1 300px;
     flex: 1 1 300px;
     height: auto;
   }
@@ -1140,9 +1117,6 @@
     height:140px;
   }
   .secondaryFeedbackIcon.fail{
-    -webkit-box-flex: 1 1 300px;
-    -webkit-flex: 1 1 300px;
-    -ms-flex: 1 1 300px;
     flex: 1 1 300px;
     background-size: 280px!important;
   }

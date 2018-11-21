@@ -60,8 +60,6 @@ button {
 .round_btn{
   min-width: 40px;
   width: 40px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   background-repeat: no-repeat!important;
   background-position: center!important;
@@ -105,9 +103,6 @@ button {
   align-content: center;
 }
 #app_title{
-  -webkit-box-flex: 1 1 100px;
-  -webkit-flex: 1 1 100px;
-  -ms-flex: 1 1 100px;
   flex: 1 1 100px;
   padding: 0 40px;
   font-size: 1.4rem;
@@ -143,7 +138,6 @@ button {
   flex: 1;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   position: relative;
 }
 #main, .error_container{
@@ -228,8 +222,6 @@ button {
   flex: 1 0 100vh;
   background-color: #f5f5f5;
   -webkit-box-orient: vertical;
-  -webkit-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   z-index: 8000;
   padding-left: 6px;
@@ -325,12 +317,7 @@ button {
   min-height: 160px;
   height: auto;
   padding: 16px;
-  -webkit-box-shadow: 0px -3px 25px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px -3px 25px rgba(0, 0, 0, 0.5);
   box-shadow: 0px -3px 25px rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.7s ease-in-out;
-  -moz-transition: 0.7s ease-in-out;
-  -o-transition: 0.7s ease-in-out;
   transition: 0.7s ease-in-out;
   background-color: #00e64d;
 }
@@ -378,7 +365,7 @@ button {
   min-height: 36px;
   margin-top: 10px;
 }
-#gotobudget_btn,#go_btn_expenses{
+#go_btn_budget,#go_btn_expenses, #go_btn_fp{
   padding: 8px;
   text-decoration: none!important;
   display: block;

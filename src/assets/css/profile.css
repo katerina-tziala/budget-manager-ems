@@ -30,8 +30,6 @@
   width: 220px;
   margin: 16px 8px;
   min-height: 200px;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
   flex-flow: row wrap;
 }
 #personalCardIcon{
@@ -40,8 +38,6 @@
   min-height: 150px;
   height: 150px;
   display: block;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   border: 2px solid #10A040;
   background-repeat: no-repeat!important;
@@ -219,8 +215,6 @@
   height: 36px!important;
   width: 36px!important;
   font-size: 1.25rem;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
   background-color: #4d4d4d;
   color: #f4fffd;
@@ -233,8 +227,6 @@
   color: #f4fffd;
   width: 100%;
   margin-top: 30px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
 }
 .formBtn:focus,.formBtn:hover, .btn_viewpass:hover,.btn_viewpass:focus{
@@ -263,9 +255,6 @@
   margin-bottom: 0px;
   cursor: pointer;
   font-size: 1.1rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   float: left;
   outline: none;
