@@ -1,12 +1,9 @@
 # ![alt text](https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/images/img/logo/android-chrome-72x72.png "budget manager logo")budget_manager_ems_app
 Budget Manager - Expense Monitoring System<br>
-The <i><b>Budget Manager</b></i> application was designed and developed as part of the completion of my master thesis with title: <br>
- <h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3>
-<br>
-<ul>
-<li>This fully functional prototype system is a mobile friendly web-based interface that helps users track their personal expenses and stay on budget.</li>
-<li>The  <i><b>Budget Manager</b></i> application was developed in order to implement and study affective feedback techniques.</li>
-</ul>
+The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed in order to implement and study affective feedback techniques, and as part of the completion of my master thesis with title:
+<h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3>
+
+
 <h1>BUILD AND RUN THE APP</h1>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
