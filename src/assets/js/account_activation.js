@@ -44,7 +44,6 @@ const initPage = () => {
 const activateAccount = (params=self.account_params) => {
   let activation_type="initial";
   const idparts = params.id.toString().split("_");
-  const feedback = self.userInfo.feedback==='regular'?0:1;
   if (idparts.length>1) {
     activation_type="reactivation";
   }
@@ -53,7 +52,6 @@ const activateAccount = (params=self.account_params) => {
     "activationcode": params.accountcode.toString(),
     "username": params.account_username.toString(),
     "activation_type": activation_type,
-    "feedback":parseInt(feedback),
     "request_type": "account_activation"
   };
   sendData("activateAccount", data).then((response)=>{
