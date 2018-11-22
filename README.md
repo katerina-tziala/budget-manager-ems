@@ -1,16 +1,14 @@
-# budget_manager_ems_app
-Budget Manager - Expense Monitoring System
-
- The <i><b>Budget Manager</b></i> application is designed and developed for personal use only, and as part of the completion of my master thesis with title: <br>
+# budget_manager_ems_app![alt text](https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/images/img/logo/android-chrome-72x72.png "budget manager logo")
+Budget Manager - Expense Monitoring System<br>
+The <i><b>Budget Manager</b></i> application is designed and developed for personal use only, and as part of the completion of my master thesis with title: <br>
  <i><b>  "Affective system monitoring personal expenses, helping the user to stay on budget"</b></i>.
 <br>
 <ul>
 <li>This fully functional prototype system is a mobile friendly web-based interface that helps users track their personal expenses and stay on budget.</li>
 <li>The  <i><b>Budget Manager</b></i> application was developed in order to implement and study affective feedback techniques.</li>
-<ul>
-<br>
+</ul>
 <h1>BUILD AND RUN THE APP</h1>
-<p>Install node.js and gulp.js (if you haven't done it already)</p>
+<p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
 <ol>
 <li>Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager</li>
@@ -41,5 +39,5 @@ change the <i><b>"app_params"</b></i> as descripbed below:<br>
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
-</ol><br>
+</ol>
 <p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
