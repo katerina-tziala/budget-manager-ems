@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/katerina-tziala/budget_manager_ems_app.git"
+    "type": "git",
+    "url": "git+https://github.com/katerina-tziala/budget_manager_ems_app.git"
   },
   "keywords": [
     "budget",
@@ -22,7 +22,7 @@
   "author": "Katerina Tziala",
   "license": "ISC",
   "bugs": {
-  "url": "https://github.com/katerina-tziala/budget_manager_ems_app/issues"
+    "url": "https://github.com/katerina-tziala/budget_manager_ems_app/issues"
   },
   "homepage": "https://github.com/katerina-tziala/budget_manager_ems_app#readme",
   "devDependencies": {
@@ -37,19 +37,20 @@
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^5.0.1",
     "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-json-modify": "^1.0.2",
     "gulp-minify": "^3.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace-task": "^0.11.0",
-    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-comments": "^2.5.2",
+    "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglify": "^3.0.1",
     "gulp-uglify-es": "^1.0.4",
     "minimatch": "^3.0.4",
-    "node-sass": "^4.9.4",
+    "require-dir": "^1.1.0",
     "run-sequence": "^2.2.1",
     "through2": "^3.0.0"
   },

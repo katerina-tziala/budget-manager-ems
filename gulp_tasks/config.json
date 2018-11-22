@@ -1,0 +1,152 @@
+{
+  "app_params" : {
+    "dev" : {
+      "path":"http://localhost/budget_manager_ems_app/dev/",
+      "db_username" : "root",
+      "db_password" : "",
+      "db_name" : "budgetmanager",
+      "app_scope" : "/budget_manager_ems_app/dev/"
+    },
+    "dist" : {
+      "path":"https://budgetmanager.codemix.gr/",
+      "db_username" : "codemixg_budget",
+      "db_password" : "M@nS30w%mjQ,",
+      "db_name" : "codemixg_budgetmanager",
+      "app_scope" : "/budgetmanager.codemix.gr/"
+    }
+  },
+  "folders" : {
+    "src" : "./src",
+    "dist" : "./dist",
+    "dev" : "./dev",
+    "production":{
+      "models":"/models",
+      "classes":"/models/classes",
+      "css":"/assets/css",
+      "js":"/assets/js",
+      "img":"/assets/img",
+      "webfonts":"/assets/webfonts"
+    }
+  },
+  "images" : {
+    "root" : "./src/assets/images/root_img/*.+(png|ico)",
+    "assets" : "./src/assets/images/img/**/*.+(png|jpg|jpeg|gif|svg|ico)"
+  },
+  "css" : {
+    "account_activation" : ["./src/assets/css/account_activation.css"],
+    "add_expense" : [
+      "./src/assets/libs/blobselect/blobselect.css",
+      "./src/assets/libs/mdDatePicker/datepicker.css",
+      "./src/assets/libs/grudusTimepicker/timepicker.css",
+      "./src/assets/css/common/*.css",
+      "./src/assets/css/add_expense.css"],
+    "budget_and_goals" : [
+      "./src/assets/libs/blobselect/blobselect.css",
+      "./src/assets/libs/mdDatePicker/datepicker.css",
+      "./src/assets/css/common/*.css",
+      "./src/assets/css/budget_and_goals/*.css"],
+    "categories" : ["./src/assets/css/common/*.css",
+      "./src/assets/css/categories.css"],
+    "critical" : ["./src/assets/libs/fontawesome/css/all.min.css",
+      "./src/assets/libs/appfont.css",
+      "./src/assets/css/critical.css"],
+    "contact" : ["./src/assets/css/common/menu.css",
+        "./src/assets/css/common/form.css",
+        "./src/assets/css/contact.css"],
+    "expense_details" : [
+      "./src/assets/libs/blobselect/blobselect.css",
+      "./src/assets/libs/mdDatePicker/datepicker.css",
+      "./src/assets/libs/grudusTimepicker/timepicker.css",
+      "./src/assets/css/common/*.css",
+      "./src/assets/css/expense_details.css"],
+    "forgot_password" : ["./src/assets/css/common/form.css",
+      "./src/assets/css/forgot_password.css"],
+    "home" : [
+      "./src/assets/libs/blobselect/blobselect.css",
+      "./src/assets/css/common/loggeduser.css",
+      "./src/assets/css/common/menu.css",
+      "./src/assets/css/home/*.css"
+    ],
+    "my_expenses" : [
+      "./src/assets/libs/blobselect/blobselect.css",
+      "./src/assets/css/common/*.css",
+      "./src/assets/css/my_expenses/*.css"],
+    "profile" : [
+      "./src/assets/libs/mdDatePicker/datepicker.css",
+      "./src/assets/css/common/*.css",
+      "./src/assets/css/profile.css"],
+    "reset_password" : ["./src/assets/css/common/form.css",
+      "./src/assets/css/reset_password.css"],
+    "signin" : ["./src/assets/css/common/form.css","./src/assets/css/signin.css"],
+    "signup" : ["./src/assets/libs/mdDatePicker/datepicker.css",
+      "./src/assets/css/common/form.css",
+      "./src/assets/css/signup.css"],
+    "terms_of_use" : ["./src/assets/css/common/menu.css","./src/assets/css/terms_of_use.css"]
+  },
+  "pages" : [
+    "index",
+    "account_activation",
+    "add_expense",
+    "budget_and_goals",
+    "categories",
+    "contact",
+    "expense_details",
+    "forgot_password",
+    "my_expenses",
+    "profile",
+    "reset_password",
+    "signup",
+    "terms_of_use"
+  ],
+  "php" : {
+    "database":["./src/models/_database/Database.php"],
+    "basic":["src/models/**/*", "!src/models/**/_*/", "!src/models/**/_*/**/*"]
+  },
+  "fontawesome" : "./src/assets/libs/fontawesome/webfonts/**/*",
+  "browserconfig" : "./src/browserconfig.xml",
+  "manifest" : "./src/manifest.json",
+  "service_worker" : "./src/ServiceWorker.js",
+  "vanilla_js" : {
+    "app" : ["./src/assets/js/app/*.js"],
+    "account_activation" : ["./src/assets/js/account_activation.js"],
+    "contact" : ["./src/assets/js/forms/*.js", "./src/assets/js/contact.js"],
+    "signin" : ["./src/assets/js/forms/*.js", "./src/assets/js/signin.js"],
+    "forgot_password" : ["./src/assets/js/forms/*.js", "./src/assets/js/forgot_password.js"],
+    "reset_password" : ["./src/assets/js/forms/*.js", "./src/assets/js/reset_password.js"],
+    "categories" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/create_more_elements.js",
+      "./src/assets/js/common/sort_lists.js",
+      "./src/assets/js/categories.js"]
+  },
+  "bundle_js" : {
+    "profile" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/create_more_elements.js",
+      "./src/assets/js/profile/*.js"],
+    "signup" : ["./src/assets/js/forms/*.js","./src/assets/js/signup.js"],
+    "add_expense" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/create_more_elements.js",
+      "./src/assets/js/common/sort_lists.js",
+      "./src/assets/js/add_expense/*.js"],
+    "my_expenses" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/*.js",
+      "./src/assets/js/my_expenses/*.js"],
+    "expense_details" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/create_more_elements.js",
+      "./src/assets/js/common/sort_lists.js",
+      "./src/assets/js/common/filter_lists.js",
+      "./src/assets/js/expense_details/*.js"],
+    "budget_and_goals" : ["./src/assets/js/forms/*.js",
+      "./src/assets/js/common/create_more_elements.js",
+      "./src/assets/js/common/sort_lists.js",
+      "./src/assets/js/common/filter_lists.js",
+      "./src/assets/js/budget_and_goals/*.js"],
+    "home" : ["./src/assets/js/common/*.js","./src/assets/js/home/*.js"]
+  },
+  "libs_js" : {
+    "moment" : "./src/assets/libs/mdDatePicker/moment.min.js",
+    "datepicker" : "./src/assets/libs/mdDatePicker/mdDateTimePicker.min.js",
+    "timepicker" : "./src/assets/libs/grudusTimepicker/grudus-timepicker.es5.js",
+    "blobselect" : "./src/assets/libs/blobselect/blobselect.min.js",
+    "charts" : "./src/assets/libs/chartJS/Chart.min.js"
+  }
+}
