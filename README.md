@@ -7,6 +7,19 @@ Access the app here:
 [Budget Manager App](https://budgetmanager.codemix.gr/index.html "budgetmanager app")
 
 <br/>
+<h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:
+
+[![Chart.js](https://www.chartjs.org/img/chartjs-logo.svg "Chart.js")](https://www.chartjs.org/ )
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chart.js</p>
+
+
+:star:asdasdasd :star: :blush:
+:heart: the package? Then :star: it!
+
+> 
+
+<br/>
 <p>The following sections describe how to build the app for development and distribution.</p>
 <br>
 <h1>BUILD AND RUN THE APP</h1>
