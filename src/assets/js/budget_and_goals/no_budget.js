@@ -132,7 +132,7 @@ const createNoBugetView=(main=self.main)=>{
   budget_tag.innerHTML = "Amount";
   const amount_inpt = createAmountInput('enter budget amount', 'budget_amount', 'budget_input', 'budget_amount');
   const label = createLabel('budget_amount');
-  label.classList.add("formBtn", "budget_label");
+  label.classList.add("budget_label");
   budgetContainer.append(budget_tag, amount_inpt, label);
   const periodContainer = document.createElement('div');
   periodContainer.className = "budgetContainer";
