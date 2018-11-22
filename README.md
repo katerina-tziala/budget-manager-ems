@@ -18,7 +18,7 @@ Budget Manager - Expense Monitoring System
 <li>Rename the master folder from  "budget_manager_ems_app-master" to  "budget_manager_ems_app"</li>
 <li>Move the "budget_manager_ems_app" folder inside the xampp/htdocs directory</li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)</li>
-<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp build_app</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
+<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
 </ol>
 <br>
@@ -26,12 +26,17 @@ Budget Manager - Expense Monitoring System
 <ol>
 <li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
-<li>Inside gulpfile.js change the following variables inside the <i><b>'build_for_dist'</b></i> function:<br>
-  <b>link = </b><i>"the_link_of_the_uploaded_app";</i><br>
-  <b>db_username = </b><i>"username_to_access_database_on_server";</i><br>
-  <b>db_password = </b><i>"password_to_access_database_on_server";</i><br>
-  <b>db_name = </b><i>"database_name_of_the_app";</i><br>
-  <b>app_scope = </b><i>"scope_of_the_app";</i>
+<li>In the config.json <i>(located in the gulp_tasks folder)</i>
+change the <i><b>"app_params"</b></i> as descripbed below:<br>
+  "app_params" : {
+    "dev" : {...},
+    "dist" : {
+      "path" : "the_link_of_the_uploaded_app",
+      "db_username" : "your_username_to_access_database_on_server",
+      "db_password" : "your_password_to_access_database_on_server",
+      "db_name" : "your_database_name_on_server",
+      "app_scope" : "scope_of_the_uploaded_app"
+    }
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp build_for_dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
