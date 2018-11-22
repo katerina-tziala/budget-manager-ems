@@ -15,6 +15,10 @@ Access the app here:
 <a href="https://github.com/grudus/Timepicker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_grudus_timepicker.png" alt="Grudus Timepicker" width="auto" height="30"></a>
 <a href="https://github.com/puranjayjain/md-date-time-picker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_md_date_time_picker.png" alt="md-date-time-picker" width="auto" height="30"></a>
 
+&nbsp;&nbsp;&nbsp;&nbsp;And also to fontawesome.com and google for the provided fonts:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
+<a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
+
 <br/>
 <p>The following sections describe how to build the app for development and distribution.</p>
 <br>
