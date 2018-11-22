@@ -1,12 +1,27 @@
 # ![alt text](https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/images/img/logo/android-chrome-72x72.png "budget manager logo")budget_manager_ems_app
 Budget Manager - Expense Monitoring System<br>
-The <i><b>Budget Manager</b></i> application was designed and developed as part of the completion of my master thesis with title: <br>
- <h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3>
+The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed in order to implement and study affective feedback techniques, and as part of the completion of my master thesis with title:
+<h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3><br/>
+
+Access the app here:
+[Budget Manager App](https://budgetmanager.codemix.gr/index.html "budgetmanager app")
+
+<br/>
+<h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:
+
+[![Chart.js](https://www.chartjs.org/img/chartjs-logo.svg "Chart.js")](https://www.chartjs.org/ )
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chart.js</p>
+
+
+:star:asdasdasd :star: :blush:
+:heart: the package? Then :star: it!
+
+> 
+
+<br/>
+<p>The following sections describe how to build the app for development and distribution.</p>
 <br>
-<ul>
-<li>This fully functional prototype system is a mobile friendly web-based interface that helps users track their personal expenses and stay on budget.</li>
-<li>The  <i><b>Budget Manager</b></i> application was developed in order to implement and study affective feedback techniques.</li>
-</ul>
 <h1>BUILD AND RUN THE APP</h1>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
@@ -20,7 +35,7 @@ The <i><b>Budget Manager</b></i> application was designed and developed as part 
 <li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
 </ol>
 <br>
-<h1>BUILD THE APP FOR PRODUCTION</h1>
+<h1>BUILD THE APP FOR DISTRIBUTION</h1>
 <ol>
 <li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
