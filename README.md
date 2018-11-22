@@ -18,7 +18,7 @@ Budget Manager - Expense Monitoring System
 <li>Rename the master folder from  "budget_manager_ems_app-master" to  "budget_manager_ems_app"</li>
 <li>Move the "budget_manager_ems_app" folder inside the xampp/htdocs directory</li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)</li>
-<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
+<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app foe development/demonstration/testing purposes</li>
 <li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
 </ol>
 <br>
