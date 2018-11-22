@@ -29,14 +29,14 @@ Budget Manager - Expense Monitoring System
 <li>In the config.json <i>(located in the gulp_tasks folder)</i>
 change the <i><b>"app_params"</b></i> as descripbed below:<br>
   "app_params" : {<br>
-    "dev" : {...},<br>
-    "dist" : {<br>
-      "path" : "the_link_of_the_uploaded_app",<br>
-      "db_username" : "your_username_to_access_database_on_server",<br>
-      "db_password" : "your_password_to_access_database_on_server",<br>
-      "db_name" : "your_database_name_on_server",<br>
-      "app_scope" : "scope_of_the_uploaded_app"<br>
-    }
+  &nbsp;&nbsp;"dev" : {...},<br>
+  &nbsp;&nbsp;"dist" : {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"path" : "the_link_of_the_uploaded_app",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"db_username" : "your_username_to_access_database_on_server",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"db_password" : "your_password_to_access_database_on_server",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"db_name" : "your_database_name_on_server",<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"app_scope" : "scope_of_the_uploaded_app"<br>
+  }
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
