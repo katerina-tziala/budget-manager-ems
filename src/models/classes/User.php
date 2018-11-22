@@ -157,20 +157,20 @@
       return $results;
     }
     //function to set feedback for users:
-    private function setFeedback(){
-      $query_a_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=1 AND verified=1");
-      $query_b_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=0 AND verified=1");
+    private function setFeedback($gender){
+      $query_a_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=1 AND verified=1 AND gender='".$gender."'");
+      $query_b_params = array('table' => 'user', 'column' => 'feedback', 'where' => "feedback=0 AND verified=1 AND gender='".$gender."'");
       $feedback = $this->db->countColumn($query_a_params);
       $nofeedback = $this->db->countColumn($query_b_params);
-      $addfeedback_value;
-      if($feedback==$nofeedback){//same number of users with feedback and without feedback:
-        $addfeedback_value=(rand(0,1));
+      $addfeedback;
+      if($feedback===$nofeedback){//same number of users with feedback and without feedback:
+        $addfeedback=(rand(0,1));
       } elseif ($feedback > $nofeedback) {//if we have more users with feedback then we add a user without feedback:
-        $addfeedback_value=0;
+        $addfeedback=0;
       } else {//if we have more users without feedback then we add a user with feedback:
-        $addfeedback_value=1;
+        $addfeedback=1;
       }
-      return $addfeedback_value;
+      return $addfeedback;
     }
     //function to verify user and set feedback in db:
 		private function verifyAndSetFeedback($args){
@@ -192,7 +192,7 @@
       $activation_type = $this->prepareDataString($data['activation_type']);
       $message = "";
       $connection=$this->db->dbConnect();
-      $row_params = array('select' => 'verified, activationcode','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
+      $row_params = array('select' => 'feedback, verified, activationcode, gender','table' => 'user','where' => "id='".$id."' AND username='".$username."'");
       $db_user = $this->db->getRow($row_params);
       if(count($db_user)===0){//the account of the user was not found
         $message = "account_not_found";
@@ -200,10 +200,11 @@
         if(count($db_user)>0 && $db_user['verified']===1){//account is already active
           $message = "already_active";
         } else if( $db_user['verified']===0 && $db_user['activationcode']===$activationcode){//account is not active and the activation code is valid
+          $feedback;
           if ($activation_type==="reactivation") {
-            $feedback = $this->prepareDataId($data['feedback']);
-            }else{
-            $feedback=$this->setFeedback();
+            $feedback = $this->prepareDataId($db_user['feedback']);
+          }else{
+            $feedback = $this->setFeedback($db_user['gender']);
           }
           $update_params = array('connection' => $connection,
             'feedback' => $feedback,
