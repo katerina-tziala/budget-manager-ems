@@ -36,7 +36,8 @@ change the <i><b>"app_params"</b></i> as descripbed below:<br>
   &nbsp;&nbsp;&nbsp;&nbsp;"db_password" : "your_password_to_access_database_on_server",<br>
   &nbsp;&nbsp;&nbsp;&nbsp;"db_name" : "your_database_name_on_server",<br>
   &nbsp;&nbsp;&nbsp;&nbsp;"app_scope" : "scope_of_the_uploaded_app"<br>
-  }
+  &nbsp;&nbsp;}<br>
+  },
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
