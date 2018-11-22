@@ -19,6 +19,8 @@ Access the app here:
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
 <a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
 
+&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink:
+
 <br/>
 <p>The following sections describe how to build the app for development and distribution.</p>
 <br>
