@@ -27,15 +27,15 @@ Budget Manager - Expense Monitoring System
 <li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
 <li>In the config.json <i>(located in the gulp_tasks folder)</i>
-change the <i><b>"app_params"</b></i> as descripbed below:<br>
-  "app_params" : {
-    "dev" : {...},
-    "dist" : {
-      "path" : "the_link_of_the_uploaded_app",
-      "db_username" : "your_username_to_access_database_on_server",
-      "db_password" : "your_password_to_access_database_on_server",
-      "db_name" : "your_database_name_on_server",
-      "app_scope" : "scope_of_the_uploaded_app"
+change the <i><b>"app_params"</b></i> as descripbed below:<br><br>
+  "app_params" : {<br>
+    "dev" : {...},<br>
+    "dist" : {<br>
+      "path" : "the_link_of_the_uploaded_app",<br>
+      "db_username" : "your_username_to_access_database_on_server",<br>
+      "db_password" : "your_password_to_access_database_on_server",<br>
+      "db_name" : "your_database_name_on_server",<br>
+      "app_scope" : "scope_of_the_uploaded_app"<br>
     }
 </li>
 <li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
