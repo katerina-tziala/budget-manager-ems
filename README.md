@@ -17,8 +17,8 @@ Budget Manager - Expense Monitoring System
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
 <li>Rename the master folder from  "budget_manager_ems_app-master" to  "budget_manager_ems_app"</li>
 <li>Move the "budget_manager_ems_app" folder inside the xampp/htdocs directory</li>
-<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)</li>
-<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes</li>
+<li>Run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)</li>
+<li>Run&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes</li>
 <li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
 </ol>
 <br>
@@ -27,7 +27,7 @@ Budget Manager - Expense Monitoring System
 <li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
 <li>In the config.json <i>(located in the gulp_tasks folder)</i>
-change the <i><b>"app_params"</b></i> as descripbed below:<br><br>
+change the <i><b>"app_params"</b></i> as descripbed below:<br>
   "app_params" : {<br>
     "dev" : {...},<br>
     "dist" : {<br>
@@ -38,7 +38,7 @@ change the <i><b>"app_params"</b></i> as descripbed below:<br><br>
       "app_scope" : "scope_of_the_uploaded_app"<br>
     }
 </li>
-<li>Run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to build the app</li>
+<li>Run&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;to build the app</li>
 <li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
 </ol><br>
-<p><i><b>Note: </b></i>For production, you also have to run &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;before running &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
+<p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
