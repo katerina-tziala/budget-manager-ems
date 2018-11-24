@@ -89,8 +89,6 @@
 }
 .feedbackOverviewDataContainer{
   padding-right: 8px;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 .feedbackOverviewDataContainer>span{
@@ -160,7 +158,6 @@
   max-width: 450px;
   min-width: 260px;
   height: auto;
-  -webkit-box-orient: horizontal;
   flex-flow: row wrap;
   margin: 16px;
   padding: 8px;

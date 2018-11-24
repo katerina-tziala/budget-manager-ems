@@ -55,10 +55,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  -webkit-box-orient: horizontal;
   flex-flow: row wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
@@ -89,10 +86,7 @@
 #expensesList{
   width: 100%;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: center;
   justify-content: center;
   align-items: flex-start;
   align-content: flex-start;
@@ -105,7 +99,6 @@
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  -webkit-box-pack: start;
   Justify-content: flex-start;
   align-items: center;
   width: 100%;
@@ -152,7 +145,6 @@
   font-size: 1.2rem;
   padding: 9px;
   flex-flow: row nowrap;
-  -webkit-box-pack: start;
   Justify-content: flex-start;
 }
 .summary_tag{
@@ -324,9 +316,6 @@
 }
 .icon_communication{
   background-color: #1e90ff;
-  -moz-transform: rotate(-30deg);
-  -o-transform: rotate(-30deg);
-  -webkit-transform: rotate(-30deg);
   transform: rotate(-30deg);
   font-size: 2rem;
   padding-top: 8px;
@@ -401,12 +390,8 @@
 }
 .icon_ettiquete {
   background-color: #2eb82e;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   filter: FlipH;
-  -ms-filter: "FlipH";
   font-size: 1.6rem;
   padding-top: 12px;
   padding-left: 2px;

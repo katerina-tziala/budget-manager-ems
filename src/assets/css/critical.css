@@ -174,7 +174,6 @@ button {
   margin-bottom: 20px;
   opacity: 0.5;
   filter: alpha(opacity=80);
-  -webkit-filter: alpha(opacity=80);
 }
 .app_error_text{
   font-size: 1.2rem;
@@ -221,7 +220,6 @@ button {
   left: 0;
   flex: 1 0 100vh;
   background-color: #f5f5f5;
-  -webkit-box-orient: vertical;
   flex-flow: column nowrap;
   z-index: 8000;
   padding-left: 6px;
@@ -231,8 +229,6 @@ button {
   height: 250px;
 }
 #loader {
-  -ms-transform: scale(2, 2);
-  -webkit-transform: scale(2, 2);
   transform: scale(2, 2);
   margin-top: 80px;
 }
@@ -242,57 +238,19 @@ button {
   transform-origin: 50%;
 }
 .spin{
-  -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
   animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;
-}
-@-webkit-keyframes rotate {
-  from {
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-  }
-  to {
-    -ms-transform: rotate(450deg);
-    -webkit-transform: rotate(450deg);
-    transform: rotate(450deg);
-  }
 }
 @keyframes rotate {
   from {
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   to {
-    -ms-transform: rotate(450deg);
-    -webkit-transform: rotate(450deg);
     transform: rotate(450deg);
-    }
-  }
-@-webkit-keyframes line {
-  0% {
-    stroke-dasharray: 2, 85.964;
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-  }
-  50% {
-    stroke-dasharray: 65.973, 21.9911;
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dasharray: 2, 85.964;
-    stroke-dashoffset: -65.973;
-    -ms-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
     }
   }
 @keyframes line {
   0% {
     stroke-dasharray: 2, 85.964;
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   50% {
@@ -302,8 +260,6 @@ button {
   100% {
     stroke-dasharray: 2, 85.964;
     stroke-dashoffset: -65.973;
-    -ms-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     }
   }

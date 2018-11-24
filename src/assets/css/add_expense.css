@@ -198,8 +198,6 @@
 }
 #g-time-cancel, #g-time-submit{
   background-color: transparent!important;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
   color: #009933!important;
 }

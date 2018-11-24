@@ -53,8 +53,6 @@
 #sendEmailImage{
   width: 150px;
   height: 150px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
   border-radius: 50%;
   background-color: #10A040!important;
   background-repeat: no-repeat!important;
@@ -62,8 +60,6 @@
   background-repeat: no-repeat!important;
   background-size: 110px!important;
   background: url(../img/sendmail.svg) center center no-repeat;
-  -webkit-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow:  0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 #sendEmailText{

@@ -106,9 +106,6 @@
   padding-top: 1px;
   cursor: pointer;
   font-size: 24px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   color:#262626;
   font-size: 1.2rem;
@@ -162,8 +159,6 @@
   height: 10px;
   border: solid #f4fffd;
   border-width: 0 4px 4px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .password_container{
@@ -172,24 +167,3 @@
   padding-right: 60px;
   margin-top: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/

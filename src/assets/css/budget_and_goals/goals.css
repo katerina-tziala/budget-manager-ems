@@ -130,9 +130,6 @@
 }
 .icon_communication{
   background-color: #1e90ff;
-  -moz-transform: rotate(-30deg);
-  -o-transform: rotate(-30deg);
-  -webkit-transform: rotate(-30deg);
   transform: rotate(-30deg);
   font-size: 2rem;
   padding-top: 8px;
@@ -207,12 +204,8 @@
 }
 .icon_ettiquete {
   background-color: #2eb82e;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   filter: FlipH;
-  -ms-filter: "FlipH";
   font-size: 1.6rem;
   padding-top: 12px;
   padding-left: 2px;

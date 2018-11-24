@@ -38,22 +38,13 @@
 }
 .switch_indicator.unswitced{
   background-color: #808080;
-  background: -webkit-radial-gradient(#fff, #808080 80%, #fff);
-  background: -o-radial-gradient(#fff, #808080 80%, #fff);
-  background: -moz-radial-gradient(#fff, #808080 80%, #fff);
   background: radial-gradient(#fff, #808080 80%, #fff);
   background-image: radial-gradient(#fff, #808080 80%, #fff);
 }
 .switch_indicator.switced{
   background-color: #009933;
-  background: -webkit-radial-gradient(#66ff99, #009933 80%, #66ff99);
-  background: -o-radial-gradient(#66ff99, #009933 80%, #66ff99);
-  background: -moz-radial-gradient(#66ff99, #009933 80%, #66ff99);
   background: radial-gradient(#66ff99, #009933 80%, #66ff99);
   background-image: radial-gradient(#66ff66, #009933 80%, #66ff66);
-  -moz-transform: translateX(36px);
-  -o-transform: translateX(36px);
-  -webkit-transform: translateX(36px);
   transform: translateX(36px);
 }
 .switch_indicator:focus, .switch_indicator:hover{
