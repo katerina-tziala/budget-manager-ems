@@ -5,10 +5,11 @@
 		$_SESSION['bm_ems_user'] = $_COOKIE['bm_ems_user'];
 	}
 	if(isset($_SESSION['bm_ems_user']) && !empty($_SESSION['bm_ems_user'])){
-		$allowed_actions = ["getPersonalInfo","updateGenderBirthday","updateUsername","updatePassword",	"updateEmail",
-		"getUserBudgetList",	"setBudget",	"updateBudgetAmount",	"updateBudgetPeriod",
+		$allowed_actions = ["getPersonalInfo",
+		"updateGenderBirthday","updateUsername","updatePassword",	"updateEmail",
+		"getUserBudgetList","setBudget","updateBudgetAmount",	"updateBudgetPeriod",
 		"getUserGoalList","addBudgetGoal","deleteBudgetGoal",	"updateBudgetGoal",
-		"getUserCategories",	"addNewCategory",	"deleteUserCategory",	"editUserCategory",
+		"getUserCategories","addNewCategory",	"deleteUserCategory",	"editUserCategory",
 		"getUserExpenseList",	"addUserExpense",	"deleteUserExpense","updateUserExpense",
 		"getFeedbackList", "saveFeedbackDisplay","signUserOut",	"sendContactEmail"];
 		require_once("classes/LoggedUser.php");
@@ -18,7 +19,7 @@
 			if($_SERVER['REQUEST_METHOD'] === 'POST' && in_array($required_action, $allowed_actions)){
 	      $input_data = json_decode(file_get_contents('php://input'), true);
 				$return_data = $loggedUser->{$required_action}($input_data);
-	    }elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && in_array($required_action, $allowed_actions)) {
+	    }elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && in_array($required_action, $allowed_actions)){
 				$return_data = $loggedUser->{$required_action}();
 	    }elseif (!in_array($required_action, $allowed_actions)) {
 				$results = array("message" => "invalid_request", 'target' => "no_target");
@@ -31,7 +32,6 @@
 		$basicUser = new User();
 		if (isset($_GET['action']) && !empty($_GET['action'])) {
 			$required_action = $_GET['action'];
-
 			if (in_array($required_action, $allowed_actions)) {
 				$input_data = json_decode(file_get_contents('php://input'), true);
 				$return_data = $basicUser->{$required_action}($input_data);
