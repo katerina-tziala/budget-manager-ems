@@ -4,6 +4,7 @@
 //initialize index page
 const initIndexPage = (userInfo = self.userInfo) => {
   clearIndexFiles();
+  prepareMain("clear");
   if (userInfo.signed_in) {
     loadStyle(pages.home.css, ()=>{
       createNavigationMenu();
