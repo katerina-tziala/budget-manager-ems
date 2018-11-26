@@ -81,9 +81,7 @@ CREATE TABLE `expense` (
   `user_id` int(11) NOT NULL,
   `amount` float NOT NULL,
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `payment` enum('cash','credit card','debit card','prepaid card','gift card',
-    'bank transfer','check','mobile payment','web payment')
-    COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
+  `payment` enum('cash','credit card','debit card','prepaid card','gift card', 'bank transfer','check','mobile payment','web payment') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
   `expense_date` date NOT NULL,
   `expense_time` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -161,9 +159,7 @@ CREATE TABLE `log_expense` (
   `expense_id` int(11) NOT NULL,
   `amount` float NOT NULL,
   `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `payment` enum('cash','credit card','debit card','prepaid card','gift card',
-    'bank transfer','check','mobile payment','web payment')
-    COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
+  `payment` enum('cash','credit card','debit card','prepaid card','gift card', 'bank transfer','check','mobile payment','web payment') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'cash',
   `expense_date` date NOT NULL,
   `expense_time` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
