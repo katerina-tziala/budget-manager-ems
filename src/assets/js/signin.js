@@ -63,6 +63,8 @@ const signIn = (event) => {
           labels[1].innerHTML="Wrong password!";
           displayElement(labels[1]);
        }else if(response.message==="success"){
+         prepareMain("clear");
+         showLoader();
          initApp();
        }else{
         clearAppForm(labels, formFields);
