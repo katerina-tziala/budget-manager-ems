@@ -1,7 +1,7 @@
 {
   "name": "Budget Manager",
   "orientation": "portrait-primary",
-  "short_name": "budget mngr",
+  "short_name": "Budget Mngr",
   "description": "Budget Manager is an app that helps you monitor your expenses and stay on budget!",
   "display": "standalone",
   "background_color": "#f5f5f5",
