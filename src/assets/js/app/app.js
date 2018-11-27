@@ -164,7 +164,7 @@ window.addEventListener('online',(event)=>{
   const toast_options = {
     "message": `<b>You are back online!</b><br>Connection was successfully re-established!`,
     "type": "fadeout",
-    "timer": 10000,
+    "timer": 5000,
     "buttonsmode": "got_it",
     "container_classes":["show_toast"]
   };
@@ -180,7 +180,7 @@ window.addEventListener('offline',(event)=>{
   const toast_options = {
     "message": `Unable to connect! Retrying...<br>`,
     "type": "fadeout",
-    "timer": 12000,
+    "timer": 20000,
     "buttonsmode": "got_it",
     "container_classes":["show_toast"]
   };
