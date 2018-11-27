@@ -15,9 +15,6 @@ window.addEventListener('keydown', (event)=>{
 const renderCategories = (categories) => {
   prepareMain("clear");
   createCategoriesHTMLContent();
-  categories.sort((item_a, item_b)=>{
-    return sortByName(item_a, item_b, 'asc');
-  });
   initPage(categories);
 };
 /*

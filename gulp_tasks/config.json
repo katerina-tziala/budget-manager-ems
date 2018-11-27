@@ -115,7 +115,6 @@
     "reset_password" : ["./src/assets/js/forms/*.js", "./src/assets/js/reset_password.js"],
     "categories" : ["./src/assets/js/forms/*.js",
       "./src/assets/js/common/create_more_elements.js",
-      "./src/assets/js/common/sort_lists.js",
       "./src/assets/js/categories.js"]
   },
   "bundle_js" : {
