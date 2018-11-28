@@ -18,14 +18,7 @@ const sendData = (action, data) => {
     });
   });
 };
-//retrieve data from server
-const fetchData = (action, callback) => {
-  const url = data_url+action;
-  fetchHandler(url).then((response)=>{
-    callback(null, response);
-  }).catch((error) => callback(error, null));
-};
-//function to handle how dara are send
+//function to handle how data are send to the server
 async function sendHandler(url, data) {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -44,7 +37,14 @@ async function sendHandler(url, data) {
     //throw Error(error);
   }
 }
-//function to handle how dara are fetched
+//retrieve data from server
+const fetchData = (action, callback) => {
+  const url = data_url+action;
+  fetchHandler(url).then((response)=>{
+    callback(null, response);
+  }).catch((error) => callback(error, null));
+};
+//function to handle how data are fetched from the server
 async function fetchHandler(URL) {
   const headers = new Headers();
   headers.append('Accept', 'application/json; charset=utf-8');
