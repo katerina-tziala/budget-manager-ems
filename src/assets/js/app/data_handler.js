@@ -22,7 +22,12 @@ const sendData = (action, data) => {
 async function sendHandler(url, data) {
   const headers = new Headers();
   headers.append('Content-Type', 'application/json; charset=utf-8');
-  const request = new Request(url, {method: 'POST', mode: 'no-cors', credentials: 'same-origin', headers: headers, body:data});
+  const request = new Request(url, {
+    method: 'POST',
+    mode: 'no-cors',
+    credentials: 'same-origin',
+    headers: headers,
+    body:data});
   try {
     const fetchResult = fetch(request);
     const response = await fetchResult;
@@ -48,7 +53,11 @@ const fetchData = (action, callback) => {
 async function fetchHandler(URL) {
   const headers = new Headers();
   headers.append('Accept', 'application/json; charset=utf-8');
-  const request = new Request(URL, {method: 'GET', mode: 'no-cors', cache: 'reload', headers: headers});
+  const request = new Request(URL, {
+    method: 'GET',
+    mode: 'no-cors',
+    cache: 'reload',
+    headers: headers});
   try {
     const fetchResult = fetch(request);
     const response = await fetchResult;
