@@ -24,7 +24,6 @@ const fetchData = (action, callback) => {
   fetchHandler(url).then((response)=>{
     callback(null, response);
   }).catch((error) => callback(error, null));
-
 };
 //function to handle how dara are send
 async function sendHandler(url, data) {
