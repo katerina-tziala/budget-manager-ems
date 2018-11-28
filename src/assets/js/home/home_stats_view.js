@@ -194,7 +194,7 @@ const chartDisplayHandler=(params)=>{
 //initialize goals summary
 const initializeGoalSummary=(goals_summary)=>{
   const statsContainers = document.querySelectorAll('.statsData_goalso');
-  statsContainers[0].innerHTML = parseInt(statsContainers.length);
+  statsContainers[0].innerHTML = parseInt(goals_summary['succeeded']+goals_summary['exceded']);
   statsContainers[1].innerHTML = parseInt(goals_summary['succeeded']);
   statsContainers[2].innerHTML = parseInt(goals_summary['exceded']);
 };

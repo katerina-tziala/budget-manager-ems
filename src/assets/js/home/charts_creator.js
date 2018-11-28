@@ -75,7 +75,7 @@ const createChartSelectBox = (selectid, options, containerclass, selectclass, se
   selectBox.name = selectname;
   let selectedoption = document.createElement('option');
   selectedoption.value = placeholder;
-  selectedoption.innerHTML = placeholder;
+  selectedoption.innerHTML = options.texts[0];
   selectBox.append(selectedoption);
   for (var i = 0; i < options.values.length; i++) {
     if(options.values[i]!=placeholder){
