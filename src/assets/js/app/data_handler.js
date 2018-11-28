@@ -12,7 +12,6 @@ const sendData = (action, data) => {
         "message":"app_error",
         "error":error
       }
-      //console.log(retundata);
       return retundata;
       //reject(error);
     });
