@@ -1,5 +1,5 @@
 # ![alt text](https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/images/img/logo/android-chrome-72x72.png "budget manager logo")budget_manager_ems_app
-<h2>Budget Manager - Expense Monitoring System</h2><br>
+<h3>Budget Manager - Expense Monitoring System</h3>
 The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed for the purposes of my master thesis on affective feedback techniques titled:
 <h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3><br/>
 
