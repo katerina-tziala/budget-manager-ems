@@ -4,7 +4,7 @@ The <i><b>Budget Manager</b></i> application is a fully functional prototype sys
 <h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3><br/>
 
 Access the app here:
-<a href="https://budgetmanager.codemix.gr/index.html" target="_blank">Budget Manager App</a>
+<a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
 <br/>
 <h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
 &nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:<br/>
