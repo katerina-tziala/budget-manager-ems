@@ -1,3 +1,10 @@
+
+<div style="display:flexbox; align-items:center;">
+  <p><img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/img/logo/android-chrome-72x72.png" alt="budget manager logo" width="54" height="54"></p>
+  <h1>sdfsdf</h1>
+ </div>
+
+
 <h1><img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/img/logo/android-chrome-72x72.png" alt="budget manager logo" width="54" height="54">Budget Manager - Expense Monitoring System</h1>
 <p align="center">
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="70%" height="auto">
