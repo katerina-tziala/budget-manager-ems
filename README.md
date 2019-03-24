@@ -24,7 +24,7 @@ Access the app here:
 <br/>
 <p>The following sections describe how to build the app for development and distribution.</p>
 <br>
-<h1>BUILD AND RUN THE APP</h1>
+<h2>BUILD AND RUN THE APP</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
 <ol>
@@ -37,7 +37,7 @@ Access the app here:
 <li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
 </ol>
 <br>
-<h1>BUILD THE APP FOR DISTRIBUTION</h1>
+<h2>BUILD THE APP FOR DISTRIBUTION</h2>
 <ol>
 <li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
 <li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
