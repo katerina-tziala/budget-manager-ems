@@ -7,20 +7,6 @@ The <i><b>Budget Manager</b></i> application is a fully functional prototype sys
 Access the app here:
 <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
 <br/>
-<h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:<br/>
-
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/Blobfolio/blob-select"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_blobselect.png" alt="blob-select" width="auto" height="30"></a>
-<a href="https://www.chartjs.org/"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_charts.png" alt="Chart.js" width="auto" height="30"></a>
-<a href="https://github.com/grudus/Timepicker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_grudus_timepicker.png" alt="Grudus Timepicker" width="auto" height="30"></a>
-<a href="https://github.com/puranjayjain/md-date-time-picker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_md_date_time_picker.png" alt="md-date-time-picker" width="auto" height="30"></a>
-
-&nbsp;&nbsp;&nbsp;&nbsp;And also to fontawesome.com and google for the provided fonts:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
-<a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
-
-&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink:
-
 <br/>
 <p>The following sections describe how to build the app for development and distribution.</p>
 <br>
@@ -58,3 +44,17 @@ change the <i><b>"app_params"</b></i> as descripbed below:<br>
 <li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
 </ol>
 <p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
+
+<h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
+&nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:<br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/Blobfolio/blob-select"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_blobselect.png" alt="blob-select" width="auto" height="30"></a>
+<a href="https://www.chartjs.org/"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_charts.png" alt="Chart.js" width="auto" height="30"></a>
+<a href="https://github.com/grudus/Timepicker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_grudus_timepicker.png" alt="Grudus Timepicker" width="auto" height="30"></a>
+<a href="https://github.com/puranjayjain/md-date-time-picker"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_md_date_time_picker.png" alt="md-date-time-picker" width="auto" height="30"></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;And also to fontawesome.com and google for the provided fonts:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
+<a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink:
