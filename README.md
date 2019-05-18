@@ -3,12 +3,12 @@
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
 </p>
 
-
-The ***Budget Manager***
-application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:
+The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:
 ***"Affective system monitoring personal expenses, helping the user to stay on budget"***
-This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. 
-<br><br>
+This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget.
+
+Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
+<br><br><br>
 <h2>APP FEATURES</h2>
 The following list is a high-level overview of the app's features:
 
@@ -31,15 +31,12 @@ The following list is a high-level overview of the app's features:
   **9.** Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
   
   **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
-
-<br/>
-Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
-<br><br>
+<br><br><br>
 <h2>BUILD AND RUN THE APP</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
 
- **1.** Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager
+  **1.** Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager
  
   **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
 
@@ -52,9 +49,9 @@ Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" targe
   **6.** Run&nbsp;&nbsp;&nbsp;**gulp**&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes
   
   **7.** Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app
-  
-<br>
+<br><br><br>
 <h2>BUILD THE APP FOR DISTRIBUTION</h2>
+  
   **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
  
   **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
