@@ -28,7 +28,7 @@ The following list is a high-level overview of the app's features:
   
   **8.** Managing & Monitoring Expenses (with multiple filtering & sorting options)
   
-  **9.** Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
+  **9.** Budget Statistics Per Week (with additional overviews and charts per day, per category of expenses, per payment method, per budget goal, etc.)
   
   **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
 <br><br><br>
@@ -71,9 +71,9 @@ The following list is a high-level overview of the app's features:
   **4.** Run&nbsp;&nbsp;&nbsp;**gulp dist**&nbsp;&nbsp;&nbsp;to build the app
  
   **5.** Upload all files that are located inside the ***"budget_manager_ems_app/dist"*** folder on the server
-<br>
+<br><br>
 <p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
-<br><hr><br>
+<br><hr>
 <h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
 &nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:<br/>
 
