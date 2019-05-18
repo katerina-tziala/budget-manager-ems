@@ -34,7 +34,7 @@ The following list is a high-level overview of the app's features:
 
 <br/>
 Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
-<br/>
+<br><br>
 <h2>BUILD AND RUN THE APP</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
@@ -55,12 +55,12 @@ Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" targe
   
 <br>
 <h2>BUILD THE APP FOR DISTRIBUTION</h2>
-<ol>
-<li>Create a database with collation utf8_unicode_ci on the server where the app will be uploaded</li>
-<li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
-<li>In the config.json <i>(located in the gulp_tasks folder)</i>
-change the <i><b>"app_params"</b></i> as descripbed below:<br>
-  "app_params" : {<br>
+  **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
+ 
+  **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
+
+  **3.** In the config.json *(located in the gulp_tasks folder)* change the ***"app_params"*** as described below:
+         "app_params" : {<br>
   &nbsp;&nbsp;"dev" : {...},<br>
   &nbsp;&nbsp;"dist" : {<br>
   &nbsp;&nbsp;&nbsp;&nbsp;"path" : "the_link_of_the_uploaded_app",<br>
@@ -70,10 +70,11 @@ change the <i><b>"app_params"</b></i> as descripbed below:<br>
   &nbsp;&nbsp;&nbsp;&nbsp;"app_scope" : "scope_of_the_uploaded_app"<br>
   &nbsp;&nbsp;}<br>
   },
-</li>
-<li>Run&nbsp;&nbsp;&nbsp;<b>gulp dist</b>&nbsp;&nbsp;&nbsp;to build the app</li>
-<li>Upload all files that are located inside the <i><b>"budget_manager_ems_app/dist"</b></i> folder on the server</li>
-</ol>
+
+  **4.** Run&nbsp;&nbsp;&nbsp;**gulp dist**&nbsp;&nbsp;&nbsp;to build the app
+ 
+  **5.** Upload all files that are located inside the ***"budget_manager_ems_app/dist"*** folder on the server
+
 <p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
 <hr>
 <h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
