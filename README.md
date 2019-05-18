@@ -2,28 +2,32 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
 </p>
-
-The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:<br>
-
+The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:
 ***"Affective system monitoring personal expenses, helping the user to stay on budget"***
-
-The ***Budget Manager*** app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. 
-<br>
+This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. 
+<br><br>
 <h2>APP FEATURES</h2>
 The following list is a high-level overview of the app's features:
 
-**1.** Signup & Login System
-**2.** Account Activation & Password Recovery
-**3.** Support System (via sending emails)
-**4.** Managing Personal Profile 
-**5.** Managing Personal Categories of Expenses
-**6.** Managing & Monitoring Weekly Budget
-**7.** Managing & Monitoring Internal Budget Goals Per Week
-**8.** Managing & Monitoring Expenses (with multiple filtering & sorting options)
-**9.** Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
-**10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
-
-
+  **1.** Signup & Login System
+  
+  **2.** Account Activation & Password Recovery
+  
+  **3.** Support System (via sending emails)
+  
+  **4.** Managing Personal Profile 
+  
+  **5.** Managing Personal Categories of Expenses
+  
+  **6.** Managing & Monitoring Weekly Budget
+  
+  **7.** Managing & Monitoring Internal Budget Goals Per Week
+  
+  **8.** Managing & Monitoring Expenses (with multiple filtering & sorting options)
+  
+  **9.** Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
+  
+  **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
 
 Access the app here:
 <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
