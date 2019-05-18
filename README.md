@@ -32,24 +32,27 @@ The following list is a high-level overview of the app's features:
   
   **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
 
-Access the app here:
-<a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
 <br/>
+Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
 <br/>
-<p>The following sections describe how to build the app for development and distribution.</p>
-<br>
 <h2>BUILD AND RUN THE APP</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
-<ol>
-<li>Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager</li>
-<li>Import the database from the budgetmanager_db.sql file which is located in the database folder</li>
-<li>Rename the master folder from  "budget_manager_ems_app-master" to  "budget_manager_ems_app"</li>
-<li>Move the "budget_manager_ems_app" folder inside the xampp/htdocs directory</li>
-<li>Run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)</li>
-<li>Run&nbsp;&nbsp;&nbsp;<b>gulp</b>&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes</li>
-<li>Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app</li>
-</ol>
+
+ **1.** Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager
+ 
+  **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
+
+  **3.** Rename the master folder from *"budget_manager_ems_app-master"* to  "budget_manager_ems_app"
+  
+  **4.** Move the *"budget_manager_ems_app"* folder inside the xampp/htdocs directory
+  
+  **5.** Run&nbsp;&nbsp;&nbsp;**npm install**&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)
+  
+  **6.** Run&nbsp;&nbsp;&nbsp;**gulp**&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes
+  
+  **7.** Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app
+  
 <br>
 <h2>BUILD THE APP FOR DISTRIBUTION</h2>
 <ol>
