@@ -2,7 +2,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
 </p>
-The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed from scratch for the purposes of my master thesis on affective feedback techniques titled:
+The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed, from scratch, for the purposes of my master thesis on affective feedback techniques titled:
 <h3><i>"Affective system monitoring personal expenses, helping the user to stay on budget"</i></h3>
 
 App Features
