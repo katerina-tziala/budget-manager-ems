@@ -8,7 +8,7 @@ The ***Budget Manager*** application was designed and developed from scratch, fo
 This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget.
 
 Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
-<br><br><br>
+<br><br>
 <h2>APP FEATURES</h2>
 The following list is a high-level overview of the app's features:
 
@@ -49,7 +49,7 @@ The following list is a high-level overview of the app's features:
   **6.** Run&nbsp;&nbsp;&nbsp;**gulp**&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes
   
   **7.** Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app
-<br><br><br>
+<br><br>
 <h2>BUILD THE APP FOR DISTRIBUTION</h2>
   
   **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
@@ -71,9 +71,9 @@ The following list is a high-level overview of the app's features:
   **4.** Run&nbsp;&nbsp;&nbsp;**gulp dist**&nbsp;&nbsp;&nbsp;to build the app
  
   **5.** Upload all files that are located inside the ***"budget_manager_ems_app/dist"*** folder on the server
-
+<br>
 <p><i><b>Note: </b></i>For production, you also have to run&nbsp;&nbsp;&nbsp;<b>npm install</b>&nbsp;&nbsp;&nbsp;before running&nbsp;&nbsp;&nbsp;<i><b>gulp dist</b></i>&nbsp;&nbsp;&nbsp;if you haven't done it already!</p>
-<hr>
+<br><hr><br>
 <h3>:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:</h3>
 &nbsp;&nbsp;&nbsp;&nbsp;To all contributors who developed the libraries that were implemented in this system:<br/>
 
