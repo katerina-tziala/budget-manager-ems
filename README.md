@@ -2,21 +2,26 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
 </p>
-The <i><b>Budget Manager</b></i> application is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. This app was designed and developed, from scratch, for the purposes of my master thesis on affective feedback techniques titled:<br>
+
+The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:<br>
 
 ***"Affective system monitoring personal expenses, helping the user to stay on budget"***
 
-App Features
-Signup & Login System
-Account Activation & Password Recovery
-Support System (via sending emails)
-Managing Personal Profile 
-Managing Personal Categories of Expenses
-Managing & Monitoring Weekly Budget
-Managing & Monitoring Internal Budget Goals Per Week
-Managing & Monitoring Expenses (with multiple filtering & sorting options)
-Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
-Feedback Regarding Users' Performance on Budget Adherence Per Week
+The ***Budget Manager*** app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget. 
+<br>
+<h2>APP FEATURES</h2>
+The following list is a high-level overview of the app's features:
+
+**1.** Signup & Login System
+**2.** Account Activation & Password Recovery
+**3.** Support System (via sending emails)
+**4.** Managing Personal Profile 
+**5.** Managing Personal Categories of Expenses
+**6.** Managing & Monitoring Weekly Budget
+**7.** Managing & Monitoring Internal Budget Goals Per Week
+**8.** Managing & Monitoring Expenses (with multiple filtering & sorting options)
+**9.** Budget Statistics Per Week (with additional overviews and charts per day, category of expenses, payment methods, budget goals, etc.)
+**10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
 
 
 
