@@ -12,6 +12,7 @@ Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" targe
 <h2>APP FEATURES</h2>
 The following list is a high-level overview of the app's features:
 
+
   **1.** Signup & Login System
   
   **2.** Account Activation & Password Recovery
