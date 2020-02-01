@@ -111,9 +111,9 @@ The app was developed using XAMPP therefore, in order to run the app locally:
 <hr>
 
 
-## :star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:
+## Attributions
 
-To all contributors who developed the libraries that were implemented in this system:
+:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star: to all contributors who developed the libraries that were implemented in this system:
 
 - **blob-select:** <a href="https://github.com/Blobfolio/blob-select"><img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/tags/tags_blobselect.png" alt="blob-select" width="auto" height="22"></a>
 
@@ -126,5 +126,3 @@ To all contributors who developed the libraries that were implemented in this sy
 And also to fontawesome.com and Google for the provided fonts:
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="40"></a>
 <a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="40"></a>
-
-&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink:
