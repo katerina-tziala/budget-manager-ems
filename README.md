@@ -111,7 +111,7 @@ The app was developed using XAMPP therefore, in order to run the app locally:
 <hr>
 
 
-## :star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:
+## :star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:<br/>
 
 To all contributors who developed the libraries that were implemented in this system:
 
