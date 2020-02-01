@@ -1,7 +1,7 @@
 # <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/img/logo/android-chrome-72x72.png" alt="budget manager logo" width="44" height="44" align="left">Budget Manager - Expense Monitoring System
 <br/>
 <p align="center">
-<img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="90%" height="auto">
+<img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
 </p>
 
 The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:
@@ -65,7 +65,9 @@ The app was developed using XAMPP therefore, in order to run the app locally:
     ```
 
 6. Make sure that the APACHE and MySQL services are running on XAMPP.
-
+   <p align="center">
+    <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/xampp.png" alt="xampp control panel" width="80%" height="auto">
+   </p>
 7. Access the app at: ```http://localhost/budget_manager_ems_app/dev/index.html```
 
 
