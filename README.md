@@ -33,26 +33,45 @@ The following list is a high-level overview of the app's features:
   
 10. Feedback Regarding Users' Performance on Budget Adherence Per Week
 
-<!-- 
-<h2>Build and Run the App</h2>
-<p>Install node.js and gulp.js (if you haven't done it already)!</p>
-<p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
 
-  **1.** Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager
- 
-  **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
+## Running the App Locally
 
-  **3.** Rename the master folder from *"budget_manager_ems_app-master"* to  "budget_manager_ems_app"
-  
-  **4.** Move the *"budget_manager_ems_app"* folder inside the xampp/htdocs directory
-  
-  **5.** Run&nbsp;&nbsp;&nbsp;**npm install**&nbsp;&nbsp;&nbsp;to install all the dependencies of the app (node modules)
-  
-  **6.** Run&nbsp;&nbsp;&nbsp;**gulp**&nbsp;&nbsp;&nbsp;to build the app for development/demonstration/testing purposes
-  
-  **7.** Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app
-<br><br>
-<h2>Build the App for Distribution</h2>
+Install [**Node.js**](https://nodejs.org/en/), [**Gulp.js**](https://gulpjs.com/) and  [**XAMPP**](https://www.apachefriends.org/index.html/) (if you haven't done it already).
+
+The app was developed using XAMPP therefore, in order to run the app locally:
+
+1. Fork and clone this repository to a new directory named ***budget_manager_ems_app*** inside the ***xampp/htdocs*** directory.
+
+2. Create a database using XAMPP with collation utf8_unicode_ci and name budgetmanager.
+
+3. Import the database from the ***budgetmanager_db.sql*** file which is located in the database folder.
+
+4. To install the dependencies of the app, navigate from your terminal inside the ***xampp/htdocs/budget_manager_ems_app*** directory and run:
+
+    ```
+    npm install
+    ```
+
+    or
+
+    ```
+    npm i
+    ```
+
+5. To build the app for development, demonstration or testing purposes, navigate from your terminal inside the ***xampp/htdocs/budget_manager_ems_app*** directory run:
+
+    ```
+    gulp
+    ```
+
+6. Make sure that the APACHE and MySQL services are running on XAMPP.
+
+7. Access the app at: ```http://localhost/budget_manager_ems_app/dev/index.html```
+
+
+
+
+<!-- <h2>Build the App for Distribution</h2>
   
   **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
  
@@ -88,4 +107,4 @@ The following list is a high-level overview of the app's features:
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
 <a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink: -->
+&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink: --> -->
