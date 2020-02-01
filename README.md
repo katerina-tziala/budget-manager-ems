@@ -1,39 +1,39 @@
-# <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/img/logo/android-chrome-72x72.png" alt="budget manager logo" width="44" height="44" align="left">Budget Manager - Expense Monitoring System <br/>
+# <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/img/logo/android-chrome-72x72.png" alt="budget manager logo" width="44" height="44" align="left">Budget Manager - Expense Monitoring System
 
-<p align="center">
+<!-- <p align="center">
 <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/src/assets/images/BMEMS_ResponsiveLayout.png" alt="budget_manager_ems_app responsive layout" width="80%" height="auto">
-</p>
+</p> -->
 
 The ***Budget Manager*** application was designed and developed from scratch, for the purposes of my master thesis, on affective feedback techniques, titled:
 ***"Affective system monitoring personal expenses, helping the user to stay on budget"***
 This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget.
 
 Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
-<br><br>
-<h2>App Features</h2>
+
+## App Features
 The following list is a high-level overview of the app's features:
 
+1. Signup & Login System
 
-  **1.** Signup & Login System
+2. Account Activation & Password Recovery
   
-  **2.** Account Activation & Password Recovery
+3. Support System (via sending emails)
   
-  **3.** Support System (via sending emails)
+4. Managing Personal Profile
   
-  **4.** Managing Personal Profile 
+5. Managing Personal Categories of Expenses
   
-  **5.** Managing Personal Categories of Expenses
+6. Managing & Monitoring Weekly Budget
   
-  **6.** Managing & Monitoring Weekly Budget
+7. Managing & Monitoring Internal Budget Goals Per Week
   
-  **7.** Managing & Monitoring Internal Budget Goals Per Week
+8. Managing & Monitoring Expenses (with multiple filtering & sorting options)
   
-  **8.** Managing & Monitoring Expenses (with multiple filtering & sorting options)
+9. Budget Statistics Per Week (with additional overviews and charts per day, per category of expenses, per payment method, per budget goal, etc.)
   
-  **9.** Budget Statistics Per Week (with additional overviews and charts per day, per category of expenses, per payment method, per budget goal, etc.)
-  
-  **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
-<br><br><br>
+10. Feedback Regarding Users' Performance on Budget Adherence Per Week
+
+<!-- 
 <h2>Build and Run the App</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
@@ -88,4 +88,4 @@ The following list is a high-level overview of the app's features:
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="60"></a>
 <a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="60"></a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink:
+&nbsp;&nbsp;&nbsp;&nbsp;:heart: :blush: :relaxed: :smiley: :wink: -->
