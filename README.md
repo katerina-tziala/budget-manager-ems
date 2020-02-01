@@ -33,7 +33,6 @@ The following list is a high-level overview of the app's features:
   
 10. Feedback Regarding Users' Performance on Budget Adherence Per Week
 
-
 ## Running the App Locally
 
 Install [**Node.js**](https://nodejs.org/en/), [**Gulp.js**](https://gulpjs.com/) and  [**XAMPP**](https://www.apachefriends.org/index.html/) (if you haven't done it already).
@@ -70,26 +69,61 @@ The app was developed using XAMPP therefore, in order to run the app locally:
    </p>
 7. Access the app at: ```http://localhost/budget_manager_ems_app/dev/index.html```
 
+## Build the App for Distribution
+
+1. Fork and clone this repository.
+
+2. Create a database with collation utf8_unicode_ci on the server where the app will be uploaded and import the database from the ***budgetmanager_db.sql*** file which is located in the database folder.
+
+3. In the ***config.json***, located in the ***gulp_tasks*** folder change the ***app_params*** as described below:
+   ```javascript
+    "app_params" : {
+      "dev" : {...},
+      "dist" : {
+        "path" : "the_link_of_the_uploaded_app",
+        "db_username" : "your_username_to_access_database_on_server",
+        "db_password" : "your_password_to_access_database_on_server",
+        "db_name" : "your_database_name_on_server",
+        "app_scope" : "scope_of_the_uploaded_app"
+      }
+    },
+   ```
+4. To install the dependencies of the app, navigate from your terminal inside the ***budget_manager_ems_app-master*** directory and run:
+
+    ```
+    npm install
+    ```
+
+    or
+
+    ```
+    npm i
+    ```
+
+4. To build the app for distribution, navigate from your terminal inside the ***budget_manager_ems_app-master*** directory and run:
+
+    ```
+    gulp dist
+    ```
+
+5. Upload all files that are located inside the ***budget_manager_ems_app/dist*** folder on the server.
+
+<hr>
+
+
+## :star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:
+
+To all contributors who developed the libraries that were implemented in this system:
+
+- **blob-select: ** <a href="https://github.com/Blobfolio/blob-select"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_blobselect.png" alt="blob-select" width="auto" height="30"></a>
+<a href="https://www.chartjs.org/"><img src="https://github.com/katerina-tziala/budget_manager_ems_app/blob/master/src/assets/libs/tags/tags_charts.png" alt="Chart.js" width="auto" height="30"></a>
+
+<!--  
 
 
 
-<!-- <h2>Build the App for Distribution</h2>
-  
-  **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
- 
-  **2.** Import the database from the *"budgetmanager_db.sql"* file which is located in the database folder
 
-  **3.** In the config.json *(located in the gulp_tasks folder)* change the ***"app_params"*** as described below:
-         "app_params" : {<br>
-  &nbsp;&nbsp;"dev" : {...},<br>
-  &nbsp;&nbsp;"dist" : {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;"path" : "the_link_of_the_uploaded_app",<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;"db_username" : "your_username_to_access_database_on_server",<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;"db_password" : "your_password_to_access_database_on_server",<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;"db_name" : "your_database_name_on_server",<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;"app_scope" : "scope_of_the_uploaded_app"<br>
-  &nbsp;&nbsp;}<br>
-  },
+
 
   **4.** Run&nbsp;&nbsp;&nbsp;**gulp dist**&nbsp;&nbsp;&nbsp;to build the app
  
