@@ -66,7 +66,7 @@ The app was developed using XAMPP therefore, in order to run the app locally:
 
 6. Make sure that the APACHE and MySQL services are running on XAMPP.
    <p align="center">
-    <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/xampp.png" alt="xampp control panel" width="80%" height="auto">
+    <img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/xampp.png" alt="xampp control panel" width="70%" height="auto">
    </p>
 7. Access the app at: ```http://localhost/budget_manager_ems_app/dev/index.html```
 
