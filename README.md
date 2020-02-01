@@ -9,7 +9,7 @@ This app is a fully functional prototype system, with mobile friendly interfaces
 
 Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
 <br><br>
-<h2>APP FEATURES</h2>
+<h2>App Features</h2>
 The following list is a high-level overview of the app's features:
 
 
@@ -33,7 +33,7 @@ The following list is a high-level overview of the app's features:
   
   **10.** Feedback Regarding Users' Performance on Budget Adherence Per Week
 <br><br><br>
-<h2>BUILD AND RUN THE APP</h2>
+<h2>Build and Run the App</h2>
 <p>Install node.js and gulp.js (if you haven't done it already)!</p>
 <p>The app was developed using XAMPP therefore, in order to "run" the app locally:</p>
 
@@ -51,7 +51,7 @@ The following list is a high-level overview of the app's features:
   
   **7.** Visit http://localhost/budget_manager_ems_app/dev/index.html to access the app
 <br><br>
-<h2>BUILD THE APP FOR DISTRIBUTION</h2>
+<h2>Build the App for Distribution</h2>
   
   **1.** Create a database with collation utf8_unicode_ci on the server where the app will be uploaded
  
