@@ -110,7 +110,7 @@ The app was developed using XAMPP therefore, in order to run the app locally:
 
 ## Attributions
 
-**:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:** to all contributors who developed the libraries that were implemented in this system:
+**:star:&nbsp;&nbsp;MANY THANKS&nbsp;&nbsp;:star:** to all contributors who developed the libraries that were utilized for the development of this system:
 
 - **blob-select:** <a href="https://github.com/Blobfolio/blob-select"><img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/tags/tags_blobselect.png" alt="blob-select" width="auto" height="22"></a>
 
