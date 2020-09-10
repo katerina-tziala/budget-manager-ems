@@ -120,6 +120,4 @@ The app was developed using XAMPP therefore, in order to run the app locally:
 
 - **md-date-time-picker:** <a href="https://github.com/puranjayjain/md-date-time-picker"><img src="https://raw.githubusercontent.com/katerina-tziala/budget_manager_ems_app/master/documentation_images/tags/tags_md_date_time_picker.png" alt="md-date-time-picker" width="auto" height="22"></a>
 
-And also to [fontawesome](https://fontawesome.com/) and Google for the provided fonts:
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://fontawesome.com/"><img src="https://www.drupal.org/files/project-images/font_awesome_logo.png" alt="fontawesome" width="auto" height="40"></a>
-<a href="https://fonts.google.com/"><img src="https://pbs.twimg.com/profile_images/742732476213268480/ZWREQYdH_400x400.jpg" alt="Google Fonts" width="auto" height="40"></a>
+And also to [fontawesome](https://fontawesome.com/) and [Google Fonts](https://fonts.google.com) for the provided fonts!
