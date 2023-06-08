@@ -8,8 +8,6 @@ The ***Budget Manager*** application was designed and developed from scratch, fo
 ***"Affective system monitoring personal expenses, helping the user to stay on budget"***
 This app is a fully functional prototype system, with mobile friendly interfaces, that helps users track their personal expenses and stay on budget.
 
-Access the app here: <a href="https://budgetmanager.codemix.gr/index.html" target="blank">Budget Manager App</a>
-
 ## App Features
 The following list is a high-level overview of the app's features:
 
